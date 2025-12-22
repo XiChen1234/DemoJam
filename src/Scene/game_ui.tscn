@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnulxic6xs456"]
+
+[ext_resource type="Script" uid="uid://clhwh5n4khunm" path="res://Scene/game_ui.gd" id="1_pauf8"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_pauf8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_right = 270.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 50
+text = "0 pts"
+
+[node name="ComboLabel" type="Label" parent="CanvasLayer"]
+offset_top = 63.0
+offset_right = 270.0
+offset_bottom = 185.0
+theme_override_font_sizes/font_size = 50
+text = "Combo: 0"

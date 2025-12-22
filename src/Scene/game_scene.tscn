@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://i7ge8k27ptoi"]
+
+[ext_resource type="PackedScene" uid="uid://cn823d486ifpf" path="res://Object/key_listener.tscn" id="1_e32lr"]
+[ext_resource type="PackedScene" uid="uid://bnulxic6xs456" path="res://Scene/game_ui.tscn" id="2_s60wc"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="KeyListener" parent="." instance=ExtResource("1_e32lr")]
+position = Vector2(-820, -325)
+key_name = "button_0"
+
+[node name="KeyListener2" parent="." instance=ExtResource("1_e32lr")]
+position = Vector2(-820, -110)
+key_name = "button_1"
+
+[node name="KeyListener3" parent="." instance=ExtResource("1_e32lr")]
+position = Vector2(-820, 110)
+key_name = "button_2"
+
+[node name="KeyListener4" parent="." instance=ExtResource("1_e32lr")]
+position = Vector2(-820, 325)
+key_name = "button_3"
+
+[node name="GameUI" parent="." instance=ExtResource("2_s60wc")]
