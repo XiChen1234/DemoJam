@@ -1,26 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://i7ge8k27ptoi"]
+[gd_scene load_steps=7 format=3 uid="uid://bbntb3aapjrks"]
 
-[ext_resource type="PackedScene" uid="uid://cn823d486ifpf" path="res://Object/key_listener.tscn" id="1_e32lr"]
-[ext_resource type="PackedScene" uid="uid://bnulxic6xs456" path="res://Scene/game_ui.tscn" id="2_s60wc"]
+[ext_resource type="Script" uid="uid://cye0r1d7dar2x" path="res://Scene/game_scene.gd" id="1_ugwxx"]
+[ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/cat.tscn" id="2_edujn"]
+[ext_resource type="PackedScene" uid="uid://chorqqpp8j1b" path="res://Scene/game_ui.tscn" id="2_s60wc"]
+[ext_resource type="Texture2D" uid="uid://bsit0klc3d5lm" path="res://Assert/Art/bg.jpg" id="4_i5nq2"]
+[ext_resource type="PackedScene" uid="uid://dg8vuc1u7rc4p" path="res://Scene/music_game_area.tscn" id="5_f38sd"]
+[ext_resource type="Script" uid="uid://dijv131jj3yr6" path="res://Scene/esc.gd" id="6_ugwxx"]
 
 [node name="GameScene" type="Node2D"]
+script = ExtResource("1_ugwxx")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_i5nq2")
+
+[node name="GameUI" parent="." instance=ExtResource("2_s60wc")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="KeyListener" parent="." instance=ExtResource("1_e32lr")]
-position = Vector2(-820, -325)
-key_name = "button_0"
+[node name="MusicGameArea" parent="." instance=ExtResource("5_f38sd")]
+position = Vector2(-1000, -200)
 
-[node name="KeyListener2" parent="." instance=ExtResource("1_e32lr")]
-position = Vector2(-820, -110)
-key_name = "button_1"
+[node name="Cat" parent="." instance=ExtResource("2_edujn")]
+position = Vector2(-842, 40)
 
-[node name="KeyListener3" parent="." instance=ExtResource("1_e32lr")]
-position = Vector2(-820, 110)
-key_name = "button_2"
-
-[node name="KeyListener4" parent="." instance=ExtResource("1_e32lr")]
-position = Vector2(-820, 325)
-key_name = "button_3"
-
-[node name="GameUI" parent="." instance=ExtResource("2_s60wc")]
+[node name="ESC" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("6_ugwxx")

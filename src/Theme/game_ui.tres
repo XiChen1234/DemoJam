@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://kyyugs54oyv4"]
+
+[ext_resource type="FontFile" uid="uid://bf6faq7xx4s0d" path="res://Theme/Atop-R99O3.ttf" id="1_344p7"]
+
+[resource]
+default_font = ExtResource("1_344p7")
+Button/font_sizes/font_size = 80
+Button/fonts/font = ExtResource("1_344p7")

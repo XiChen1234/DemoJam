@@ -1,25 +1,135 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnulxic6xs456"]
+[gd_scene load_steps=11 format=3 uid="uid://chorqqpp8j1b"]
 
-[ext_resource type="Script" uid="uid://clhwh5n4khunm" path="res://Scene/game_ui.gd" id="1_pauf8"]
+[ext_resource type="Theme" uid="uid://kyyugs54oyv4" path="res://Theme/game_ui.tres" id="1_pauf8"]
+[ext_resource type="Script" uid="uid://clhwh5n4khunm" path="res://Scene/game_ui.gd" id="2_gcq35"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pauf8"]
+bg_color = Color(0.89411765, 0.23137255, 0.34117648, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jm34"]
+bg_color = Color(0.70980394, 0.13725491, 0.24705882, 0.91764706)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5i32"]
+bg_color = Color(0.9497276, 0.34796038, 0.4235302, 0.6666667)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pauf8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcq35"]
+bg_color = Color(0.4509804, 0.5921569, 0.8980392, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnl40"]
+bg_color = Color(0.28627452, 0.43529412, 0.78431374, 0.88235295)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pamqc"]
+bg_color = Color(0.5328456, 0.6578411, 0.9222951, 0.6392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gcq35"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_pauf8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pauf8")
+script = ExtResource("2_gcq35")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-offset_right = 270.0
-offset_bottom = 122.0
-theme_override_font_sizes/font_size = 50
-text = "0 pts"
+[node name="OperationButton" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_pauf8")
+alignment = 1
 
-[node name="ComboLabel" type="Label" parent="CanvasLayer"]
-offset_top = 63.0
-offset_right = 270.0
-offset_bottom = 185.0
-theme_override_font_sizes/font_size = 50
-text = "Combo: 0"
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/OperationButton"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 50
+
+[node name="LeftButton" type="Button" parent="CanvasLayer/OperationButton/MarginContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme = ExtResource("1_pauf8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pauf8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4jm34")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a5i32")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pauf8")
+text = "Left"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/OperationButton"]
+layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="RightButton" type="Button" parent="CanvasLayer/OperationButton/MarginContainer2"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme = ExtResource("1_pauf8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gcq35")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tnl40")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pamqc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gcq35")
+text = "Right"
+
+[node name="ScoreLabel" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ScoreLabel"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreLabel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_pauf8")
+text = "Score: 10000"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/ScoreLabel"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreLabel/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("1_pauf8")
+text = "Combo: 10X"
