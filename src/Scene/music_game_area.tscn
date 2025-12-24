@@ -11,11 +11,22 @@ offset_right = 2000.0
 offset_bottom = 400.0
 color = Color(0.5058824, 0.5058824, 0.5058824, 0.46666667)
 
-[node name="TestRandomFallKeyTimer" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_127jy")
 
-[connection signal="timeout" from="TestRandomFallKeyTimer" to="." method="_on_create_falling_key"]
+[node name="DeadLine" type="Node2D" parent="."]
+position = Vector2(231, 213)
+
+[node name="Great" type="ColorRect" parent="DeadLine"]
+offset_left = -98.0
+offset_top = -320.0
+offset_right = 226.0
+offset_bottom = 306.0
+color = Color(0.9254902, 0.92156863, 0.3372549, 0.6156863)
+
+[node name="Perfect" type="ColorRect" parent="DeadLine"]
+offset_left = 3.0
+offset_top = -320.0
+offset_right = 125.0
+offset_bottom = 306.0
+color = Color(0.9125888, 0.19765452, 0.54706687, 0.53333336)

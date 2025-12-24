@@ -1,0 +1,85 @@
+{
+	"metedata": {
+		"title": "一首歌的名字",
+		"art": "歌手的名字",
+		"bpm": 120,
+		"offset": 0,
+		"total_time": 18000,
+		"version": "v1.0"
+	},
+
+	"timeline": [
+		{
+			"name": "left_click",
+			"type": 0, 
+			"timestamp": 2.000000,
+			"duration": 0
+		},
+		{
+			"name": "right_click",
+			"type": 1,
+			"timestamp": 3.000000,
+			"duration": 0
+		},
+		{
+			"name": "left_click",
+			"type": 0,
+			"timestamp": 5.000000,
+			"duration": 0
+		},
+		{
+			"name": "left_click",
+			"type": 0,
+			"timestamp": 6.000000,
+			"duration": 0
+		},
+		{
+			"name": "right_click",
+			"type": 1,
+			"timestamp": 9.000000,
+			"duration": 0
+		},
+		{
+			"name": "left_long_press",
+			"type": 2,
+			"timestamp": 12.000000,
+			"duration": 3
+		},
+		{
+			"name": "right_long_press",
+			"type": 3,
+			"timestamp": 16.000000,
+			"duration": 10
+		},
+		{
+			"name": "left_click",
+			"type": 0, 
+			"timestamp": 28.000000,
+			"duration": 0
+		},
+		{
+			"name": "right_click",
+			"type": 1,
+			"timestamp": 29.000000,
+			"duration": 0
+		},
+		{
+			"name": "left_click",
+			"type": 0,
+			"timestamp": 30.000000,
+			"duration": 0
+		},
+		{
+			"name": "left_click",
+			"type": 0,
+			"timestamp": 31.000000,
+			"duration": 0
+		},
+		{
+			"name": "right_click",
+			"type": 1,
+			"timestamp": 32.000000,
+			"duration": 0
+		}
+	]
+}

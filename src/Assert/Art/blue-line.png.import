@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdxn7vt3356vr"
-path="res://.godot/imported/rect3-1.png-776e0bbd2f124f04eade08491185c3bb.ctex"
+uid="uid://cpoht55vkxpu4"
+path="res://.godot/imported/blue-line.png-fe5d2bce9c90952fd67f23024f76b729.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/rect3-1.png"
-dest_files=["res://.godot/imported/rect3-1.png-776e0bbd2f124f04eade08491185c3bb.ctex"]
+source_file="res://Assert/Art/blue-line.png"
+dest_files=["res://.godot/imported/blue-line.png-fe5d2bce9c90952fd67f23024f76b729.ctex"]
 
 [params]
 

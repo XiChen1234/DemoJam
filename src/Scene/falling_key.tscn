@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhw5qyb7s6ss1"]
 
-[ext_resource type="Texture2D" uid="uid://cm7xev11ix2t4" path="res://Assert/Art/arrows.webp" id="1_f0c2k"]
+[ext_resource type="Texture2D" uid="uid://dbiyke6or22hx" path="res://Assert/Art/red-arrows.png" id="2_lprra"]
 [ext_resource type="Script" uid="uid://b2i56qqkt122v" path="res://Scene/falling_key.gd" id="2_umlol"]
 
 [node name="FallingKey" type="Node2D"]
@@ -8,6 +8,5 @@ script = ExtResource("2_umlol")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("1_f0c2k")
-region_enabled = true
+texture = ExtResource("2_lprra")
 region_rect = Rect2(3, 70, 55, 65)
