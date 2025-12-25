@@ -1,3 +1,6 @@
+# release
+/Release/
+
 # Godot 4+ specific ignores
 .godot/
 .nomedia
