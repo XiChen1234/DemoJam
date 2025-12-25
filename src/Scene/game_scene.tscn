@@ -23,6 +23,7 @@ grow_vertical = 2
 texture = ExtResource("4_i5nq2")
 
 [node name="GameUI" parent="." instance=ExtResource("2_s60wc")]
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

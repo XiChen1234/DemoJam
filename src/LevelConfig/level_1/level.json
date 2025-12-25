@@ -10,62 +10,6 @@
 
 	"timeline": [
 		{
-			"id": 0,
-			"name": "left_click",
-			"type": 0, 
-			"timestamp": 2.000000,
-			"duration": 0
-		},
-		{
-			"id": 1,
-			"name": "right_click",
-			"type": 1,
-			"timestamp": 2.200000,
-			"duration": 0
-		},
-		{
-			"id": 3,
-			"name": "left_click",
-			"type": 0, 
-			"timestamp": 2.600000,
-			"duration": 0
-		},
-		{
-			"id": 3,
-			"name": "right_click",
-			"type": 1,
-			"timestamp": 2.900000,
-			"duration": 0
-		},
-		{
-			"id": 4,
-			"name": "left_click",
-			"type": 0, 
-			"timestamp": 3.000000,
-			"duration": 0
-		},
-		{
-			"id": 5,
-			"name": "right_click",
-			"type": 1,
-			"timestamp": 3.300000,
-			"duration": 0
-		},
-		{
-			"id": 6,
-			"name": "left_click",
-			"type": 0, 
-			"timestamp": 3.400000,
-			"duration": 0
-		},
-		{
-			"id": 7,
-			"name": "right_click",
-			"type": 1,
-			"timestamp": 3.700000,
-			"duration": 0
-		},
-		{
 			"id": 8,
 			"name": "right_click",
 			"type": 1,
@@ -87,10 +31,24 @@
 			"duration": 0
 		},
 		{
+			"id": 10,
+			"name": "left_click",
+			"type": 0,
+			"timestamp": 5.500000,
+			"duration": 0
+		},
+		{
 			"id": 11,
 			"name": "left_click",
 			"type": 0,
 			"timestamp": 6.000000,
+			"duration": 0
+		},
+		{
+			"id": 12,
+			"name": "right_click",
+			"type": 1,
+			"timestamp": 7.500000,
 			"duration": 0
 		},
 		{

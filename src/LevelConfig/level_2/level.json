@@ -1,0 +1,20 @@
+{
+	"metedata": {
+		"title": "一首歌的名字",
+		"art": "歌手的名字",
+		"bpm": 120,
+		"offset": 0,
+		"total_time": 18000,
+		"version": "v1.0"
+	},
+
+	"timeline": [
+		{
+			"id": 0,
+			"name": "left_click",
+			"type": 0, 
+			"timestamp": 10.000000,
+			"duration": 0
+		}
+	]
+}

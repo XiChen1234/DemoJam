@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PoolManager="*res://Script/Pool/pool_manager.gd"
+PoolManager="*res://Script/Pool/PoolManager.tscn"
 
 [display]
 

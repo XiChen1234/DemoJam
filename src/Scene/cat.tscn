@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="Cat" type="Node2D"]
+z_index = 10
 script = ExtResource("1_bs4ij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

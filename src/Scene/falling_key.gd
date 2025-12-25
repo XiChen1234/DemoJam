@@ -15,7 +15,7 @@ const TYPE_TEXTURES = {
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-@export var speed: float = 1000
+@export var speed: float = 450
 @export var type: TYPE
 @export var timestamp: float
 @export var duration: float # 单击为默认0，长按不为零
@@ -29,8 +29,17 @@ func _process(delta: float) -> void:
 	position -= Vector2(speed * delta, 0)
 	
 	# 如果超出ddl，则回收
-	if position.x < 200:
-		recycle()
+	if position.x < -800:
+		PoolManager.recycle(self)
+
+
+"""根据类型创建音符"""
+func edit(fk_type: TYPE, fk_timestamp: float, fk_duration: float = 0) -> FallingKey:
+	type = fk_type
+	timestamp = fk_timestamp
+	duration = fk_duration
+	set_texture()
+	return self
 
 
 """设置纹理"""
