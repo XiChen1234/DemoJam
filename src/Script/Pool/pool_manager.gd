@@ -31,6 +31,8 @@ func get_from_pool(pool_key:int) -> Node2D:
 	var object:Node2D = pool_dictionary[pool_key].pop_front()
 	pool_dictionary[pool_key].append(object)
 	object.visible = false
+	object.set_process(false)
+	object.set_physics_process(false)
 	return object
 
 
