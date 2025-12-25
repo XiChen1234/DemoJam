@@ -5,6 +5,9 @@
 
 [node name="MusicGameArea" type="Node2D"]
 script = ExtResource("1_127jy")
+pool_size = null
+level_file_path = null
+fk_queue = null
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 2000.0
@@ -15,18 +18,15 @@ color = Color(0.5058824, 0.5058824, 0.5058824, 0.46666667)
 stream = ExtResource("2_127jy")
 
 [node name="DeadLine" type="Node2D" parent="."]
-position = Vector2(231, 213)
+position = Vector2(200, -100)
 
 [node name="Great" type="ColorRect" parent="DeadLine"]
-offset_left = -98.0
-offset_top = -320.0
-offset_right = 226.0
-offset_bottom = 306.0
+offset_right = 320.0
+offset_bottom = 600.0
 color = Color(0.9254902, 0.92156863, 0.3372549, 0.6156863)
 
 [node name="Perfect" type="ColorRect" parent="DeadLine"]
-offset_left = 3.0
-offset_top = -320.0
-offset_right = 125.0
-offset_bottom = 306.0
+offset_left = 100.0
+offset_right = 220.0
+offset_bottom = 600.0
 color = Color(0.9125888, 0.19765452, 0.54706687, 0.53333336)

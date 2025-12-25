@@ -28,8 +28,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position -= Vector2(speed * delta, 0)
 	
-	# 如果超出屏幕边缘，则回收
-	if position.x < -100:
+	# 如果超出ddl，则回收
+	if position.x < 200:
 		recycle()
 
 

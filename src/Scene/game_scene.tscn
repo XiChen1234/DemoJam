@@ -28,11 +28,9 @@ texture = ExtResource("4_i5nq2")
 
 [node name="MusicGameArea" parent="." instance=ExtResource("5_f38sd")]
 position = Vector2(-1000, -200)
-pool_size = null
-level_file_path = null
 
 [node name="Cat" parent="." instance=ExtResource("2_edujn")]
-position = Vector2(-842, 40)
+position = Vector2(-800, 40)
 
 [node name="ESC" type="Node" parent="."]
 process_mode = 3

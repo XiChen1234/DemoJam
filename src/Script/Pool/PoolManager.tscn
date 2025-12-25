@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmxy2dna4e3cf"]
+
+[ext_resource type="Script" uid="uid://jlkciphbbt12" path="res://Script/Pool/pool_manager.gd" id="1_a4elt"]
+[ext_resource type="Script" uid="uid://de6ek6yjla7ot" path="res://Script/Pool/pool.gd" id="2_4s5sm"]
+[ext_resource type="PackedScene" uid="uid://dhw5qyb7s6ss1" path="res://Scene/falling_key.tscn" id="3_0vp6o"]
+
+[sub_resource type="Resource" id="Resource_0vp6o"]
+script = ExtResource("2_4s5sm")
+object_scene = ExtResource("3_0vp6o")
+metadata/_custom_type_script = "uid://de6ek6yjla7ot"
+
+[node name="PoolManager" type="Node"]
+script = ExtResource("1_a4elt")
+pool_array = Array[ExtResource("2_4s5sm")]([SubResource("Resource_0vp6o")])

@@ -7,14 +7,14 @@ extends Node2D
 var hitting: bool = false
 var haing: bool = false
 
-func _ready() -> void:
-	pass
 
 func _process(_delta: float) -> void:
 	if hitting:
 		animated_sprite_2d.play("hit")
 	elif haing:
 		animated_sprite_2d.play("ha")
+	else:
+		animated_sprite_2d.play("idle")
 
 
 func start_hit():

@@ -1,10 +1,28 @@
 extends Node2D
 
+enum LEVEL {
+	PERFECT,  # 完美
+	GREAT,    # 优秀
+	MISS      # 错过
+}
+
+const TIMESTAMP_LEVEL := {
+	1.0: LEVEL.PERFECT,
+	2.0: LEVEL.GREAT,
+	5.0: LEVEL.MISS,
+}
+
+const LEVEL_SCORE := {
+	LEVEL.PERFECT: 250,
+	LEVEL.GREAT: 100,
+	LEVEL.MISS: 0,
+}
+
 @onready var falling_key = preload("res://Scene/falling_key.tscn")
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var pool_size: int = 10
-@export var level_file_path: String = "res://Level/level_1/level_1.json"
+@export var level_file_path: String = "res://LevelConfig/level_1/level_1.json"
 
 var fk_pool: Array[FallingKey] = []
 var init_position: Vector2 = Vector2(2100, 200)
@@ -13,6 +31,7 @@ var init_position: Vector2 = Vector2(2100, 200)
 var level_data: Array = []
 var level_count: int = 0
 var falling_key_index: int = 0
+var fk_queue: Array = []
 
 func _ready() -> void:
 	load_level_data()
@@ -34,6 +53,8 @@ func get_music_time() -> float:
 func left_click():
 	var timestamp = get_music_time()
 	print("左键单击 - 音乐时间戳: %f 秒" % [timestamp])
+	var level: LEVEL = judge_click_fall_key(timestamp)
+	
 
 
 func right_click():
@@ -52,11 +73,20 @@ func right_long_press(duration: float):
 
 
 ## 关卡部分
-"""时间戳对比检测"""
-func judge_fall_key() -> void:
-	# todo
-	pass
+"""
+时间戳对比检测
+队列首部的音符，若超出某范围，直接销毁回收（由音符控制）
+在此之前，都是判定区域，对队列首部的音符元素进行判定
+在判定线之前，若miss，不操作；
+在判定线之后，若miss，则miss；
+其他根据时间差绝对值来进行判定
+"""
+func judge_click_fall_key(click_time: float) -> LEVEL:
+	print("judge")
+	return LEVEL.PERFECT
 
+func judge_long_fall_key() -> void:
+	pass
 
 """生成音符"""
 func gene_falling_key() -> void:
@@ -65,12 +95,14 @@ func gene_falling_key() -> void:
 	var current_time: float = get_music_time()
 	var timestamp: float = level_data[falling_key_index].get("timestamp")
 	if timestamp < current_time:
-		print(level_data[falling_key_index].get("name"))
+		#print(level_data[falling_key_index].get("name"))
 		var type = level_data[falling_key_index].get("type")
 		var duration = level_data[falling_key_index].get("duration")
 		var fk_inst: FallingKey = get_from_pool(type, timestamp, duration)
 		
 		activate_falling_key(fk_inst)
+		
+		fk_queue.append(fk_inst) # 将音符添加到队列中
 		falling_key_index += 1
 
 
