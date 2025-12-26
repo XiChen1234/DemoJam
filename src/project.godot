@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="src"
-run/main_scene="uid://bbntb3aapjrks"
+run/main_scene="uid://bvceavygkh1ve"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-PoolManager="*res://Script/Pool/PoolManager.tscn"
 
 [display]
 
@@ -28,6 +24,7 @@ window/stretch/aspect="expand"
 
 [gui]
 
+theme/default_font_multichannel_signed_distance_field=true
 theme/main_scene="uid://bbntb3aapjrks"
 
 [input]

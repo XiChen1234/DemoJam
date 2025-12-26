@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbntb3aapjrks"]
+[gd_scene load_steps=8 format=3 uid="uid://bbntb3aapjrks"]
 
 [ext_resource type="Script" uid="uid://cye0r1d7dar2x" path="res://Scene/game_scene.gd" id="1_ugwxx"]
 [ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/cat.tscn" id="2_edujn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bsit0klc3d5lm" path="res://Assert/Art/bg.jpg" id="4_i5nq2"]
 [ext_resource type="PackedScene" uid="uid://dg8vuc1u7rc4p" path="res://Scene/music_game_area.tscn" id="5_f38sd"]
 [ext_resource type="Script" uid="uid://dijv131jj3yr6" path="res://Scene/esc.gd" id="6_ugwxx"]
+[ext_resource type="PackedScene" uid="uid://dmxy2dna4e3cf" path="res://Script/Pool/PoolManager.tscn" id="7_m5do6"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_ugwxx")
@@ -36,3 +37,5 @@ position = Vector2(-800, 40)
 [node name="ESC" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("6_ugwxx")
+
+[node name="PoolManager" parent="." instance=ExtResource("7_m5do6")]

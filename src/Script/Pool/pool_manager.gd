@@ -1,10 +1,22 @@
+class_name PoolManager
 extends Node
+
 
 @export var pool_array: Array[PoolResource]
 
 var pool_dictionary: Dictionary[int, Array] # 对象池字典，场景id：实例数组
 var scene_from_key: Dictionary[int, PackedScene] # 场景映射，场景id：实际场景
 var parent_dictionary: Dictionary[int, Node2D] # 父节点映射，场景id：父节点
+
+static var current: PoolManager = null
+
+func _enter_tree() -> void:
+	PoolManager.current = self
+
+func _exit_tree() -> void:
+	if PoolManager.current == self:
+		PoolManager.current = null
+
 
 func _ready() -> void:
 	for pool in pool_array:
@@ -64,7 +76,7 @@ func create_pool(object_scene: PackedScene, pool_size: int):
 	
 	var parent_node: Node2D = Node2D.new()
 	parent_dictionary[pool_key] = parent_node
-	get_tree().current_scene.add_child(parent_node)
+	get_tree().current_scene.add_child.call_deferred(parent_node)
 	pool_dictionary[pool_key] = []
 	scene_from_key[pool_key] = object_scene
 	for i in range(pool_size):

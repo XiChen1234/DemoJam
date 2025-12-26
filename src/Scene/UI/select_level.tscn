@@ -1,0 +1,451 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnj712qutgfga"]
+
+[ext_resource type="Texture2D" uid="uid://bsit0klc3d5lm" path="res://Assert/Art/bg.jpg" id="1_3v414"]
+[ext_resource type="Script" uid="uid://bp88toblt22gs" path="res://Scene/UI/select_level.gd" id="1_m2mi7"]
+[ext_resource type="Texture2D" uid="uid://63pevaog17yw" path="res://Assert/Art/UI/circle.png" id="2_6paa4"]
+[ext_resource type="Texture2D" uid="uid://bfotars1yj10x" path="res://Assert/Art/heaven.jpg" id="3_o6m8l"]
+[ext_resource type="Texture2D" uid="uid://ckaxr6yyeodh7" path="res://Assert/Art/UI/circle_bg.png" id="4_nxd4r"]
+[ext_resource type="Texture2D" uid="uid://cs8o5bi2guw6l" path="res://Assert/Art/UI/border.png" id="5_hlxyf"]
+[ext_resource type="Texture2D" uid="uid://bkayavtk2vgsf" path="res://Assert/Art/UI/tick.png" id="6_o1gjo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1gjo"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="SelectLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m2mi7")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3v414")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(1, 0, 0.92156863, 1)
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Level" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_nxd4r")
+
+[node name="Clip" type="TextureRect" parent="HBoxContainer/Level"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -136.0
+offset_right = 136.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6paa4")
+
+[node name="Image" type="TextureRect" parent="HBoxContainer/Level/Clip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o6m8l")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Border" type="TextureRect" parent="HBoxContainer/Level"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -138.0
+offset_right = 138.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hlxyf")
+
+[node name="Tick" type="TextureRect" parent="HBoxContainer/Level"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 18.5
+offset_right = -18.0
+offset_bottom = 89.5
+grow_horizontal = 0
+texture = ExtResource("6_o1gjo")
+
+[node name="Label" type="Label" parent="HBoxContainer/Level"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o1gjo")
+text = "天堂"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_nxd4r")
+
+[node name="Clip" type="TextureRect" parent="HBoxContainer/Level2"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -136.0
+offset_right = 136.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6paa4")
+
+[node name="Image" type="TextureRect" parent="HBoxContainer/Level2/Clip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o6m8l")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Border" type="TextureRect" parent="HBoxContainer/Level2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -138.0
+offset_right = 138.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hlxyf")
+
+[node name="Tick" type="TextureRect" parent="HBoxContainer/Level2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 18.5
+offset_right = -18.0
+offset_bottom = 89.5
+grow_horizontal = 0
+texture = ExtResource("6_o1gjo")
+
+[node name="Label" type="Label" parent="HBoxContainer/Level2"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o1gjo")
+text = "天堂"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level3" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_nxd4r")
+
+[node name="Clip" type="TextureRect" parent="HBoxContainer/Level3"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -136.0
+offset_right = 136.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6paa4")
+
+[node name="Image" type="TextureRect" parent="HBoxContainer/Level3/Clip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o6m8l")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Border" type="TextureRect" parent="HBoxContainer/Level3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -138.0
+offset_right = 138.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hlxyf")
+
+[node name="Tick" type="TextureRect" parent="HBoxContainer/Level3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 18.5
+offset_right = -18.0
+offset_bottom = 89.5
+grow_horizontal = 0
+texture = ExtResource("6_o1gjo")
+
+[node name="Label" type="Label" parent="HBoxContainer/Level3"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o1gjo")
+text = "天堂"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level4" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_nxd4r")
+
+[node name="Clip" type="TextureRect" parent="HBoxContainer/Level4"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -136.0
+offset_right = 136.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6paa4")
+
+[node name="Image" type="TextureRect" parent="HBoxContainer/Level4/Clip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o6m8l")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Border" type="TextureRect" parent="HBoxContainer/Level4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -138.0
+offset_right = 138.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hlxyf")
+
+[node name="Tick" type="TextureRect" parent="HBoxContainer/Level4"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 18.5
+offset_right = -18.0
+offset_bottom = 89.5
+grow_horizontal = 0
+texture = ExtResource("6_o1gjo")
+
+[node name="Label" type="Label" parent="HBoxContainer/Level4"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o1gjo")
+text = "天堂"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level5" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_nxd4r")
+
+[node name="Clip" type="TextureRect" parent="HBoxContainer/Level5"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -136.0
+offset_right = 136.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6paa4")
+
+[node name="Image" type="TextureRect" parent="HBoxContainer/Level5/Clip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o6m8l")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Border" type="TextureRect" parent="HBoxContainer/Level5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -138.0
+offset_right = 138.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hlxyf")
+
+[node name="Tick" type="TextureRect" parent="HBoxContainer/Level5"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 18.5
+offset_right = -18.0
+offset_bottom = 89.5
+grow_horizontal = 0
+texture = ExtResource("6_o1gjo")
+
+[node name="Label" type="Label" parent="HBoxContainer/Level5"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o1gjo")
+text = "天堂"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Back" to="." method="_on_back"]
+[connection signal="pressed" from="HBoxContainer/Level" to="." method="_on_level_selected"]

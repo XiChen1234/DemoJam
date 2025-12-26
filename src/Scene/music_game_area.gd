@@ -120,7 +120,7 @@ func right_long_press(duration: float):
 """销毁音符"""
 func destroy():
 	var fk_inst: FallingKey = fk_queue.pop_front()
-	PoolManager.recycle(fk_inst)
+	PoolManager.current.recycle(fk_inst)
 
 
 ## 关卡部分
@@ -137,9 +137,9 @@ func gene_falling_key(current_time: float) -> void:
 		var type = timeline_data[falling_key_index].get("type")
 		var duration = timeline_data[falling_key_index].get("duration")
 		
-		var fk_inst: FallingKey = PoolManager.spawn_object(falling_key, init_position)
+		var fk_inst: FallingKey = PoolManager.current.spawn_object(falling_key, init_position)
 		fk_inst.edit(type, timestamp, duration)
-		PoolManager.active(fk_inst)
+		PoolManager.current.active(fk_inst)
 		
 		fk_queue.append(fk_inst) # 加入队列
 		falling_key_index += 1

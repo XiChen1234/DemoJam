@@ -2,7 +2,9 @@ class_name FallingKey
 extends Node2D
 
 enum TYPE {
-	LEFT_CLICK, RIGHT_CLICK, LEFT_LONG_PRESS, RIGHT_LONG_PRESS,ELSE
+	LEFT_CLICK, RIGHT_CLICK, 
+	LEFT_LONG_PRESS, RIGHT_LONG_PRESS, 
+	QUICK_BIT ,ELSE, 
 }
 
 const TYPE_TEXTURES = {
@@ -29,8 +31,8 @@ func _process(delta: float) -> void:
 	position -= Vector2(speed * delta, 0)
 	
 	# 如果超出ddl，则回收
-	if position.x < -800:
-		PoolManager.recycle(self)
+	if position.x < -1000:
+		PoolManager.current.recycle(self)
 
 
 """根据类型创建音符"""
