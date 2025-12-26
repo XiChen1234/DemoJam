@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 enum LEVEL {
 	PERFECT,  # 完美
@@ -6,18 +6,16 @@ enum LEVEL {
 	MISS,     # 错过
 	NONE,     # 无效
 }
-
+# 存储等级文本
 const LEVEL_TEXT: Array[String] = [
 	"PERFECT", "GREAT", "MISS", "NONE"
 ]
-
 # 存储时间窗口
 const TIMESTAMP_LEVEL: Dictionary[LEVEL, float] = {
-	LEVEL.PERFECT: 0.5,
+	LEVEL.PERFECT: 0.4,
 	LEVEL.GREAT: 1.0,
-	LEVEL.MISS: 1.5
+	LEVEL.MISS: 2.0
 }
-
 # 存储等级和分数
 const LEVEL_SCORE: Dictionary[LEVEL, int] = {
 	LEVEL.PERFECT: 250,
@@ -28,7 +26,9 @@ const LEVEL_SCORE: Dictionary[LEVEL, int] = {
 @onready var falling_key = preload("res://Scene/falling_key.tscn")
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-@export var level_file_path: String = "res://LevelConfig/level_1/level.json"
+#@export var level_file_path: String = "res://LevelConfig/level_1/level.json" 
+#@export var level_file_path: String = "res://LevelConfig/level_2/level.json"
+@export var level_file_path: String = "res://LevelConfig/level_3/level.json"
 
 var init_position: Vector2 = Vector2(1000, 0)
 var offset: float = 4
@@ -49,6 +49,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var current_time: float = get_music_time()
 	gene_falling_key(current_time)
+	
+	if not fk_queue.is_empty():
+		if current_time - fk_queue[0].timestamp >= TIMESTAMP_LEVEL[LEVEL.MISS]:
+			print(fk_queue[0].position)
+			destroy()
 
 
 """获取音乐内时间戳"""
@@ -56,68 +61,94 @@ func get_music_time() -> float:
 	return audio_stream_player.get_playback_position() + AudioServer.get_time_since_last_mix()
 
 
+"""
+左键单击，可能的情况
+1. 左键单击
+2. 左键长按的起始
+3. 连打
+"""
 func left_click():
-	var timestamp = get_music_time()
+	if fk_queue.is_empty():
+		print("当前队列为空")
+		return
+	
+	var timestamp: float = get_music_time()
+	var fk_inst: FallingKey = fk_queue[0]
+	
+	var diff: float = fk_inst.timestamp - timestamp
+	if diff > TIMESTAMP_LEVEL[LEVEL.MISS]:
+		print("太早了，当前时间戳：%f" % timestamp)
+		return
+	
+	match fk_inst.type:
+		FallingKey.TYPE.QUICK_BIT:
+			# 连打，不分左右触发，音符不destroy，等连打结束由其自己控制
+			beat(LEVEL.GREAT)
+		FallingKey.TYPE.LEFT_CLICK:
+			if diff > TIMESTAMP_LEVEL[LEVEL.MISS]:
+				return
+			destroy()
+			if diff > TIMESTAMP_LEVEL[LEVEL.GREAT]:
+				beat(LEVEL.MISS)
+			elif diff > TIMESTAMP_LEVEL[LEVEL.PERFECT]:
+				beat(LEVEL.GREAT)
+			else:
+				beat(LEVEL.PERFECT)
+		FallingKey.TYPE.LEFT_LONG_PRESS:
+			if diff > TIMESTAMP_LEVEL[LEVEL.MISS]:
+				return
+			if diff > TIMESTAMP_LEVEL[LEVEL.GREAT]:
+				destroy() # 长按音符，初始单击没有击中直接destroy
+				beat(LEVEL.MISS)
+			elif diff > TIMESTAMP_LEVEL[LEVEL.PERFECT]:
+				beat(LEVEL.GREAT)
+			else:
+				beat(LEVEL.PERFECT)
+	
 	print("左键单击 - 音乐时间戳: %f 秒" % [timestamp])
-	#var level: LEVEL = judge_click_fall_key(
-		#timestamp, 
-		#FallingKey.TYPE.LEFT_CLICK)
-	#print(LEVEL_TEXT[level])
 
+"""
+右键单击，可能的情况
+1. 右键单击
+2. 右键长按的起始
+3. 连打
+"""
 func right_click():
-	var timestamp = get_music_time()
+	var timestamp: float = get_music_time()
 	print("右键单击 - 音乐时间戳: %f 秒" % [timestamp])
 
+
+"""
+左键长按释放，可能的情况：
+1. 长按释放
+"""
 func left_long_press(duration: float):
 	var timestamp = get_music_time()
 	print("左键长按 - 时长: %f 秒 - 音乐结束时间戳: %f 秒" % [duration, timestamp])
 
+
+"""
+右键长按释放，可能的情况：
+1. 长按释放
+"""
 func right_long_press(duration: float):
 	var timestamp = get_music_time()
 	print("右键长按 - 时长: %f 秒 - 音乐结束时间戳: %f 秒" % [duration, timestamp])
 
 
-#"""
-#时间戳对比检测
-#队列首部的音符，若超出某范围，直接销毁回收（由音符控制）
-#在此之前，都是判定区域，对队列首部的音符元素进行判定
-#在判定线之前，若miss，不操作；
-#在判定线之后，若miss，则miss；
-#其他根据时间差绝对值来进行判定
-#"""
-#func judge_click_fall_key(click_time: float, type: FallingKey.TYPE) -> LEVEL:
-	#if fk_queue.is_empty():
-		#return LEVEL.NONE
-	#
-	#var fk_inst: FallingKey = fk_queue[0]
-	## 类型匹配检查函数
-	#var diff: float = abs(click_time - fk_inst.timestamp)
-	#
-	#if diff > TIMESTAMP_LEVEL[LEVEL.MISS]:
-		#return LEVEL.NONE
-	#
-	#if not type == fk_inst.type:
-		#destroy()
-		#return LEVEL.MISS
-	#
-	#if diff <= TIMESTAMP_LEVEL[LEVEL.PERFECT]:
-		#destroy()
-		#return LEVEL.PERFECT
-	#elif diff <= TIMESTAMP_LEVEL[LEVEL.GREAT]:
-		#destroy()
-		#return LEVEL.GREAT
-		#
-	#destroy()
-	#return LEVEL.MISS
+"""
+有效击打函数（miss也算有效击打，只是不加分、清combo而已）
+参数：传入的等级
+效果：
+1. 加分
+2. 加/删combo
+3. 飘字
+"""
+func beat(level: LEVEL) -> void:
+	print(LEVEL_TEXT[level])
 
 
-
-#"""长按的判定 todo"""
-#func judge_long_fall_key() -> void:
-	#pass
-
-
-"""销毁音符"""
+"""从队列弹出、并销毁音符"""
 func destroy():
 	var fk_inst: FallingKey = fk_queue.pop_front()
 	PoolManager.current.recycle(fk_inst)

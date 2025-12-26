@@ -29,10 +29,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position -= Vector2(speed * delta, 0)
-	
-	# 如果超出ddl，则回收
-	if position.x < -1000:
-		PoolManager.current.recycle(self)
 
 
 """根据类型创建音符"""
@@ -40,12 +36,6 @@ func edit(fk_type: TYPE, fk_timestamp: float, fk_duration: float = 0) -> Falling
 	type = fk_type
 	timestamp = fk_timestamp
 	duration = fk_duration
-	set_texture()
-	return self
-
-
-"""设置纹理"""
-func set_texture() -> void:
 	var texture: Resource = TYPE_TEXTURES[type]
 	match type:
 		TYPE.LEFT_CLICK, TYPE.RIGHT_CLICK:
@@ -53,10 +43,11 @@ func set_texture() -> void:
 		TYPE.LEFT_LONG_PRESS, TYPE.RIGHT_LONG_PRESS:
 			# 暂时用这个箭头占位
 			sprite_2d.texture = TYPE_TEXTURES[TYPE.ELSE]
+	return self
 
 
 """回收/重置音符"""
-func recycle() -> void:
+func recycle() ->  void:
 	visible = false
 	set_process(false)
 	set_physics_process(false)

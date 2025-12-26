@@ -2,7 +2,7 @@ extends Control
 
 @onready var main_button: VBoxContainer = $MarginContainer/VBoxContainer/MainButton
 @onready var option_button: VBoxContainer = $MarginContainer/VBoxContainer/OptionButton
-@onready var back: Button = $Back
+@onready var back: TextureButton = $Back
 
 func _on_start() -> void:
 	get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")

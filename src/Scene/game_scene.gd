@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var game_ui: Control = $GameUI
 @onready var cat: Node2D = $Cat
-@onready var music_game_area: Node2D = $MusicGameArea
+@onready var music_game_area: Control = $MusicGameArea
 
 func _ready() -> void:
 	get_tree().paused = true

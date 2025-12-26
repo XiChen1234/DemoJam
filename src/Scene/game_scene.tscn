@@ -24,14 +24,19 @@ grow_vertical = 2
 texture = ExtResource("4_i5nq2")
 
 [node name="GameUI" parent="." instance=ExtResource("2_s60wc")]
+visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="MusicGameArea" parent="." instance=ExtResource("5_f38sd")]
-position = Vector2(-1000, -200)
+offset_left = -1000.0
+offset_top = -200.0
+offset_right = -1000.0
+offset_bottom = -200.0
 
 [node name="Cat" parent="." instance=ExtResource("2_edujn")]
+visible = false
 position = Vector2(-800, 40)
 
 [node name="ESC" type="Node" parent="."]

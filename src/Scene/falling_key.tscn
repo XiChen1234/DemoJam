@@ -5,6 +5,7 @@
 
 [node name="FallingKey" type="Node2D"]
 script = ExtResource("2_umlol")
+speed = 800.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
