@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dccslc3el5hgp"]
+
+[ext_resource type="PackedScene" uid="uid://c2bndqyb67b8q" path="res://Scene/Object/Note/base_note.tscn" id="1_ub5bs"]
+[ext_resource type="Script" uid="uid://b70l7k5uuhivo" path="res://Script/Object/Note/right_click.gd" id="2_7si4h"]
+[ext_resource type="Texture2D" uid="uid://pmlnbdtc50pe" path="res://Assert/Art/Note/手势-20.png" id="3_s8bub"]
+
+[node name="RightClick" instance=ExtResource("1_ub5bs")]
+script = ExtResource("2_7si4h")
+type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_s8bub")
+offset = Vector2(40, 0)

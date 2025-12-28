@@ -13,40 +13,40 @@
 			"id": 0,
 			"name": "left_click",
 			"type": 0, 
-			"timestamp": 3.000000,
+			"timestamp": 3.0,
 			"duration": 0,
 			"speed": 800
 		},
 		{
-			"id": 1,
+			"id": 0,
 			"name": "right_click",
 			"type": 1, 
-			"timestamp": 4.000000,
+			"timestamp": 3.5,
 			"duration": 0,
 			"speed": 800
 		},
 		{
-			"id": 2,
+			"id": 0,
 			"name": "left_hold",
 			"type": 2, 
-			"timestamp": 5.000000,
-			"duration": 0,
+			"timestamp": 4,
+			"duration": 3,
 			"speed": 800
 		},
 		{
-			"id": 3,
+			"id": 0,
 			"name": "right_hold",
 			"type": 3, 
-			"timestamp": 6.000000,
-			"duration": 0,
+			"timestamp": 7.5,
+			"duration": 3,
 			"speed": 800
 		},
 		{
-			"id": 4,
+			"id": 0,
 			"name": "rapid",
 			"type": 4, 
-			"timestamp": 7.000000,
-			"duration": 0,
+			"timestamp": 11,
+			"duration": 3,
 			"speed": 800
 		}
 	]

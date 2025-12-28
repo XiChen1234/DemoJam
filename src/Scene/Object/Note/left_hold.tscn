@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://der25tugfyo8w"]
+
+[ext_resource type="PackedScene" uid="uid://c2bndqyb67b8q" path="res://Scene/Object/Note/base_note.tscn" id="1_wu7i4"]
+[ext_resource type="Script" uid="uid://cpujqeeqwf3bh" path="res://Script/Object/Note/left_hold.gd" id="2_nsv14"]
+[ext_resource type="Texture2D" uid="uid://cqf73wfbsy3k8" path="res://Assert/Art/Note/手势-14.png" id="3_xmo14"]
+[ext_resource type="Texture2D" uid="uid://cc6h8n0qxc80k" path="res://Assert/Art/Note/手势-15.png" id="4_l1pji"]
+[ext_resource type="Texture2D" uid="uid://0t2lnqf6xi1n" path="res://Assert/Art/Note/手势-16.png" id="5_wgtay"]
+
+[node name="LeftHold" instance=ExtResource("1_wu7i4")]
+script = ExtResource("2_nsv14")
+type = 3
+
+[node name="Tail" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("5_wgtay")
+offset = Vector2(73.5, 0)
+
+[node name="Body" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("4_l1pji")
+offset = Vector2(73.5, 0)
+
+[node name="Head" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("3_xmo14")
+offset = Vector2(55, 0)

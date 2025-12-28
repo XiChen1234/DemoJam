@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://y06n0wibxqa8"]
+
+[ext_resource type="Script" uid="uid://e12hs0irsen1" path="res://Scene/Game/game_scene.gd" id="1_gy4rs"]
+[ext_resource type="Texture2D" uid="uid://bfotars1yj10x" path="res://Assert/Art/heaven.jpg" id="1_qtt7g"]
+[ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/Object/cat.tscn" id="3_v1w2t"]
+[ext_resource type="AudioStream" uid="uid://cswos6y1lf70j" path="res://Assert/Audio/time_for_adventure.mp3" id="4_1fu3p"]
+[ext_resource type="Script" uid="uid://d04gn8ustkvt5" path="res://Script/input_controller.gd" id="5_mn2yn"]
+[ext_resource type="Script" uid="uid://g5rfso5qtv3n" path="res://Script/judge.gd" id="6_ohye7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy4rs"]
+bg_color = Color(1, 1, 1, 0.7254902)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.29411766, 0.68235296, 0.7490196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtt7g"]
+bg_color = Color(1, 0.34278238, 0.281215, 1)
+
+[node name="GameScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gy4rs")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qtt7g")
+
+[node name="NoteTrack" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gy4rs")
+
+[node name="DeadLine" type="PanelContainer" parent="NoteTrack"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 250.0
+offset_right = 260.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qtt7g")
+
+[node name="DeadLine2" type="PanelContainer" parent="NoteTrack"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 140.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qtt7g")
+
+[node name="TestLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.791664
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.865599, 0.0001205194, 0.7106546, 1)
+theme_override_font_sizes/font_size = 50
+text = "（测试用）判定显示"
+horizontal_alignment = 1
+
+[node name="Cat" parent="." instance=ExtResource("3_v1w2t")]
+position = Vector2(150, 540)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1fu3p")
+
+[node name="InputController" type="Node" parent="."]
+script = ExtResource("5_mn2yn")
+
+[node name="Judge" type="Node" parent="."]
+script = ExtResource("6_ohye7")

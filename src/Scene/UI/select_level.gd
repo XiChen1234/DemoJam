@@ -9,4 +9,4 @@ func _on_back() -> void:
 
 
 func _on_level_selected() -> void:
-	get_tree().change_scene_to_file("res://Scene/game_scene.tscn")
+	get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
