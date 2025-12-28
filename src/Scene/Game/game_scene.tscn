@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://e12hs0irsen1" path="res://Scene/Game/game_scene.gd" id="1_gy4rs"]
 [ext_resource type="Texture2D" uid="uid://bfotars1yj10x" path="res://Assert/Art/heaven.jpg" id="1_qtt7g"]
 [ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/Object/cat.tscn" id="3_v1w2t"]
-[ext_resource type="AudioStream" uid="uid://cswos6y1lf70j" path="res://Assert/Audio/time_for_adventure.mp3" id="4_1fu3p"]
+[ext_resource type="AudioStream" uid="uid://csrp2uptdem17" path="res://Assert/Audio/god.mp3" id="4_ohye7"]
 [ext_resource type="Script" uid="uid://d04gn8ustkvt5" path="res://Script/input_controller.gd" id="5_mn2yn"]
 [ext_resource type="Script" uid="uid://g5rfso5qtv3n" path="res://Script/judge.gd" id="6_ohye7"]
 
@@ -80,7 +80,7 @@ horizontal_alignment = 1
 position = Vector2(150, 540)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_1fu3p")
+stream = ExtResource("4_ohye7")
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("5_mn2yn")

@@ -66,6 +66,3 @@ func judge_hold(
 		note_miss.emit()
 	else:
 		note_hold.emit()
-		
-	
-	
