@@ -12,12 +12,12 @@ var left_pressed_time: float = 0
 var right_pressed_time: float = 0
 
 # 关卡相关数据
-#@export var level_file_path: String = "res://LevelConfig/level_1/level.json" 
+@export var level_file_path: String = "res://LevelConfig/level_1/level.json" 
 #@export var level_file_path: String = "res://LevelConfig/level_2/level.json"
 #@export var level_file_path: String = "res://LevelConfig/level_3/level.json"
 #@export var level_file_path: String = "res://LevelConfig/level_4/level.json"
 #@export var level_file_path: String = "res://LevelConfig/level_5/level.json"
-@export var level_file_path: String = "res://LevelConfig/level1/timeline_level1.json"
+#@export var level_file_path: String = "res://LevelConfig/level1/timeline_level1.json"
 var timeline_data: Array  = []
 var note_count: int = 0
 var note_queue: Array[BaseNote] = []
@@ -174,11 +174,11 @@ func _on_perfect() -> void:
 触发rapid的情况
 - 点击在rapid的时间窗口
 """
+var combo: int = 0
 func _on_rapid() -> void:
 	print("rapid")
 	label_layer.spawn_result(LabelLayer.ResultType.RAPID)
 	combo += 1
-var combo: int = 0
 
 """
 触发hold的情况
