@@ -5,8 +5,7 @@ extends Control
 @onready var note_track: Panel = $NoteTrack
 @onready var input_controller: InputController = $InputController
 @onready var judge: Judge = $Judge
-
-@onready var test_label: Label = $TestLabel
+@onready var label_layer: LabelLayer = $LabelLayer
 
 @export var long_press_threshold: float = 0.5
 var left_pressed_time: float = 0
@@ -137,7 +136,7 @@ func _on_right_hold_released(duration: float):
 """
 func _on_miss() -> void:
 	print("miss")  
-	test_label.text = "（测试用）判定显示：Miss"
+	label_layer.spawn_result(LabelLayer.ResultType.MISS)
 	note_queue[0].queue_free()
 	note_queue.pop_front()
 
@@ -148,7 +147,7 @@ func _on_miss() -> void:
 """
 func _on_great() -> void:
 	print("great")
-	test_label.text = "（测试用）判定显示：Great"
+	label_layer.spawn_result(LabelLayer.ResultType.GREAT)
 	if note_queue[0].type == BaseNote.Type.LEFT_CLICK or \
 		note_queue[0].type == BaseNote.Type.RIGHT_CLICK:
 		note_queue[0].queue_free()
@@ -163,7 +162,7 @@ func _on_great() -> void:
 """
 func _on_perfect() -> void:
 	print("perfect")
-	test_label.text = "（测试用）判定显示：Perfect"
+	label_layer.spawn_result(LabelLayer.ResultType.PERFECT)
 	if note_queue[0].type == BaseNote.Type.LEFT_CLICK or \
 		note_queue[0].type == BaseNote.Type.RIGHT_CLICK:
 		note_queue[0].queue_free()
@@ -177,8 +176,8 @@ func _on_perfect() -> void:
 """
 func _on_rapid() -> void:
 	print("rapid")
+	label_layer.spawn_result(LabelLayer.ResultType.RAPID)
 	combo += 1
-	test_label.text = "（测试用）判定显示：连打 %d" % combo
 var combo: int = 0
 
 """
@@ -187,7 +186,7 @@ var combo: int = 0
 """
 func _on_hold() -> void:
 	print("hold")
-	test_label.text = "（测试用）判定显示：长按结束，成功"
+	label_layer.spawn_result(LabelLayer.ResultType.HOLD)
 	note_queue[0].queue_free()
 	note_queue.pop_front() 
 
@@ -201,9 +200,7 @@ func _on_rapid_destory() -> void:
 	note_queue.pop_front()
 
 
-"""在小猫的前方附近区域随机弹出判定字符"""
-
-
+"""加载关卡数据，并生成音符"""
 func load_level_data() -> void:
 	var file: FileAccess = FileAccess.open(level_file_path, FileAccess.READ)
 	if file:
@@ -219,6 +216,7 @@ func load_level_data() -> void:
 			note_queue.append(note)
 
 
+"""获取音乐时间"""
 func get_music_time() -> float:
 	return audio_stream_player.get_playback_position() + \
 		AudioServer.get_time_since_last_mix()

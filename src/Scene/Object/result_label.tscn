@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxq2ji8m7bmau"]
+
+[ext_resource type="Theme" uid="uid://beqgu4cxob2n2" path="res://Theme/result_label.tres" id="1_3u4fc"]
+[ext_resource type="Script" uid="uid://dxup76l10w0m5" path="res://Scene/Object/result_label.gd" id="1_b6rel"]
+
+[node name="ResultLabel" type="Node2D"]
+script = ExtResource("1_b6rel")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 67.0
+offset_bottom = 22.333334
+theme = ExtResource("1_3u4fc")
+text = "Perfecrt!"
