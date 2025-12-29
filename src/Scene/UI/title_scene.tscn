@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvceavygkh1ve"]
+[gd_scene load_steps=13 format=3 uid="uid://bvceavygkh1ve"]
 
 [ext_resource type="Script" uid="uid://djehq6i216rf3" path="res://Scene/UI/title_scene.gd" id="1_i71bt"]
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_qwcah"]
@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b5hq6m3b6orgs" path="res://Assert/Art/Title/quit_beforeclick.png" id="6_uuv0x"]
 [ext_resource type="Texture2D" uid="uid://dnoapr45tqd5" path="res://Assert/Art/Title/option_afterclick.png" id="7_ubvh8"]
 [ext_resource type="Texture2D" uid="uid://cqf7pgfkquv1u" path="res://Assert/Art/Title/quit_afterclick.png" id="9_4g1cx"]
-[ext_resource type="Texture2D" uid="uid://dbqmph667j0i4" path="res://Assert/Art/Level/back_1.png" id="10_qwcah"]
-[ext_resource type="Texture2D" uid="uid://rqtbqivpd45a" path="res://Assert/Art/Level/back_2.png" id="11_qcs0s"]
+[ext_resource type="ButtonGroup" uid="uid://cye78m8dv0p8y" path="res://Theme/language_button_group.tres" id="10_qcs0s"]
+[ext_resource type="Texture2D" uid="uid://be44usvebxv32" path="res://Assert/Art/UI/back_afterclick.png" id="11_b756k"]
+[ext_resource type="Texture2D" uid="uid://c1a5po510t8g" path="res://Assert/Art/UI/back_beforeclick.png" id="12_6hfeb"]
 
 [node name="TitleScene" type="Control"]
 layout_mode = 3
@@ -57,6 +58,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="MainButton" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -81,26 +83,27 @@ texture_normal = ExtResource("6_uuv0x")
 texture_pressed = ExtResource("9_4g1cx")
 
 [node name="OptionButton" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 20
 columns = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
 layout_mode = 2
-text = "volume: "
+text = "Volume: "
 horizontal_alignment = 2
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-value = 50.0
+theme_override_constants/center_grabber = 1
+step = 10.0
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
 layout_mode = 2
-text = "language: "
+text = "Language: "
 horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
@@ -110,21 +113,25 @@ theme_override_constants/separation = 50
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("10_qcs0s")
 text = "English"
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("10_qcs0s")
 text = "中文"
 
 [node name="Back" type="TextureButton" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("10_qwcah")
-texture_pressed = ExtResource("11_qcs0s")
-texture_hover = ExtResource("11_qcs0s")
+layout_mode = 1
+offset_right = 145.0
+offset_bottom = 111.0
+scale = Vector2(1.7, 1.7)
+texture_normal = ExtResource("11_b756k")
+texture_pressed = ExtResource("12_6hfeb")
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start" to="." method="_on_start_mouse_entered" binds= [0]]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start" to="." method="_on_start_mouse_exited" binds= [0]]

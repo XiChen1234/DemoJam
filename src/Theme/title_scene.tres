@@ -1,8 +1,10 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://fg50nnsvqfdu"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://fg50nnsvqfdu"]
 
 [ext_resource type="FontFile" uid="uid://doqrk1jwxt2cj" path="res://Theme/font/江城圆体 600W.ttf" id="1_0s7gk"]
 [ext_resource type="StyleBox" uid="uid://br1rtxoum54fd" path="res://Theme/button_normal.tres" id="1_105gm"]
-[ext_resource type="Texture2D" uid="uid://dcwpq218486um" path="res://Assert/Art/UI/time_paw.png" id="2_w84av"]
+[ext_resource type="Texture2D" uid="uid://d37devn8lumg6" path="res://Theme/gabber_texture.tres" id="2_kyoph"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w84av"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_105gm"]
 content_margin_left = 40.0
@@ -20,14 +22,65 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrxxr"]
+content_margin_left = 40.0
+content_margin_top = 10.0
+content_margin_right = 40.0
+content_margin_bottom = 10.0
+bg_color = Color(0.29411766, 0.68235296, 0.7529412, 0.75686276)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w84av"]
+atlas = ExtResource("2_kyoph")
+region = Rect2(22, 28, 105, 95)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyoph"]
+bg_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kwbs"]
+bg_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w84av"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.29411766, 0.68235296, 0.7529412, 0.5372549)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
 [resource]
 Button/colors/font_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+Button/colors/font_focus_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 70
+Button/styles/focus = SubResource("StyleBoxEmpty_w84av")
 Button/styles/hover = SubResource("StyleBoxFlat_105gm")
 Button/styles/normal = ExtResource("1_105gm")
-HSlider/icons/grabber = ExtResource("2_w84av")
-HSlider/icons/grabber_disabled = ExtResource("2_w84av")
-HSlider/icons/grabber_highlight = ExtResource("2_w84av")
+Button/styles/pressed = SubResource("StyleBoxFlat_xrxxr")
+HSlider/icons/grabber = SubResource("AtlasTexture_w84av")
+HSlider/icons/grabber_highlight = ExtResource("2_kyoph")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_kyoph")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_3kwbs")
+HSlider/styles/slider = SubResource("StyleBoxFlat_w84av")
 Label/colors/font_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
 Label/font_sizes/font_size = 70
 Label/fonts/font = ExtResource("1_0s7gk")
