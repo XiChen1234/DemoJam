@@ -134,6 +134,20 @@ scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("11_b756k")
 texture_pressed = ExtResource("12_6hfeb")
 
+[node name="Test" type="Button" parent="."]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 20.0
+text = "Test"
+
+[node name="Label" type="Label" parent="Test"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 39.0
+offset_right = 1763.0
+offset_bottom = 498.0
+autowrap_mode = 1
+
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start" to="." method="_on_start_mouse_entered" binds= [0]]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start" to="." method="_on_start_mouse_exited" binds= [0]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start" to="." method="_on_start"]
@@ -144,3 +158,4 @@ texture_pressed = ExtResource("12_6hfeb")
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit" to="." method="_on_start_mouse_exited" binds= [2]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit" to="." method="_on_quit"]
 [connection signal="pressed" from="Back" to="." method="_on_back"]
+[connection signal="pressed" from="Test" to="." method="_on_test_pressed"]

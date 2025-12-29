@@ -26,8 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gy4rs")
-long_press_threshold = null
-level_file_path = null
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

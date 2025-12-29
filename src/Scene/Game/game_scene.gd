@@ -17,8 +17,23 @@ var timeline_data: Array  = []
 var note_count: int = 0
 var note_queue: Array[BaseNote] = []
 
+# 测试数据
+var test_json_path: String
+var test_music_path: String
 
 func _ready() -> void:
+	if GameManager.test_mode:
+		print("进入测试模式")
+		load_level_data(GameManager.json_path)
+		audio_stream_player.stream = AudioStreamOggVorbis.load_from_file(GameManager.music_path)
+
+		# 用完即清，防止污染下次
+		GameManager.test_mode = false
+		connect_signal()
+		audio_stream_player.play()
+		return
+	
+	
 	level_data = GameManager.selected_level
 	connect_signal()
 	load_level_data(level_data.json_path)

@@ -22,7 +22,7 @@ func init_config(data: Dictionary) -> void:
 	super(data)
 	duration = data.get("duration")
 	total_length = duration * speed
-	print("length: %f" % total_length)
+	#print("length: %f" % total_length)
 
 
 func _build_sprite() -> void:
