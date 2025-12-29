@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bf6faq7xx4s0d"
-path="res://.godot/imported/Atop-R99O3.ttf-31c212bf6290bde225a17ecf02a700e4.fontdata"
+uid="uid://doqrk1jwxt2cj"
+path="res://.godot/imported/江城圆体 600W.ttf-c2a73cb218150b2da83ebe0f474a12e1.fontdata"
 
 [deps]
 
-source_file="res://Theme/Atop-R99O3.ttf"
-dest_files=["res://.godot/imported/Atop-R99O3.ttf-31c212bf6290bde225a17ecf02a700e4.fontdata"]
+source_file="res://Theme/font/江城圆体 600W.ttf"
+dest_files=["res://.godot/imported/江城圆体 600W.ttf-c2a73cb218150b2da83ebe0f474a12e1.fontdata"]
 
 [params]
 

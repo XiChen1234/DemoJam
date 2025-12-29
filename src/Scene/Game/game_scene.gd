@@ -13,11 +13,6 @@ var right_pressed_time: float = 0
 
 # 关卡相关数据
 @export var level_file_path: String = "res://LevelConfig/level_1/level.json" 
-#@export var level_file_path: String = "res://LevelConfig/level_2/level.json"
-#@export var level_file_path: String = "res://LevelConfig/level_3/level.json"
-#@export var level_file_path: String = "res://LevelConfig/level_4/level.json"
-#@export var level_file_path: String = "res://LevelConfig/level_5/level.json"
-#@export var level_file_path: String = "res://LevelConfig/level1/timeline_level1.json"
 var timeline_data: Array  = []
 var note_count: int = 0
 var note_queue: Array[BaseNote] = []
@@ -42,6 +37,12 @@ func connect_signal() -> void:
 	input_controller.right_release.connect(_on_right_released)
 	input_controller.left_hold_release.connect(_on_left_hold_released)
 	input_controller.right_hold_release.connect(_on_right_hold_released)
+	# 将judge信号连接移到这里，只连接一次
+	judge.note_miss.connect(_on_miss)
+	judge.note_great.connect(_on_great)
+	judge.note_perfect.connect(_on_perfect)
+	judge.rapid_hit.connect(_on_rapid)
+	judge.note_hold.connect(_on_hold)
 
 
 """连接音符信号（创建后连接）"""
@@ -49,13 +50,6 @@ func connect_note_signal(note: BaseNote) -> void:
 	note.note_destroy.connect(_on_miss) # 音符自毁miss
 	if note.type == BaseNote.Type.RAPID:
 		note.rapid_destory.connect(_on_rapid_destory) # rapid自毁
-	
-	# 判定系统给出结果
-	judge.note_miss.connect(_on_miss)
-	judge.note_great.connect(_on_great)
-	judge.note_perfect.connect(_on_perfect)
-	judge.rapid_hit.connect(_on_rapid)
-	judge.note_hold.connect(_on_hold)
 
 """点击事件触发函数"""
 func _on_left_pressed():

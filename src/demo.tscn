@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bghoktjcrwwkv"]
+
+[ext_resource type="Texture2D" uid="uid://dchn4584skhlv" path="res://Assert/cat1.png" id="1_5hfv0"]
+[ext_resource type="Texture2D" uid="uid://w1fe0gbxocbk" path="res://Assert/cat2.png" id="1_m0rpm"]
+[ext_resource type="Texture2D" uid="uid://m0820t10rfyp" path="res://Assert/cat3.png" id="2_c6xj6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fr1sm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m0rpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c6xj6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="demo" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fr1sm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5hfv0")

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://beqgu4cxob2n2"]
 
-[ext_resource type="FontFile" uid="uid://bf6faq7xx4s0d" path="res://Theme/Atop-R99O3.ttf" id="1_hwpsa"]
+[ext_resource type="FontFile" uid="uid://bf6faq7xx4s0d" path="res://Theme/font/Atop-R99O3.ttf" id="1_hwpsa"]
 
 [resource]
 Label/colors/font_color = Color(1, 0.3019608, 0.5803922, 1)

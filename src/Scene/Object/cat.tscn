@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://2gkfn3v53wdv"]
 
-[ext_resource type="Texture2D" uid="uid://bk2wsmook64q1" path="res://Assert/Art/cat0.png" id="1_44rlt"]
+[ext_resource type="Texture2D" uid="uid://bk2wsmook64q1" path="res://Assert/Art/demo/cat0.png" id="1_44rlt"]
 [ext_resource type="Script" uid="uid://bd3c084ax2lci" path="res://Scene/Object/cat.gd" id="1_bs4ij"]
-[ext_resource type="Texture2D" uid="uid://bd2a5637tfn4" path="res://Assert/Art/cat2.png" id="2_bs4ij"]
-[ext_resource type="Texture2D" uid="uid://qeyrvuenqh76" path="res://Assert/Art/cat1.png" id="2_k2b3y"]
+[ext_resource type="Texture2D" uid="uid://bd2a5637tfn4" path="res://Assert/Art/demo/cat2.png" id="2_bs4ij"]
+[ext_resource type="Texture2D" uid="uid://qeyrvuenqh76" path="res://Assert/Art/demo/cat1.png" id="2_k2b3y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e32lr"]
 animations = [{

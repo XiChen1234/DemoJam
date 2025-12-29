@@ -1,16 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvceavygkh1ve"]
+[gd_scene load_steps=12 format=3 uid="uid://bvceavygkh1ve"]
 
 [ext_resource type="Script" uid="uid://djehq6i216rf3" path="res://Scene/UI/title_scene.gd" id="1_i71bt"]
-[ext_resource type="Texture2D" uid="uid://dwm70o5o4tsg2" path="res://Assert/Art/UI/logo.png" id="1_x66rq"]
-[ext_resource type="Texture2D" uid="uid://bsit0klc3d5lm" path="res://Assert/Art/bg.jpg" id="3_i71bt"]
-[ext_resource type="Texture2D" uid="uid://djd0vqkksriww" path="res://icon.svg" id="4_vbiyj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpxyg"]
-content_margin_left = 50.0
-content_margin_top = 10.0
-content_margin_right = 50.0
-content_margin_bottom = 10.0
-bg_color = Color(0.23137255, 0.23137255, 0.23137255, 0.6627451)
+[ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_qwcah"]
+[ext_resource type="Texture2D" uid="uid://b2alpaxrh3cc8" path="res://Assert/Art/Title/logo.PNG" id="2_4g1cx"]
+[ext_resource type="Texture2D" uid="uid://pmwclefiov5l" path="res://Assert/Art/Title/start_beforeclick.png" id="4_rxgtf"]
+[ext_resource type="Texture2D" uid="uid://dqcgbh8sfe8ly" path="res://Assert/Art/Title/option_beforeclick.png" id="5_n7ksq"]
+[ext_resource type="Texture2D" uid="uid://da6odmwrb4dcq" path="res://Assert/Art/Title/start_afterclick.png" id="5_uuv0x"]
+[ext_resource type="Texture2D" uid="uid://b5hq6m3b6orgs" path="res://Assert/Art/Title/quit_beforeclick.png" id="6_uuv0x"]
+[ext_resource type="Texture2D" uid="uid://dnoapr45tqd5" path="res://Assert/Art/Title/option_afterclick.png" id="7_ubvh8"]
+[ext_resource type="Texture2D" uid="uid://cqf7pgfkquv1u" path="res://Assert/Art/Title/quit_afterclick.png" id="9_4g1cx"]
+[ext_resource type="Texture2D" uid="uid://dbqmph667j0i4" path="res://Assert/Art/Level/back_1.png" id="10_qwcah"]
+[ext_resource type="Texture2D" uid="uid://rqtbqivpd45a" path="res://Assert/Art/Level/back_2.png" id="11_qcs0s"]
 
 [node name="TitleScene" type="Control"]
 layout_mode = 3
@@ -19,13 +19,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_qwcah")
 script = ExtResource("1_i71bt")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("3_i71bt")
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -42,95 +45,94 @@ theme_override_constants/margin_bottom = 50
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+alignment = 1
 
 [node name="Logo" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_x66rq")
+texture = ExtResource("2_4g1cx")
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8842199, 0, 0.2336216, 1)
-theme_override_font_sizes/font_size = 100
-text = "Paws Up!"
-horizontal_alignment = 1
+alignment = 1
 
-[node name="MainButton" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MainButton" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/MainButton"]
+layout_direction = 1
+layout_mode = 2
+keep_pressed_outside = true
+texture_normal = ExtResource("4_rxgtf")
+texture_pressed = ExtResource("5_uuv0x")
+
+[node name="Option" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/MainButton"]
+layout_mode = 2
+texture_normal = ExtResource("5_n7ksq")
+texture_pressed = ExtResource("7_ubvh8")
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/MainButton"]
+layout_mode = 2
+texture_normal = ExtResource("6_uuv0x")
+texture_pressed = ExtResource("9_4g1cx")
+
+[node name="OptionButton" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MainButton"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = SubResource("StyleBoxFlat_lpxyg")
-text = "Start"
-
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MainButton"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = SubResource("StyleBoxFlat_lpxyg")
-text = "Options"
-
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/MainButton"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = SubResource("StyleBoxFlat_lpxyg")
-text = "Quit"
-
-[node name="OptionButton" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/OptionButton"]
-layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionButton/GridContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
-text = "Volume:"
+text = "volume: "
+horizontal_alignment = 2
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/OptionButton/GridContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.1
-value = 0.5
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionButton/GridContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
-text = "Language:"
-
-[node name="MenuButton" type="MenuButton" parent="MarginContainer/VBoxContainer/OptionButton/GridContainer"]
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 0.19215687, 0.76862746, 1)
-theme_override_font_sizes/font_size = 60
-text = "Select Your Language"
-item_count = 2
-popup/item_0/text = "English"
-popup/item_0/id = 0
-popup/item_1/text = "简体中文"
-popup/item_1/id = 1
+value = 50.0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
+layout_mode = 2
+text = "language: "
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "English"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "中文"
 
 [node name="Back" type="TextureButton" parent="."]
 visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = ExtResource("4_vbiyj")
+texture_normal = ExtResource("10_qwcah")
+texture_pressed = ExtResource("11_qcs0s")
+texture_hover = ExtResource("11_qcs0s")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainButton/Button" to="." method="_on_start"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainButton/Button2" to="." method="_on_options"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainButton/Button3" to="." method="_on_quit"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start" to="." method="_on_start_mouse_entered" binds= [0]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start" to="." method="_on_start_mouse_exited" binds= [0]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start" to="." method="_on_start"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Option" to="." method="_on_start_mouse_entered" binds= [1]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Option" to="." method="_on_start_mouse_exited" binds= [1]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Option" to="." method="_on_options"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit" to="." method="_on_start_mouse_entered" binds= [2]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit" to="." method="_on_start_mouse_exited" binds= [2]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit" to="." method="_on_quit"]
 [connection signal="pressed" from="Back" to="." method="_on_back"]

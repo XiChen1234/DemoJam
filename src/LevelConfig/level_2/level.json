@@ -16,38 +16,6 @@
 			"timestamp": 3.000000,
 			"duration": 0,
 			"speed": 800
-		},
-		{
-			"id": 1,
-			"name": "right_click",
-			"type": 1, 
-			"timestamp": 4.000000,
-			"duration": 0,
-			"speed": 800
-		},
-		{
-			"id": 2,
-			"name": "left_hold",
-			"type": 2, 
-			"timestamp": 5.000000,
-			"duration": 0,
-			"speed": 800
-		},
-		{
-			"id": 3,
-			"name": "right_hold",
-			"type": 3, 
-			"timestamp": 6.000000,
-			"duration": 0,
-			"speed": 800
-		},
-		{
-			"id": 4,
-			"name": "rapid",
-			"type": 4, 
-			"timestamp": 7.000000,
-			"duration": 0,
-			"speed": 800
 		}
 	]
 }
