@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bfotars1yj10x" path="res://Assert/Art/heaven.jpg" id="1_qtt7g"]
 [ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/Object/cat.tscn" id="3_v1w2t"]
 [ext_resource type="AudioStream" uid="uid://csrp2uptdem17" path="res://Assert/Audio/god.mp3" id="4_ohye7"]
-[ext_resource type="Script" uid="uid://d04gn8ustkvt5" path="res://Script/input_controller.gd" id="5_mn2yn"]
-[ext_resource type="Script" uid="uid://g5rfso5qtv3n" path="res://Script/judge.gd" id="6_ohye7"]
-[ext_resource type="Script" uid="uid://bmp2btpmdfk75" path="res://Script/label_layer.gd" id="7_u6ojp"]
+[ext_resource type="Script" uid="uid://d04gn8ustkvt5" path="res://Script/Game/input_controller.gd" id="5_mn2yn"]
+[ext_resource type="Script" uid="uid://g5rfso5qtv3n" path="res://Script/Game/judge.gd" id="6_ohye7"]
+[ext_resource type="Script" uid="uid://bmp2btpmdfk75" path="res://Script/Game/label_layer.gd" id="7_u6ojp"]
 [ext_resource type="PackedScene" uid="uid://bxq2ji8m7bmau" path="res://Scene/Object/result_label.tscn" id="8_y1rts"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy4rs"]
@@ -26,6 +26,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gy4rs")
+long_press_threshold = null
+level_file_path = null
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

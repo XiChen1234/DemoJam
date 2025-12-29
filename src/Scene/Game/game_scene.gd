@@ -12,15 +12,17 @@ var left_pressed_time: float = 0
 var right_pressed_time: float = 0
 
 # 关卡相关数据
-@export var level_file_path: String = "res://LevelConfig/level_1/level.json" 
+var level_data: LevelData
 var timeline_data: Array  = []
 var note_count: int = 0
 var note_queue: Array[BaseNote] = []
 
 
 func _ready() -> void:
+	level_data = GameManager.selected_level
 	connect_signal()
-	load_level_data()
+	load_level_data(level_data.json_path)
+	load_music(level_data.music_path)
 	audio_stream_player.play()
 
 
@@ -195,8 +197,8 @@ func _on_rapid_destory() -> void:
 
 
 """加载关卡数据，并生成音符"""
-func load_level_data() -> void:
-	var file: FileAccess = FileAccess.open(level_file_path, FileAccess.READ)
+func load_level_data(json_path: String) -> void:
+	var file: FileAccess = FileAccess.open(json_path, FileAccess.READ)
 	if file:
 		var path: String = file.get_as_text()
 		var json_data: Dictionary = JSON.parse_string(path)
@@ -208,6 +210,11 @@ func load_level_data() -> void:
 			connect_note_signal(note)
 			note_track.add_child(note)
 			note_queue.append(note)
+
+
+"""加载音乐"""
+func load_music(music_path: String) -> void:
+	audio_stream_player.stream = load(music_path)
 
 
 """获取音乐时间"""

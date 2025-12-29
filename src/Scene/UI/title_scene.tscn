@@ -58,7 +58,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="MainButton" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -83,6 +82,7 @@ texture_normal = ExtResource("6_uuv0x")
 texture_pressed = ExtResource("9_4g1cx")
 
 [node name="OptionButton" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -126,6 +126,7 @@ button_group = ExtResource("10_qcs0s")
 text = "中文"
 
 [node name="Back" type="TextureButton" parent="."]
+visible = false
 layout_mode = 1
 offset_right = 145.0
 offset_bottom = 111.0
