@@ -1,4 +1,5 @@
 extends Control
+class_name PauseLayer
 
 var pause_cooldown: bool = false
 
@@ -13,7 +14,7 @@ func _input(event: InputEvent) -> void:
 	if pause_cooldown:
 		return
 	if event.is_action_pressed("pause"):
-		_pause()
+		pause()
 
 func _on_restart() -> void:
 	get_tree().paused = false
@@ -24,7 +25,7 @@ func _on_restart() -> void:
 func _on_continue() -> void:
 	if pause_cooldown:
 		return
-	_pause()
+	pause()
 
 
 func _on_home() -> void:
@@ -34,7 +35,9 @@ func _on_home() -> void:
 
 
 """暂停逻辑"""
-func _pause() -> void:
+func pause() -> void:
+	if pause_cooldown:
+		return
 	visible = not visible
 	get_tree().paused = not get_tree().paused
 	# 避免快速连续按 ESC

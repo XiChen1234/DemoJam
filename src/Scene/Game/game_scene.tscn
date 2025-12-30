@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://y06n0wibxqa8"]
+[gd_scene load_steps=19 format=3 uid="uid://y06n0wibxqa8"]
 
 [ext_resource type="Script" uid="uid://e12hs0irsen1" path="res://Scene/Game/game_scene.gd" id="1_gy4rs"]
+[ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_prcu2"]
 [ext_resource type="Texture2D" uid="uid://bfotars1yj10x" path="res://Assert/Art/heaven.jpg" id="1_qtt7g"]
 [ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/Object/cat.tscn" id="3_v1w2t"]
 [ext_resource type="AudioStream" uid="uid://csrp2uptdem17" path="res://Assert/Audio/god.mp3" id="4_ohye7"]
@@ -13,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://xq03vantct7x" path="res://Assert/Art/UI/time_blank.png" id="11_xxudb"]
 [ext_resource type="Texture2D" uid="uid://dcj78nbtndmg5" path="res://Assert/Art/UI/time_full.png" id="12_fg2g0"]
 [ext_resource type="Texture2D" uid="uid://d37devn8lumg6" path="res://Theme/gabber_texture.tres" id="13_trua6"]
+[ext_resource type="Texture2D" uid="uid://vx31s46eompr" path="res://Assert/Art/UI/stop_beforeclick.png" id="15_prcu2"]
+[ext_resource type="Texture2D" uid="uid://c12mnfxbbxdyh" path="res://Assert/Art/UI/stop_afterclick.png" id="16_vlxuj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy4rs"]
 bg_color = Color(1, 1, 1, 0.7254902)
@@ -30,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_prcu2")
 script = ExtResource("1_gy4rs")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -91,39 +95,50 @@ result_label = ExtResource("8_y1rts")
 
 [node name="TestButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1526.0
-offset_top = 932.0
-offset_right = 1879.0
-offset_bottom = 1052.0
+offset_left = 1460.0
+offset_top = 922.0
+offset_right = 1885.0
+offset_bottom = 1054.0
 theme_override_font_sizes/font_size = 80
 text = "Test Skip"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="CountdownLabel" type="Label" parent="UI"]
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_prcu2")
+
+[node name="PauseLayer" parent="UI/Control" instance=ExtResource("10_y5w2r")]
+visible = false
+z_index = 1
+layout_mode = 1
+
+[node name="CountdownLabel" type="Label" parent="UI/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -122.0
-offset_top = -204.16669
-offset_right = 122.0
-offset_bottom = 204.16663
+offset_left = -61.0
+offset_top = -102.08334
+offset_right = 61.0
+offset_bottom = 102.08334
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.9411765, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("9_qq033")
-theme_override_font_sizes/font_size = 400
+theme_override_font_sizes/font_size = 200
 text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PauseLayer" parent="UI" instance=ExtResource("10_y5w2r")]
-visible = false
-z_index = 1
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Control"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -134,7 +149,7 @@ grow_horizontal = 2
 texture_under = ExtResource("11_xxudb")
 texture_progress = ExtResource("12_fg2g0")
 
-[node name="Gabber" type="TextureRect" parent="UI/TextureProgressBar"]
+[node name="Gabber" type="TextureRect" parent="UI/Control/TextureProgressBar"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -146,5 +161,30 @@ grow_horizontal = 2
 pivot_offset = Vector2(75, 0)
 texture = ExtResource("13_trua6")
 
+[node name="Score" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 72.0
+text = "Score: "
+
+[node name="Combo" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 285.0
+offset_bottom = 143.0
+text = "Combo: "
+
+[node name="PauseButton" type="TextureButton" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = ExtResource("15_prcu2")
+texture_pressed = ExtResource("16_vlxuj")
+
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_finish"]
 [connection signal="pressed" from="TestButton" to="." method="_on_test_skip"]
+[connection signal="pressed" from="UI/Control/PauseButton" to="." method="_on_pause"]

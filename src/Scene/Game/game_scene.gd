@@ -4,15 +4,15 @@ extends Control
 @onready var cat: Cat = $Cat
 @onready var note_track: Panel = $NoteTrack
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-@onready var texture_progress_bar: TextureProgressBar = $UI/TextureProgressBar
-@onready var gabber: TextureRect = $UI/TextureProgressBar/Gabber
+@onready var texture_progress_bar: TextureProgressBar = $UI/Control/TextureProgressBar
+@onready var gabber: TextureRect = $UI/Control/TextureProgressBar/Gabber
 # 逻辑计算
 @onready var input_controller: InputController = $InputController
 @onready var judge: Judge = $Judge
 @onready var label_layer: LabelLayer = $LabelLayer
 # UI显示
-@onready var countdown_label: Label = $UI/CountdownLabel
-@onready var pause_layer: Control = $UI/PauseLayer
+@onready var countdown_label: Label = $UI/Control/CountdownLabel
+@onready var pause_layer: PauseLayer = $UI/Control/PauseLayer
 
 # 关卡相关数据
 var level_data: LevelData
@@ -358,3 +358,8 @@ func _on_finish() -> void:
 		"max_combo": max_combo
 	}
 	get_tree().change_scene_to_file("res://Scene/UI/result_scene.tscn")
+
+
+"""暂停按钮，同ESC"""
+func _on_pause() -> void:
+	pause_layer.pause()
