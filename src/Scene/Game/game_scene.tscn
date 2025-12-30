@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bmp2btpmdfk75" path="res://Script/Game/label_layer.gd" id="7_u6ojp"]
 [ext_resource type="PackedScene" uid="uid://bxq2ji8m7bmau" path="res://Scene/Object/result_label.tscn" id="8_y1rts"]
 [ext_resource type="FontFile" uid="uid://bgw8pt1svoxqi" path="res://Theme/font/江城圆体 700W.ttf" id="9_qq033"]
-[ext_resource type="PackedScene" uid="uid://cisvp71j0ifsi" path="res://Scene/UI/pause_layer.tscn" id="10_y5w2r"]
+[ext_resource type="PackedScene" uid="uid://cisvp71j0ifsi" path="res://Scene/Layer/pause_layer.tscn" id="10_y5w2r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy4rs"]
 bg_color = Color(1, 1, 1, 0.7254902)
@@ -70,7 +70,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qtt7g")
 
 [node name="Cat" parent="." instance=ExtResource("3_v1w2t")]
-z_index = 1
 position = Vector2(150, 540)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -88,6 +87,7 @@ cat = NodePath("../Cat")
 result_label = ExtResource("8_y1rts")
 
 [node name="CountdownLabel" type="Label" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
