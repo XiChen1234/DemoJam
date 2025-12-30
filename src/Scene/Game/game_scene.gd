@@ -1,27 +1,52 @@
 extends Control
 
+# 界面组件
 @onready var cat: Cat = $Cat
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var note_track: Panel = $NoteTrack
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var texture_progress_bar: TextureProgressBar = $UI/TextureProgressBar
+@onready var gabber: TextureRect = $UI/TextureProgressBar/Gabber
+# 逻辑计算
 @onready var input_controller: InputController = $InputController
 @onready var judge: Judge = $Judge
 @onready var label_layer: LabelLayer = $LabelLayer
-@onready var countdown_label: Label = $CountdownLabel
-@onready var pause_layer: Control = $PauseLayer
-
-@export var long_press_threshold: float = 0.5
-var left_pressed_time: float = 0
-var right_pressed_time: float = 0
+# UI显示
+@onready var countdown_label: Label = $UI/CountdownLabel
+@onready var pause_layer: Control = $UI/PauseLayer
 
 # 关卡相关数据
 var level_data: LevelData
 var timeline_data: Array  = []
 var note_count: int = 0
 var note_queue: Array[BaseNote] = []
+"""
+进度条数据
+0. 倒计时，进度条0、gabber 0
+1. 游戏正常进行，进度条和gabber随进度变化
+2. 音乐播放结束，进度条1，gabber 1
+"""
+enum GameState {
+	COUNTDOWN,
+	PLAYING,
+	FINISHED
+}
+var game_state: GameState = GameState.COUNTDOWN
+# 积分数据
+var score: int = 0
+var current_combo: int = 0
+var max_combo: int = 0
+# 分值配置表
+const SCORE_TABLE: Array[int] = [
+	1000,	# perfect
+	500,	# great
+	800,	# hold
+	50		# rapid
+]
 
 # 测试数据
 var test_json_path: String
 var test_music_path: String
+
 
 func _ready() -> void:
 	# 1. 加载关卡 & 音符
@@ -37,14 +62,34 @@ func _ready() -> void:
 	
 	# 2. 关卡初始化：连接信号
 	connect_signal()
+	texture_progress_bar.min_value = 0
+	texture_progress_bar.max_value = audio_stream_player.stream.get_length()
 
 	# 3. 最后才开始倒计时
 	start_countdown()
 
 
+"""测试用跳过音游的按钮"""
+func _on_test_skip():
+	get_tree().change_scene_to_file("res://Scene/UI/result_scene.tscn")
+
+
 func _process(_delta: float) -> void:
-	var _timestamp = get_music_time()
-	#print(_timestamp)
+	var value: float
+	var ratio: float
+	var max_value: float = texture_progress_bar.max_value
+	match game_state:
+		GameState.COUNTDOWN:
+			value = 0
+			ratio = 0
+		GameState.PLAYING:
+			value = get_music_time()
+			ratio = value / max_value
+		GameState.FINISHED:
+			value = max_value
+			ratio = 1
+	texture_progress_bar.value = value
+	gabber.position.x = texture_progress_bar.size.x * ratio - 75
 
 
 """倒计时播放"""
@@ -54,6 +99,7 @@ func start_countdown() -> void:
 	await show_number("1")
 	for note in note_queue:
 		note.active = true
+	game_state = GameState.PLAYING # 游戏状态切换为1
 	audio_stream_player.play()
 
 
@@ -65,7 +111,6 @@ func show_number(text: String) -> void:
 	tween.tween_property(countdown_label, "modulate:a", 0.0, 1.0)
 
 	await tween.finished
-
 
 
 func connect_signal() -> void:
@@ -82,7 +127,6 @@ func connect_signal() -> void:
 	judge.note_perfect.connect(_on_perfect)
 	judge.rapid_hit.connect(_on_rapid)
 	judge.note_hold.connect(_on_hold)
-	
 
 
 """连接音符信号（创建后连接）"""
@@ -90,6 +134,7 @@ func connect_note_signal(note: BaseNote) -> void:
 	note.note_destroy.connect(_on_miss) # 音符自毁miss
 	if note.type == BaseNote.Type.RAPID:
 		note.rapid_destory.connect(_on_rapid_destory) # rapid自毁
+
 
 """点击事件触发函数"""
 func _on_left_pressed():
@@ -112,6 +157,7 @@ func _on_left_pressed():
 	# 检查时间diff
 	judge.judge_click(current_time, type, note)
 
+
 func _on_right_pressed():
 	print("右键点击")
 	cat.start_ha()
@@ -132,13 +178,16 @@ func _on_right_pressed():
 	# 检查时间diff
 	judge.judge_click(current_time, type, note)
 
+
 func _on_left_released():
 	#print("左键松开")
 	cat.stop()
 
+
 func _on_right_released():
 	#print("右键松开")
 	cat.stop()
+
 
 func _on_left_hold_released(duration: float):
 	print("左键长按结束：持续时间： %f" % duration)
@@ -150,6 +199,7 @@ func _on_left_hold_released(duration: float):
 	var type: BaseNote.Type = note.type
 	if type == BaseNote.Type.LEFT_HOLD:
 		judge.judge_hold(current_time, note)
+
 
 func _on_right_hold_released(duration: float):
 	print("右键长按结束：持续时间： %f" % duration)
@@ -171,23 +221,12 @@ func _on_right_hold_released(duration: float):
 func _on_miss() -> void:
 	print("miss")  
 	label_layer.spawn_result(LabelLayer.ResultType.MISS)
+	
+	reset_combo()
+	
 	note_queue[0].queue_free()
 	note_queue.pop_front()
 
-"""
-触发great的情况
-- 点击在great时间窗口
-- 音符类型：Click、Hold
-"""
-func _on_great() -> void:
-	print("great")
-	label_layer.spawn_result(LabelLayer.ResultType.GREAT)
-	if note_queue[0].type == BaseNote.Type.LEFT_CLICK or \
-		note_queue[0].type == BaseNote.Type.RIGHT_CLICK:
-		note_queue[0].queue_free()
-		note_queue.pop_front()
-	else:
-		return
 
 """
 触发perfect的情况
@@ -197,6 +236,10 @@ func _on_great() -> void:
 func _on_perfect() -> void:
 	print("perfect")
 	label_layer.spawn_result(LabelLayer.ResultType.PERFECT)
+	
+	add_score(SCORE_TABLE[0])
+	add_combo()
+	
 	if note_queue[0].type == BaseNote.Type.LEFT_CLICK or \
 		note_queue[0].type == BaseNote.Type.RIGHT_CLICK:
 		note_queue[0].queue_free()
@@ -204,15 +247,26 @@ func _on_perfect() -> void:
 	else:
 		return
 
+
 """
-触发rapid的情况
-- 点击在rapid的时间窗口
+触发great的情况
+- 点击在great时间窗口
+- 音符类型：Click、Hold
 """
-var combo: int = 0
-func _on_rapid() -> void:
-	print("rapid")
-	label_layer.spawn_result(LabelLayer.ResultType.RAPID)
-	combo += 1
+func _on_great() -> void:
+	print("great")
+	label_layer.spawn_result(LabelLayer.ResultType.GREAT)
+	
+	add_score(SCORE_TABLE[1])
+	add_combo()
+	
+	if note_queue[0].type == BaseNote.Type.LEFT_CLICK or \
+		note_queue[0].type == BaseNote.Type.RIGHT_CLICK:
+		note_queue[0].queue_free()
+		note_queue.pop_front()
+	else:
+		return
+
 
 """
 触发hold的情况
@@ -221,8 +275,38 @@ func _on_rapid() -> void:
 func _on_hold() -> void:
 	print("hold")
 	label_layer.spawn_result(LabelLayer.ResultType.HOLD)
+	
+	add_score(SCORE_TABLE[2])
+	add_combo()
+	
 	note_queue[0].queue_free()
 	note_queue.pop_front() 
+
+
+"""
+触发rapid的情况
+- 点击在rapid的时间窗口
+"""
+func _on_rapid() -> void:
+	print("rapid")
+	label_layer.spawn_result(LabelLayer.ResultType.RAPID)
+	
+	add_score(SCORE_TABLE[3])
+	add_combo()
+
+
+"""算分计数工具方法"""
+func add_combo() -> void:
+	current_combo += 1
+	if current_combo > max_combo:
+		max_combo = current_combo
+
+func reset_combo() -> void:
+	current_combo = 0
+
+func add_score(value: int) -> void:
+	score += value
+
 
 """
 触发rapid destory的情况
@@ -260,3 +344,17 @@ func load_music(music_path: String) -> void:
 func get_music_time() -> float:
 	return audio_stream_player.get_playback_position() + \
 		AudioServer.get_time_since_last_mix()
+
+
+"""最终音乐结束的信号"""
+func _on_finish() -> void:
+	print("音乐播放结束，进入结算阶段")
+	game_state = GameState.FINISHED # 音乐播放结束，倒计时前
+	await get_tree().create_timer(3).timeout
+	print("最终分数:", score)
+	print("最大连段:", max_combo)
+	GameManager.last_result = {
+		"score": score,
+		"max_combo": max_combo
+	}
+	get_tree().change_scene_to_file("res://Scene/UI/result_scene.tscn")

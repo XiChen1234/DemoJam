@@ -28,7 +28,7 @@ func _setup_style(type: LabelLayer.ResultType) -> void:
 			label.scale = Vector2(1.2, 1.2)
 
 		LabelLayer.ResultType.RAPID:
-			label.text = "Combo"
+			label.text = "Rapid"
 			label.modulate = Color.CYAN
 
 		LabelLayer.ResultType.HOLD:

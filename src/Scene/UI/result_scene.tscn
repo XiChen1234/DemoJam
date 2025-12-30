@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3kbyuqkj233k"]
+
+[ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_4fysm"]
+[ext_resource type="Script" uid="uid://d4lqp3foc1nwf" path="res://Scene/UI/result_scene.gd" id="2_ggrue"]
+
+[node name="ResultScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4fysm")
+script = ExtResource("2_ggrue")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.5
+offset_right = 26.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: "
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = 44.0
+offset_right = 142.0
+offset_bottom = 131.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Combo: "
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 844.0
+offset_top = 711.0
+offset_right = 1075.0
+offset_bottom = 829.0
+text = "next"
+
+[connection signal="pressed" from="Button" to="." method="_on_next"]
