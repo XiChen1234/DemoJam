@@ -66,16 +66,6 @@ offset_right = 260.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qtt7g")
 
-[node name="DeadLine2" type="PanelContainer" parent="NoteTrack"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 130.0
-offset_right = 140.0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qtt7g")
-
 [node name="Cat" parent="." instance=ExtResource("3_v1w2t")]
 position = Vector2(150, 540)
 

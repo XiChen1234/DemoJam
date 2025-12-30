@@ -2,7 +2,6 @@ class_name LeftClick
 extends BaseNote
 
 
-func _process(delta: float) -> void:
-	super(delta)
+func _process(_delta: float) -> void:
 	if position.x < deadline:
 		note_destroy.emit()

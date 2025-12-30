@@ -12,8 +12,7 @@ func _ready() -> void:
 	_build_sprite()
 
 
-func _process(delta: float) -> void:
-	super(delta)
+func _process(_delta: float) -> void:
 	if position.x < deadline - total_length:
 		rapid_destory.emit()
 

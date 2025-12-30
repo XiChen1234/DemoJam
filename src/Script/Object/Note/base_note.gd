@@ -25,16 +25,14 @@ const TypeIndex: Array[Type] = [
 var init_position: Vector2 = Vector2(250, 150) # deadline基准线
 var deadline: float = 130 # 自毁线
 
-var active: bool = false
-
-
-func _process(delta: float) -> void:
-	if active:
-		position.x -= speed * delta
-
 
 func init_config(data: Dictionary) -> void:
 	type = TypeIndex[data.get("type")]
 	timestamp = data.get("timestamp")
 	speed = data.get("speed")
-	position = init_position + Vector2(timestamp * speed, 0) + Vector2(100, 0)
+	position = Vector2(init_position.x + timestamp * speed, 150)
+
+
+func update_by_time(current_time: float):	
+	var diff_time = timestamp - current_time
+	position.x = init_position.x + diff_time * speed

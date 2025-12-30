@@ -76,6 +76,11 @@ func _on_test_skip():
 
 
 func _process(_delta: float) -> void:
+	if game_state == GameState.PLAYING:
+		var timestamp: float = get_music_time()
+		for note: BaseNote in note_queue:
+			note.update_by_time(timestamp)
+	
 	var value: float
 	var ratio: float
 	var max_value: float = texture_progress_bar.max_value
@@ -98,8 +103,6 @@ func start_countdown() -> void:
 	await show_number("3")
 	await show_number("2")
 	await show_number("1")
-	for note in note_queue:
-		note.active = true
 	game_state = GameState.PLAYING # 游戏状态切换为1
 	audio_stream_player.play()
 
@@ -352,7 +355,6 @@ func load_level_data(json_path: String) -> void:
 		for i in range(note_count):
 			var note: BaseNote = NoteFactory.create_note(timeline_data[i])
 			connect_note_signal(note)
-			note.active = false # 先冻结，等游戏正式开始了再激活
 			note_track.add_child(note)
 			note_queue.append(note)
 
