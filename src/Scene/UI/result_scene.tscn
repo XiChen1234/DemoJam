@@ -13,7 +13,7 @@ grow_vertical = 2
 theme = ExtResource("1_4fysm")
 script = ExtResource("2_ggrue")
 
-[node name="Label" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Score: "
 
-[node name="Label2" type="Label" parent="."]
+[node name="ComboLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Combo: "
 
-[node name="Button" type="Button" parent="."]
+[node name="NextButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 844.0
 offset_top = 711.0
@@ -51,4 +51,4 @@ offset_right = 1075.0
 offset_bottom = 829.0
 text = "next"
 
-[connection signal="pressed" from="Button" to="." method="_on_next"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next"]

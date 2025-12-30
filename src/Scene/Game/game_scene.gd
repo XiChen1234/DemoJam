@@ -1,5 +1,8 @@
 extends Control
 
+signal score_changed(score: int)
+signal combo_changed(current_combo: int, max_combo: int)
+
 # 界面组件
 @onready var cat: Cat = $Cat
 @onready var note_track: Panel = $NoteTrack
@@ -13,18 +16,16 @@ extends Control
 # UI显示
 @onready var countdown_label: Label = $UI/Control/CountdownLabel
 @onready var pause_layer: PauseLayer = $UI/Control/PauseLayer
+@onready var score_label: Label = $UI/Control/ScoreLabel
+@onready var combo_label: Label = $UI/Control/ComboLabel
 
 # 关卡相关数据
 var level_data: LevelData
 var timeline_data: Array  = []
 var note_count: int = 0
 var note_queue: Array[BaseNote] = []
-"""
-进度条数据
-0. 倒计时，进度条0、gabber 0
-1. 游戏正常进行，进度条和gabber随进度变化
-2. 音乐播放结束，进度条1，gabber 1
-"""
+
+# 进度条数据
 enum GameState {
 	COUNTDOWN,
 	PLAYING,
@@ -60,7 +61,7 @@ func _ready() -> void:
 		load_level_data(level_data.json_path)
 		load_music(level_data.music_path)
 	
-	# 2. 关卡初始化：连接信号
+	# 2. 关卡初始化：连接信号，设置进度条
 	connect_signal()
 	texture_progress_bar.min_value = 0
 	texture_progress_bar.max_value = audio_stream_player.stream.get_length()
@@ -127,6 +128,9 @@ func connect_signal() -> void:
 	judge.note_perfect.connect(_on_perfect)
 	judge.rapid_hit.connect(_on_rapid)
 	judge.note_hold.connect(_on_hold)
+	"""连接score和combo的信号"""
+	score_changed.connect(_on_score_changed)
+	combo_changed.connect(_on_combo_changed)
 
 
 """连接音符信号（创建后连接）"""
@@ -134,6 +138,19 @@ func connect_note_signal(note: BaseNote) -> void:
 	note.note_destroy.connect(_on_miss) # 音符自毁miss
 	if note.type == BaseNote.Type.RAPID:
 		note.rapid_destory.connect(_on_rapid_destory) # rapid自毁
+
+
+"""Score和Combo的UI更新代码"""
+func _on_score_changed(value: int) -> void:
+	score_label.text = "Score: %07d" % value
+
+
+func _on_combo_changed(current: int) -> void:
+	if current > 0:
+		combo_label.visible = true
+		combo_label.text = "%d x Combo" % current
+	else:
+		combo_label.visible = false
 
 
 """点击事件触发函数"""
@@ -300,12 +317,17 @@ func add_combo() -> void:
 	current_combo += 1
 	if current_combo > max_combo:
 		max_combo = current_combo
+	
+	combo_changed.emit(current_combo)
+
 
 func reset_combo() -> void:
 	current_combo = 0
+	combo_changed.emit(current_combo)
 
 func add_score(value: int) -> void:
 	score += value
+	score_changed.emit(score)
 
 
 """

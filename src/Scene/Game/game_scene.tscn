@@ -154,25 +154,24 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -669.5
-offset_right = -519.5
+offset_left = -75.0
+offset_right = 75.0
 offset_bottom = 150.0
 grow_horizontal = 2
 pivot_offset = Vector2(75, 0)
 texture = ExtResource("13_trua6")
 
-[node name="Score" type="Label" parent="UI/Control"]
+[node name="ScoreLabel" type="Label" parent="UI/Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 72.0
-text = "Score: "
+text = "Score: 0000000"
 
-[node name="Combo" type="Label" parent="UI/Control"]
+[node name="ComboLabel" type="Label" parent="UI/Control"]
 layout_mode = 0
 offset_top = 71.0
 offset_right = 285.0
 offset_bottom = 143.0
-text = "Combo: "
 
 [node name="PauseButton" type="TextureButton" parent="UI/Control"]
 layout_mode = 1
