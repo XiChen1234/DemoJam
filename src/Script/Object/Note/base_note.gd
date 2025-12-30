@@ -4,7 +4,6 @@ extends Node2D
 @warning_ignore("unused_signal")
 signal note_destroy
 
-
 """
 基础音符父类脚本，包含音符的所有基本操作
 """
@@ -26,9 +25,12 @@ const TypeIndex: Array[Type] = [
 var init_position: Vector2 = Vector2(250, 150) # deadline基准线
 var deadline: float = 130 # 自毁线
 
+var active: bool = false
+
 
 func _process(delta: float) -> void:
-	position.x -= speed * delta
+	if active:
+		position.x -= speed * delta
 
 
 func init_config(data: Dictionary) -> void:

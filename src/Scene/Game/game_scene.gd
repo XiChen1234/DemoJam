@@ -6,6 +6,8 @@ extends Control
 @onready var input_controller: InputController = $InputController
 @onready var judge: Judge = $Judge
 @onready var label_layer: LabelLayer = $LabelLayer
+@onready var countdown_label: Label = $CountdownLabel
+@onready var pause_layer: Control = $PauseLayer
 
 @export var long_press_threshold: float = 0.5
 var left_pressed_time: float = 0
@@ -22,28 +24,48 @@ var test_json_path: String
 var test_music_path: String
 
 func _ready() -> void:
+	# 1. 加载关卡 & 音符
 	if GameManager.test_mode:
 		print("进入测试模式")
 		load_level_data(GameManager.json_path)
 		audio_stream_player.stream = AudioStreamOggVorbis.load_from_file(GameManager.music_path)
-
-		# 用完即清，防止污染下次
 		GameManager.test_mode = false
-		connect_signal()
-		audio_stream_player.play()
-		return
+	else:
+		level_data = GameManager.selected_level
+		load_level_data(level_data.json_path)
+		load_music(level_data.music_path)
 	
-	
-	level_data = GameManager.selected_level
+	# 2. 关卡初始化：连接信号
 	connect_signal()
-	load_level_data(level_data.json_path)
-	load_music(level_data.music_path)
-	audio_stream_player.play()
+
+	# 3. 最后才开始倒计时
+	start_countdown()
 
 
 func _process(_delta: float) -> void:
 	var _timestamp = get_music_time()
 	#print(_timestamp)
+
+
+"""倒计时播放"""
+func start_countdown() -> void:
+	await show_number("3")
+	await show_number("2")
+	await show_number("1")
+	for note in note_queue:
+		note.active = true
+	audio_stream_player.play()
+
+
+func show_number(text: String) -> void:
+	countdown_label.text = text
+	countdown_label.modulate.a = 1.0
+
+	var tween := create_tween()
+	tween.tween_property(countdown_label, "modulate:a", 0.0, 1.0)
+
+	await tween.finished
+
 
 
 func connect_signal() -> void:
@@ -54,12 +76,13 @@ func connect_signal() -> void:
 	input_controller.right_release.connect(_on_right_released)
 	input_controller.left_hold_release.connect(_on_left_hold_released)
 	input_controller.right_hold_release.connect(_on_right_hold_released)
-	# 将judge信号连接移到这里，只连接一次
+	"""用于判定的judge信号"""
 	judge.note_miss.connect(_on_miss)
 	judge.note_great.connect(_on_great)
 	judge.note_perfect.connect(_on_perfect)
 	judge.rapid_hit.connect(_on_rapid)
 	judge.note_hold.connect(_on_hold)
+	
 
 
 """连接音符信号（创建后连接）"""
@@ -223,6 +246,7 @@ func load_level_data(json_path: String) -> void:
 		for i in range(note_count):
 			var note: BaseNote = NoteFactory.create_note(timeline_data[i])
 			connect_note_signal(note)
+			note.active = false # 先冻结，等游戏正式开始了再激活
 			note_track.add_child(note)
 			note_queue.append(note)
 
