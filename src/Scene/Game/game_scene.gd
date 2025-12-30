@@ -160,43 +160,41 @@ func _on_combo_changed(current: int) -> void:
 func _on_left_pressed():
 	print("左键点击")
 	cat.start_hit()
-	var current_time: float = get_music_time()
-	# 判定系统
-	"""
-	判定系统需要的
-	1. 当前时间
-	2. 首位音符，由他获取音符类型、时间戳、持续时间等
-	"""
+	
+	if game_state != GameState.PLAYING:
+		return
 	if note_queue.is_empty():
 		return
+	
+	var time := get_music_time()
 	var note: BaseNote = note_queue[0]
-	var type: BaseNote.Type = note.type
-	# 检查type，无效直接返回
-	if type == BaseNote.Type.RIGHT_CLICK or type == BaseNote.Type.RIGHT_HOLD:
-		return
-	# 检查时间diff
-	judge.judge_click(current_time, type, note)
+	var result: Judge.JudgeResult
+	if note.type == BaseNote.Type.RAPID:
+		result = judge.judge_rapid(time, note)
+	else:
+		result = judge.judge_press(time, note, Judge.SideInput.LEFT)
+	
+	_handle_judge_result(result)
 
 
 func _on_right_pressed():
 	print("右键点击")
 	cat.start_ha()
-	var current_time: float = get_music_time()
-	# 判定系统
-	"""
-	判定系统需要的
-	1. 当前时间
-	2. 首位音符，由他获取音符类型、时间戳、持续时间等
-	"""
+	
+	if game_state != GameState.PLAYING:
+		return
 	if note_queue.is_empty():
 		return
+	
+	var time := get_music_time()
 	var note: BaseNote = note_queue[0]
-	var type: BaseNote.Type = note.type
-	# 检查type，无效直接返回
-	if type == BaseNote.Type.LEFT_CLICK or type == BaseNote.Type.LEFT_HOLD:
-		return
-	# 检查时间diff
-	judge.judge_click(current_time, type, note)
+	var result: Judge.JudgeResult
+	if note.type == BaseNote.Type.RAPID:
+		result = judge.judge_rapid(time, note)
+	else:
+		result = judge.judge_press(time, note, Judge.SideInput.RIGHT)
+	
+	_handle_judge_result(result)
 
 
 func _on_left_released():
@@ -209,28 +207,56 @@ func _on_right_released():
 	cat.stop()
 
 
-func _on_left_hold_released(duration: float):
-	print("左键长按结束：持续时间： %f" % duration)
+func _on_left_hold_released():
 	cat.stop()
-	var current_time: float = get_music_time()
+
+	if game_state != GameState.PLAYING:
+		return
 	if note_queue.is_empty():
 		return
-	var note: BaseNote = note_queue[0]
-	var type: BaseNote.Type = note.type
-	if type == BaseNote.Type.LEFT_HOLD:
-		judge.judge_hold(current_time, note)
+
+	var result = judge.judge_hold_release(
+		get_music_time(),
+		note_queue[0],
+		Judge.SideInput.LEFT
+	)
+
+	_handle_judge_result(result)
 
 
-func _on_right_hold_released(duration: float):
-	print("右键长按结束：持续时间： %f" % duration)
+func _on_right_hold_released():
 	cat.stop()
-	var current_time: float = get_music_time()
+
+	if game_state != GameState.PLAYING:
+		return
 	if note_queue.is_empty():
 		return
-	var note: BaseNote = note_queue[0]
-	var type: BaseNote.Type = note.type
-	if type == BaseNote.Type.RIGHT_HOLD:
-		judge.judge_hold(current_time, note)
+
+	var result = judge.judge_hold_release(
+		get_music_time(),
+		note_queue[0],
+		Judge.SideInput.RIGHT
+	)
+
+	_handle_judge_result(result)
+
+
+"""统一处理结果"""
+func _handle_judge_result(result: Judge.JudgeResult) -> void:
+	match result:
+		Judge.JudgeResult.NONE:
+			return
+		Judge.JudgeResult.MISS:
+			_on_miss()
+		Judge.JudgeResult.GREAT:
+			_on_great()
+		Judge.JudgeResult.PERFECT:
+			_on_perfect()
+		Judge.JudgeResult.HOLD_OK:
+			_on_hold()
+		Judge.JudgeResult.RAPID_HIT:
+			_on_rapid()
+
 
 
 """
