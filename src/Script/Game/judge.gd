@@ -54,6 +54,10 @@ func judge_press(
 func judge_hold_release(
 	current_time: float, note: BaseNote, side: SideInput
 ) -> JudgeResult:
+	# 有点怂小小防御一手
+	if not is_instance_valid(note):
+		return JudgeResult.NONE
+	
 	if not _match_side(note.type, side):
 		return JudgeResult.NONE
 	
@@ -65,10 +69,6 @@ func judge_hold_release(
 	
 	if diff < -LEVEL_TIMESTAMP[Level.GREAT]:
 		return JudgeResult.MISS
-	
-	# 有点怂小小防御一手
-	if not is_instance_valid(note):
-		return JudgeResult.NONE
 	
 	return JudgeResult.HOLD_OK
 

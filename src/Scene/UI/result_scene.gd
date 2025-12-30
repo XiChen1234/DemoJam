@@ -6,8 +6,12 @@ extends Control
 
 func _ready() -> void:
 	var data: Variant = GameManager.last_result
-	score_label.text = "Score: %d" % data.get("score")
-	combo_label.text = "Max Combo: %d" % data.get("max_combo")
+	if data.is_empty():
+		score_label.text = "Score: --"
+		combo_label.text = "Max Combo: --"
+		return
+	score_label.text = "Score: %d" % data.get("score", 0)
+	combo_label.text = "Max Combo: %d" % data.get("max_combo", 0)
 
 
 func _on_next() -> void:
