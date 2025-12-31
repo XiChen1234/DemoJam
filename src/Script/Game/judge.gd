@@ -1,6 +1,17 @@
 extends Node
 class_name Judge
 
+@warning_ignore("unused_signal")
+signal note_miss
+@warning_ignore("unused_signal")
+signal note_great
+@warning_ignore("unused_signal")
+signal note_perfect
+@warning_ignore("unused_signal")
+signal rapid_hit
+@warning_ignore("unused_signal")
+signal note_hold
+
 enum Level {
 	PERFECT, GREAT, MISS
 }

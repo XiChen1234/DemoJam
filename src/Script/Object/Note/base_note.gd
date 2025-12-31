@@ -15,7 +15,7 @@ enum Type {
 }
 const TypeIndex: Array[Type] = [
 	Type.LEFT_CLICK, Type.RIGHT_CLICK, Type.LEFT_HOLD, Type.RIGHT_HOLD, 
-	Type.RAPID, Type.BASE,
+	Type.RAPID
 ]
 
 @export var type: Type
