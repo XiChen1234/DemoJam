@@ -1,12 +1,6 @@
 extends Node
 class_name Judge
 
-signal note_miss
-signal note_great
-signal note_perfect
-signal rapid_hit
-signal note_hold
-
 enum Level {
 	PERFECT, GREAT, MISS
 }
