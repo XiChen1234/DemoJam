@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl5boj858nsnb"
-path="res://.godot/imported/stopbg.png-a42eb55ad24760c584f2243de2247344.ctex"
+uid="uid://b5gmvox35onn2"
+path="res://.godot/imported/enter_afterclick.png-df0ef42f61dee37b75d0f2ae832464bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/UI/stopbg.png"
-dest_files=["res://.godot/imported/stopbg.png-a42eb55ad24760c584f2243de2247344.ctex"]
+source_file="res://Assert/Art/UI/enter_afterclick.png"
+dest_files=["res://.godot/imported/enter_afterclick.png-df0ef42f61dee37b75d0f2ae832464bf.ctex"]
 
 [params]
 

@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dnoapr45tqd5" path="res://Assert/Art/Title/option_afterclick.png" id="7_ubvh8"]
 [ext_resource type="Texture2D" uid="uid://cqf7pgfkquv1u" path="res://Assert/Art/Title/quit_afterclick.png" id="9_4g1cx"]
 [ext_resource type="ButtonGroup" uid="uid://cye78m8dv0p8y" path="res://Theme/language_button_group.tres" id="10_qcs0s"]
-[ext_resource type="Texture2D" uid="uid://be44usvebxv32" path="res://Assert/Art/UI/back_afterclick.png" id="11_b756k"]
-[ext_resource type="Texture2D" uid="uid://c1a5po510t8g" path="res://Assert/Art/UI/back_beforeclick.png" id="12_6hfeb"]
+[ext_resource type="Texture2D" uid="uid://be44usvebxv32" path="res://Assert/Art/Title/back_afterclick.png" id="11_b756k"]
+[ext_resource type="Texture2D" uid="uid://c1a5po510t8g" path="res://Assert/Art/Title/back_beforeclick.png" id="12_6hfeb"]
 
 [node name="TitleScene" type="Control"]
 layout_mode = 3

@@ -4,7 +4,8 @@ signal score_changed(score: int)
 signal combo_changed(current_combo: int, max_combo: int)
 
 # 界面组件
-@onready var cat: Cat = $Cat
+@onready var cat: Cat = $InputFeedback/Cat
+@onready var input_feedback: InputFeedback = $InputFeedback
 @onready var note_track: Panel = $NoteTrack
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var texture_progress_bar: TextureProgressBar = $UI/Control/TextureProgressBar
@@ -159,7 +160,7 @@ func _on_combo_changed(current: int) -> void:
 """点击事件触发函数"""
 func _on_left_pressed():
 	print("左键点击")
-	cat.start_hit()
+	input_feedback.on_left_pressed()
 	
 	if game_state != GameState.PLAYING:
 		return
@@ -179,14 +180,14 @@ func _on_left_pressed():
 
 func _on_right_pressed():
 	print("右键点击")
-	cat.start_ha()
+	input_feedback.on_right_pressed()
 	
 	if game_state != GameState.PLAYING:
 		return
 	if note_queue.is_empty():
 		return
 	
-	var time := get_music_time()
+	var time: float = get_music_time()
 	var note: BaseNote = note_queue[0]
 	var result: Judge.JudgeResult
 	if note.type == BaseNote.Type.RAPID:
@@ -199,25 +200,30 @@ func _on_right_pressed():
 
 func _on_left_released():
 	#print("左键松开")
-	cat.stop()
+	input_feedback.on_left_released()
 
 
 func _on_right_released():
 	#print("右键松开")
-	cat.stop()
+	input_feedback.on_right_released()
 
 
 func _on_left_hold_released():
-	cat.stop()
+	input_feedback.on_left_released()
 
 	if game_state != GameState.PLAYING:
 		return
 	if note_queue.is_empty():
 		return
+	
+	var note: BaseNote = note_queue[0]
+	if note.type == BaseNote.Type.LEFT_CLICK or \
+		note.type == BaseNote.Type.RIGHT_CLICK:
+		return
 
 	var result = judge.judge_hold_release(
 		get_music_time(),
-		note_queue[0],
+		note,
 		Judge.SideInput.LEFT
 	)
 
@@ -225,16 +231,21 @@ func _on_left_hold_released():
 
 
 func _on_right_hold_released():
-	cat.stop()
+	input_feedback.on_right_released()
 
 	if game_state != GameState.PLAYING:
 		return
 	if note_queue.is_empty():
 		return
+	
+	var note: BaseNote = note_queue[0]
+	if note.type == BaseNote.Type.LEFT_CLICK or \
+		note.type == BaseNote.Type.RIGHT_CLICK:
+		return
 
 	var result = judge.judge_hold_release(
 		get_music_time(),
-		note_queue[0],
+		note,
 		Judge.SideInput.RIGHT
 	)
 

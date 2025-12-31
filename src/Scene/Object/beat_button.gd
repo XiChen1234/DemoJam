@@ -1,0 +1,2 @@
+extends InputFeedback
+class_name BeatButton

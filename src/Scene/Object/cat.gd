@@ -1,5 +1,5 @@
 class_name Cat
-extends Node2D
+extends InputFeedback
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 

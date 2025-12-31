@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh7c3ytu47dga"
-path="res://.godot/imported/L_afterclick.png-a2773c8d6db8ca28a915daa61604f1b8.ctex"
+uid="uid://be44usvebxv32"
+path="res://.godot/imported/back_afterclick.png-67150a81cb6d7ad02b335849c5390f3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/UI/L_afterclick.png"
-dest_files=["res://.godot/imported/L_afterclick.png-a2773c8d6db8ca28a915daa61604f1b8.ctex"]
+source_file="res://Assert/Art/Title/back_afterclick.png"
+dest_files=["res://.godot/imported/back_afterclick.png-67150a81cb6d7ad02b335849c5390f3c.ctex"]
 
 [params]
 

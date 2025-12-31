@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejib8a4kq6ov"
-path="res://.godot/imported/L_beforeclick.png-234e37811296d0286d1aaf495e0c8f88.ctex"
+uid="uid://c1a5po510t8g"
+path="res://.godot/imported/back_beforeclick.png-9dc0a8603ff05d9664750f525a2d354e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/UI/L_beforeclick.png"
-dest_files=["res://.godot/imported/L_beforeclick.png-234e37811296d0286d1aaf495e0c8f88.ctex"]
+source_file="res://Assert/Art/Title/back_beforeclick.png"
+dest_files=["res://.godot/imported/back_beforeclick.png-9dc0a8603ff05d9664750f525a2d354e.ctex"]
 
 [params]
 

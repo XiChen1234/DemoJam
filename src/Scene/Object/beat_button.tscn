@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crt7s2oklqbyp"]
+
+[ext_resource type="Script" uid="uid://b2ayugreup7s" path="res://Scene/Object/beat_button.gd" id="1_pldsb"]
+
+[node name="BeatButton" type="Node2D"]
+script = ExtResource("1_pldsb")

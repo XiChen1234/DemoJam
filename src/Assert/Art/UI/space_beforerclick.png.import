@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df38h4ceuvy6a"
-path="res://.godot/imported/audiotrack.png-7b4a13f71cbd901080470e6adfd1d6e8.ctex"
+uid="uid://c1wd62m00ami0"
+path="res://.godot/imported/space_beforerclick.png-6e601bc6cb71feba160546b00bb008eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/UI/audiotrack.png"
-dest_files=["res://.godot/imported/audiotrack.png-7b4a13f71cbd901080470e6adfd1d6e8.ctex"]
+source_file="res://Assert/Art/UI/space_beforerclick.png"
+dest_files=["res://.godot/imported/space_beforerclick.png-6e601bc6cb71feba160546b00bb008eb.ctex"]
 
 [params]
 
