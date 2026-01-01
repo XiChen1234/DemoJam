@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_44rlt")
 }],
-"loop": false,
+"loop": true,
 "name": &"hit",
 "speed": 12.0
 }, {
@@ -52,7 +52,7 @@ z_index = 1
 script = ExtResource("1_bs4ij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.19, 0.19)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_e32lr")
 animation = &"hit"
 autoplay = "idle"

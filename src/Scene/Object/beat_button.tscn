@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://crt7s2oklqbyp"]
+[gd_scene load_steps=3 format=3 uid="uid://crt7s2oklqbyp"]
 
 [ext_resource type="Script" uid="uid://b2ayugreup7s" path="res://Scene/Object/beat_button.gd" id="1_pldsb"]
+[ext_resource type="Texture2D" uid="uid://c1wd62m00ami0" path="res://Assert/Art/UI/space_beforerclick.png" id="2_bt7x0"]
 
-[node name="BeatButton" type="Node2D"]
+[node name="BeatButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_pldsb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -107.0
+offset_right = 106.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bt7x0")

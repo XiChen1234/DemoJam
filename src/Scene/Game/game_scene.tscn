@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://y06n0wibxqa8"]
+[gd_scene load_steps=25 format=3 uid="uid://y06n0wibxqa8"]
 
 [ext_resource type="Script" uid="uid://e12hs0irsen1" path="res://Scene/Game/game_scene.gd" id="1_gy4rs"]
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_prcu2"]
@@ -18,6 +18,10 @@
 [ext_resource type="Script" uid="uid://csqioewog508g" path="res://Script/Object/input_feedback.gd" id="16_vdmwt"]
 [ext_resource type="Texture2D" uid="uid://c12mnfxbbxdyh" path="res://Assert/Art/UI/stop_afterclick.png" id="16_vlxuj"]
 [ext_resource type="PackedScene" uid="uid://crt7s2oklqbyp" path="res://Scene/Object/beat_button.tscn" id="17_4ehvb"]
+[ext_resource type="Texture2D" uid="uid://c1wd62m00ami0" path="res://Assert/Art/UI/space_beforerclick.png" id="19_fu5sh"]
+[ext_resource type="Texture2D" uid="uid://bxwejpfycqfg7" path="res://Assert/Art/UI/space_afterclick.png" id="20_1mla1"]
+[ext_resource type="Texture2D" uid="uid://b40ll3e4amji3" path="res://Assert/Art/UI/enter_beforeclick.png" id="21_l40nh"]
+[ext_resource type="Texture2D" uid="uid://b5gmvox35onn2" path="res://Assert/Art/UI/enter_afterclick.png" id="22_j67h5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy4rs"]
 bg_color = Color(1, 1, 1, 0.7254902)
@@ -183,15 +187,47 @@ grow_horizontal = 0
 texture_normal = ExtResource("15_prcu2")
 texture_pressed = ExtResource("16_vlxuj")
 
-[node name="InputFeedback" type="Node2D" parent="." node_paths=PackedStringArray("cat", "beat_button")]
+[node name="InputFeedback" type="Control" parent="." node_paths=PackedStringArray("cat")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("16_vdmwt")
 cat = NodePath("Cat")
-beat_button = NodePath("BeatButton")
 
 [node name="Cat" parent="InputFeedback" instance=ExtResource("3_v1w2t")]
 position = Vector2(150, 540)
 
-[node name="BeatButton" parent="InputFeedback" instance=ExtResource("17_4ehvb")]
+[node name="LeftBeatButton" parent="InputFeedback" instance=ExtResource("17_4ehvb")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -180.0
+offset_right = 200.0
+offset_bottom = -180.0
+grow_vertical = 0
+normal_texture = ExtResource("19_fu5sh")
+pressed_texture = ExtResource("20_1mla1")
+
+[node name="RightBeatButton" parent="InputFeedback" instance=ExtResource("17_4ehvb")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -180.0
+offset_right = -200.0
+offset_bottom = -180.0
+grow_horizontal = 0
+grow_vertical = 0
+normal_texture = ExtResource("21_l40nh")
+pressed_texture = ExtResource("22_j67h5")
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_finish"]
 [connection signal="pressed" from="TestButton" to="." method="_on_test_skip"]

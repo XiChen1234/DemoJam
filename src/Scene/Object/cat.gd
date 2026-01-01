@@ -1,29 +1,28 @@
 class_name Cat
-extends InputFeedback
+extends Node2D
+
+enum State {
+	IDLE, HIT, HA
+}
+
+var _currnet_state: State = State.IDLE
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
-var hitting: bool = false
-var haing: bool = false
+func set_state(state: State) -> void:
+	if _currnet_state == state:
+		return
 
-func _process(_delta: float) -> void:
-	if hitting:
-		animated_sprite_2d.play("hit")
-	elif haing:
-		animated_sprite_2d.play("ha")
-	else:
-		animated_sprite_2d.play("idle")
+	_currnet_state = state
+	_play_state_animation()
 
 
-func start_hit():
-	hitting = true
-
-
-func stop():
-	hitting = false
-	haing = false 
-
-
-func start_ha():
-	haing = true
+func _play_state_animation() -> void:
+	match _currnet_state:
+		State.IDLE:
+			animated_sprite_2d.play("idle")
+		State.HIT:
+			animated_sprite_2d.play("hit")
+		State.HA:
+			animated_sprite_2d.play("ha")
