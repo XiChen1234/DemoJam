@@ -82,6 +82,48 @@ offset_right = 140.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qtt7g")
 
+[node name="InputFeedback" type="Control" parent="." node_paths=PackedStringArray("cat")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_vdmwt")
+cat = NodePath("Cat")
+
+[node name="Cat" parent="InputFeedback" instance=ExtResource("3_v1w2t")]
+position = Vector2(150, 540)
+
+[node name="LeftBeatButton" parent="InputFeedback" instance=ExtResource("17_4ehvb")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -180.0
+offset_right = 200.0
+offset_bottom = -180.0
+grow_vertical = 0
+normal_texture = ExtResource("19_fu5sh")
+pressed_texture = ExtResource("20_1mla1")
+
+[node name="RightBeatButton" parent="InputFeedback" instance=ExtResource("17_4ehvb")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -180.0
+offset_right = -200.0
+offset_bottom = -180.0
+grow_horizontal = 0
+grow_vertical = 0
+normal_texture = ExtResource("21_l40nh")
+pressed_texture = ExtResource("22_j67h5")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ohye7")
 
@@ -186,48 +228,6 @@ offset_bottom = 40.0
 grow_horizontal = 0
 texture_normal = ExtResource("15_prcu2")
 texture_pressed = ExtResource("16_vlxuj")
-
-[node name="InputFeedback" type="Control" parent="." node_paths=PackedStringArray("cat")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("16_vdmwt")
-cat = NodePath("Cat")
-
-[node name="Cat" parent="InputFeedback" instance=ExtResource("3_v1w2t")]
-position = Vector2(150, 540)
-
-[node name="LeftBeatButton" parent="InputFeedback" instance=ExtResource("17_4ehvb")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 200.0
-offset_top = -180.0
-offset_right = 200.0
-offset_bottom = -180.0
-grow_vertical = 0
-normal_texture = ExtResource("19_fu5sh")
-pressed_texture = ExtResource("20_1mla1")
-
-[node name="RightBeatButton" parent="InputFeedback" instance=ExtResource("17_4ehvb")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -180.0
-offset_right = -200.0
-offset_bottom = -180.0
-grow_horizontal = 0
-grow_vertical = 0
-normal_texture = ExtResource("21_l40nh")
-pressed_texture = ExtResource("22_j67h5")
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_finish"]
 [connection signal="pressed" from="TestButton" to="." method="_on_test_skip"]

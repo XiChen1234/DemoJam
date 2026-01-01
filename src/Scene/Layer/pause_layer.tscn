@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cisvp71j0ifsi"]
+[gd_scene load_steps=8 format=3 uid="uid://cisvp71j0ifsi"]
 
 [ext_resource type="Script" uid="uid://cm6u7vcuq8oh" path="res://Scene/Layer/pause_layer.gd" id="1_jdwa5"]
 [ext_resource type="Texture2D" uid="uid://cm44h8vay64ex" path="res://Assert/Art/UI/restart_afterclick.png" id="1_lcgr3"]
 [ext_resource type="Texture2D" uid="uid://3yh28y6v154d" path="res://Assert/Art/UI/continue_afterclick.png" id="2_28u1u"]
 [ext_resource type="Texture2D" uid="uid://cgjsch36ra4qk" path="res://Assert/Art/UI/continue_beforeclick.png" id="2_jdwa5"]
+[ext_resource type="Texture2D" uid="uid://1nh2a4pc17t4" path="res://Assert/Art/UI/restart_beforeclick.png" id="2_jvome"]
 [ext_resource type="Texture2D" uid="uid://dg65f7yij6pij" path="res://Assert/Art/UI/home_afterclick.png" id="3_jdwa5"]
+[ext_resource type="Texture2D" uid="uid://cfj5ed7esebur" path="res://Assert/Art/UI/home_beforeclick.png" id="4_jvome"]
 
 [node name="PauseLayer" type="Control"]
 process_mode = 3
@@ -41,16 +43,21 @@ grow_vertical = 2
 
 [node name="RestartButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_lcgr3")
+texture_normal = ExtResource("2_jvome")
+texture_pressed = ExtResource("1_lcgr3")
+texture_hover = ExtResource("1_lcgr3")
 
 [node name="ContinueButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_28u1u")
-texture_disabled = ExtResource("2_jdwa5")
+texture_normal = ExtResource("2_jdwa5")
+texture_pressed = ExtResource("2_28u1u")
+texture_hover = ExtResource("2_28u1u")
 
 [node name="HomeButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_jdwa5")
+texture_normal = ExtResource("4_jvome")
+texture_pressed = ExtResource("3_jdwa5")
+texture_hover = ExtResource("3_jdwa5")
 
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart"]
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue"]
