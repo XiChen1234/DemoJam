@@ -20,15 +20,60 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -11.5
-offset_right = 26.0
-offset_bottom = 11.5
+offset_left = -116.0
+offset_top = -300.0
+offset_right = 116.0
+offset_bottom = -228.54166
 grow_horizontal = 2
 grow_vertical = 2
-text = "Score: "
+text = "Score: --"
 
 [node name="ComboLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -220.27084
+offset_right = 142.5
+offset_bottom = -132.77084
+grow_horizontal = 2
+grow_vertical = 2
+text = "Combo: --"
+
+[node name="PerfectLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -140.0
+offset_right = 142.5
+offset_bottom = -52.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Perfect: --"
+
+[node name="GreatLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -63.0
+offset_right = 142.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Great: --"
+
+[node name="MissLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,14 +86,14 @@ offset_right = 142.0
 offset_bottom = 131.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Combo: "
+text = "Miss: --"
 
 [node name="NextButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 844.0
-offset_top = 711.0
+offset_top = 933.0
 offset_right = 1075.0
-offset_bottom = 829.0
+offset_bottom = 1051.0
 text = "next"
 
 [connection signal="pressed" from="NextButton" to="." method="_on_next"]

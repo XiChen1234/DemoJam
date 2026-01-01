@@ -1,8 +1,5 @@
 extends Control
 
-signal score_changed(score: int)
-signal combo_changed(current_combo: int, max_combo: int)
-
 # 界面组件
 @onready var cat: Cat = $InputFeedback/Cat
 @onready var input_feedback: InputFeedback = $InputFeedback
@@ -25,6 +22,7 @@ var level_data: LevelData
 var timeline_data: Array  = []
 var note_count: int = 0
 var note_queue: Array[BaseNote] = []
+var game_result: GameResult
 
 # 进度条数据
 enum GameState {
@@ -33,17 +31,6 @@ enum GameState {
 	FINISHED
 }
 var game_state: GameState = GameState.COUNTDOWN
-# 积分数据
-var score: int = 0
-var current_combo: int = 0
-var max_combo: int = 0
-# 分值配置表
-const SCORE_TABLE: Array[int] = [
-	1000,	# perfect
-	500,	# great
-	800,	# hold
-	50		# rapid
-]
 
 # 测试数据
 var test_json_path: String
@@ -62,10 +49,12 @@ func _ready() -> void:
 		load_level_data(level_data.json_path)
 		load_music(level_data.music_path)
 	
-	# 2. 关卡初始化：连接信号，设置进度条
+	# 2. 关卡初始化：连接信号，设置进度条，初始化关卡得分相关值
 	connect_signal()
 	texture_progress_bar.min_value = 0
 	texture_progress_bar.max_value = audio_stream_player.stream.get_length()
+	
+	game_result = GameResult.new()
 
 	# 3. 最后才开始倒计时
 	start_countdown()
@@ -132,9 +121,6 @@ func connect_signal() -> void:
 	judge.note_perfect.connect(_on_perfect)
 	judge.rapid_hit.connect(_on_rapid)
 	judge.note_hold.connect(_on_hold)
-	"""连接score和combo的信号"""
-	score_changed.connect(_on_score_changed)
-	combo_changed.connect(_on_combo_changed)
 
 
 """连接音符信号（创建后连接）"""
@@ -145,14 +131,14 @@ func connect_note_signal(note: BaseNote) -> void:
 
 
 """Score和Combo的UI更新代码"""
-func _on_score_changed(value: int) -> void:
-	score_label.text = "Score: %07d" % value
+func _on_score_changed() -> void:
+	score_label.text = "Score: %07d" % game_result.score
 
 
 func _on_combo_changed(current: int) -> void:
 	if current > 0:
 		combo_label.visible = true
-		combo_label.text = "%d x Combo" % current
+		combo_label.text = "%d x Combo" % game_result.current_combo
 	else:
 		combo_label.visible = false
 
@@ -254,6 +240,12 @@ func _on_right_hold_released():
 
 """统一处理结果"""
 func _handle_judge_result(result: Judge.JudgeResult) -> void:
+	if result == Judge.JudgeResult.NONE:
+		return
+	
+	# 进入得分系统
+	game_result.apply_judge_result(result)
+	
 	match result:
 		Judge.JudgeResult.NONE:
 			return
@@ -279,8 +271,6 @@ func _on_miss() -> void:
 	print("miss")  
 	label_layer.spawn_result(LabelLayer.ResultType.MISS)
 	
-	reset_combo()
-	
 	note_queue[0].queue_free()
 	note_queue.pop_front()
 
@@ -293,9 +283,6 @@ func _on_miss() -> void:
 func _on_perfect() -> void:
 	print("perfect")
 	label_layer.spawn_result(LabelLayer.ResultType.PERFECT)
-	
-	add_score(SCORE_TABLE[0])
-	add_combo()
 	
 	if note_queue[0].type == BaseNote.Type.LEFT_CLICK or \
 		note_queue[0].type == BaseNote.Type.RIGHT_CLICK:
@@ -314,9 +301,6 @@ func _on_great() -> void:
 	print("great")
 	label_layer.spawn_result(LabelLayer.ResultType.GREAT)
 	
-	add_score(SCORE_TABLE[1])
-	add_combo()
-	
 	if note_queue[0].type == BaseNote.Type.LEFT_CLICK or \
 		note_queue[0].type == BaseNote.Type.RIGHT_CLICK:
 		note_queue[0].queue_free()
@@ -333,9 +317,6 @@ func _on_hold() -> void:
 	print("hold")
 	label_layer.spawn_result(LabelLayer.ResultType.HOLD)
 	
-	add_score(SCORE_TABLE[2])
-	add_combo()
-	
 	note_queue[0].queue_free()
 	note_queue.pop_front() 
 
@@ -347,27 +328,6 @@ func _on_hold() -> void:
 func _on_rapid() -> void:
 	print("rapid")
 	label_layer.spawn_result(LabelLayer.ResultType.RAPID)
-	
-	add_score(SCORE_TABLE[3])
-	add_combo()
-
-
-"""算分计数工具方法"""
-func add_combo() -> void:
-	current_combo += 1
-	if current_combo > max_combo:
-		max_combo = current_combo
-	
-	combo_changed.emit(current_combo)
-
-
-func reset_combo() -> void:
-	current_combo = 0
-	combo_changed.emit(current_combo)
-
-func add_score(value: int) -> void:
-	score += value
-	score_changed.emit(score)
 
 
 """
@@ -412,12 +372,13 @@ func _on_finish() -> void:
 	print("音乐播放结束，进入结算阶段")
 	game_state = GameState.FINISHED # 音乐播放结束，倒计时前
 	await get_tree().create_timer(3).timeout
-	print("最终分数:", score)
-	print("最大连段:", max_combo)
-	GameManager.last_result = {
-		"score": score,
-		"max_combo": max_combo
-	}
+	print("====== GameResult ======")
+	print("score:", game_result.score)
+	print("max combo:", game_result.max_combo)
+	print("perfect:", game_result.perfect_count)
+	print("great:", game_result.great_count)
+	print("miss:", game_result.miss_count)
+	GameManager.last_result = game_result
 	get_tree().change_scene_to_file("res://Scene/UI/result_scene.tscn")
 
 

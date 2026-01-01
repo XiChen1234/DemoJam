@@ -11,7 +11,7 @@ var language: Language = Language.简体中文
 # 关卡数据
 var selected_level: LevelData
 # 结算得分数据
-var last_result: Variant = {}
+var last_result: GameResult = null
 
 # 测试用，后删
 var test_mode: bool = false
