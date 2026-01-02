@@ -1,22 +1,44 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnj712qutgfga"]
+[gd_scene load_steps=38 format=3 uid="uid://cnj712qutgfga"]
 
 [ext_resource type="Texture2D" uid="uid://bsit0klc3d5lm" path="res://Assert/Art/bg.jpg" id="1_3v414"]
 [ext_resource type="Script" uid="uid://bp88toblt22gs" path="res://Scene/UI/select_level.gd" id="1_m2mi7"]
 [ext_resource type="Script" uid="uid://mwhtkaib0nas" path="res://Script/Resource/level_data.gd" id="2_8gpvu"]
 [ext_resource type="Texture2D" uid="uid://dbqmph667j0i4" path="res://Assert/Art/Level/back_1.png" id="3_hlxyf"]
 [ext_resource type="Resource" uid="uid://d1eg4udruwtkm" path="res://Levels/level_1/level_1.tres" id="3_m0wnd"]
-[ext_resource type="Texture2D" uid="uid://643nbtw7krsb" path="res://Assert/Art/Level/eden_colour.png" id="3_o6m8l"]
+[ext_resource type="Texture2D" uid="uid://8ycwo7rwd7b6" path="res://Assert/Art/Level/eden_colour.png" id="3_o6m8l"]
 [ext_resource type="Resource" uid="uid://bpmkq13nn4w8k" path="res://Levels/level_2/level_2.tres" id="4_7q7qn"]
 [ext_resource type="Texture2D" uid="uid://rqtbqivpd45a" path="res://Assert/Art/Level/back_2.png" id="4_o1gjo"]
 [ext_resource type="Resource" uid="uid://53na385x8sxn" path="res://Levels/level_3/level_3.tres" id="5_xn4o6"]
 [ext_resource type="Resource" uid="uid://dm7twd65lntfm" path="res://Levels/level_4/level_4.tres" id="6_7ju3u"]
 [ext_resource type="Resource" uid="uid://5xc8nalgjfb2" path="res://Levels/level_5/level_5.tres" id="7_2de1q"]
-[ext_resource type="Texture2D" uid="uid://bprymgmoseqg1" path="res://Assert/Art/Level/heaven_colour.png" id="9_8gpvu"]
-[ext_resource type="Texture2D" uid="uid://b8k18oqmyafxd" path="res://Assert/Art/Level/Ark_colour.png" id="12_vejve"]
-[ext_resource type="Texture2D" uid="uid://d2sdqqfm7fnkp" path="res://Assert/Art/Level/acheron_colour.png" id="15_7ju3u"]
-[ext_resource type="Texture2D" uid="uid://cllvv7ncs6i3b" path="res://Assert/Art/Level/world_colour.png" id="18_2oq30"]
+[ext_resource type="Texture2D" uid="uid://do4nd17e2vfbq" path="res://Assert/Art/Level/heaven_colour.png" id="9_8gpvu"]
+[ext_resource type="PackedScene" uid="uid://bjsacrjtwl12g" path="res://Scene/UI/level_button.tscn" id="11_8gpvu"]
+[ext_resource type="Texture2D" uid="uid://dyh0sfv5r51yb" path="res://Assert/Art/Level/unlocked.png" id="12_m0wnd"]
+[ext_resource type="Texture2D" uid="uid://vywaqmtmlyv1" path="res://Assert/Art/Level/eden_black.png" id="12_vuaww"]
+[ext_resource type="Texture2D" uid="uid://27j225jy6oor" path="res://Assert/Art/Level/eden_tick.png" id="13_2hoeh"]
+[ext_resource type="Texture2D" uid="uid://dctm6yj7gto8c" path="res://Assert/Art/Level/heaven_beforeclick.png" id="14_xn4o6"]
+[ext_resource type="Texture2D" uid="uid://ciffq4tosgir6" path="res://Assert/Art/Level/heaven_touch.png" id="15_7ju3u"]
+[ext_resource type="Texture2D" uid="uid://cgnceq38dm66q" path="res://Assert/Art/Level/eden_beforeclick.png" id="15_x7sv3"]
+[ext_resource type="Texture2D" uid="uid://xc8jc6ewwpyh" path="res://Assert/Art/Level/heaven_tick.png" id="16_2de1q"]
+[ext_resource type="Texture2D" uid="uid://dh1e1mow7hi5g" path="res://Assert/Art/Level/eden_touch.png" id="16_yvu8w"]
+[ext_resource type="Texture2D" uid="uid://dalcwsqoajx2y" path="res://Assert/Art/Level/ark_black.png" id="17_8or8t"]
+[ext_resource type="Texture2D" uid="uid://f0w3nryk44mc" path="res://Assert/Art/Level/heaven_black.png" id="18_0gntk"]
+[ext_resource type="Texture2D" uid="uid://dmdae6vlgtfj1" path="res://Assert/Art/Level/world_colour.png" id="18_2oq30"]
+[ext_resource type="Texture2D" uid="uid://brrsfkbggnoex" path="res://Assert/Art/Level/ark_colour.png" id="18_ea4vs"]
+[ext_resource type="Texture2D" uid="uid://bprcwbpd3oxaa" path="res://Assert/Art/Level/ark_beforeclick.png" id="19_ya6r5"]
+[ext_resource type="Texture2D" uid="uid://dlx5xs820qtc5" path="res://Assert/Art/Level/ark_touch.png" id="20_e78f1"]
+[ext_resource type="Texture2D" uid="uid://c3vck6ou4h35t" path="res://Assert/Art/Level/ark_tick.png" id="21_yb5fx"]
+[ext_resource type="Texture2D" uid="uid://btw70a5iymeal" path="res://Assert/Art/Level/acheron_black.png" id="22_mxb1q"]
+[ext_resource type="Texture2D" uid="uid://bkbguyleqk1l8" path="res://Assert/Art/Level/acheron_colour.png" id="23_6272w"]
+[ext_resource type="Texture2D" uid="uid://5qrjuee7lgcq" path="res://Assert/Art/Level/acheron_beforeclick.png" id="24_hhef5"]
+[ext_resource type="Texture2D" uid="uid://cmvhqjr73d37f" path="res://Assert/Art/Level/acheron_touch.png" id="25_20t07"]
+[ext_resource type="Texture2D" uid="uid://cjikvpsckcvyd" path="res://Assert/Art/Level/acheron_tick.png" id="26_wf6vr"]
+[ext_resource type="Texture2D" uid="uid://dxnsmo5tyu0dy" path="res://Assert/Art/Level/world_black.png" id="27_0ri4t"]
+[ext_resource type="Texture2D" uid="uid://cdplyw6tc0a0d" path="res://Assert/Art/Level/world_beforeclick.png" id="29_3nciu"]
+[ext_resource type="Texture2D" uid="uid://byykcj864o0v2" path="res://Assert/Art/Level/world_touch.png" id="30_8sqoj"]
+[ext_resource type="Texture2D" uid="uid://baewf8lwnmj7t" path="res://Assert/Art/Level/world_tick.png" id="31_iitov"]
 
-[node name="SelectLevel" type="Control"]
+[node name="SelectLevel" type="Control" node_paths=PackedStringArray("level_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m2mi7")
 level_data = Array[ExtResource("2_8gpvu")]([ExtResource("3_m0wnd"), ExtResource("4_7q7qn"), ExtResource("5_xn4o6"), ExtResource("6_7ju3u"), ExtResource("7_2de1q")])
+level_button = [NodePath("HBoxContainer/LevelButton"), NodePath("HBoxContainer/LevelButton2"), NodePath("HBoxContainer/LevelButton3"), NodePath("HBoxContainer/LevelButton4"), NodePath("HBoxContainer/LevelButton5")]
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -55,29 +78,54 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="TextureRect" type="TextureButton" parent="HBoxContainer"]
+[node name="LevelButton" parent="HBoxContainer" instance=ExtResource("11_8gpvu")]
 layout_mode = 2
-texture_normal = ExtResource("3_o6m8l")
+icon_locked = ExtResource("12_vuaww")
+icon_unlock = ExtResource("3_o6m8l")
+name_locked = ExtResource("12_m0wnd")
+name_unlock = ExtResource("15_x7sv3")
+name_click = ExtResource("16_yvu8w")
+tick_mark = ExtResource("13_2hoeh")
+level_data = ExtResource("3_m0wnd")
 
-[node name="TextureRect2" type="TextureButton" parent="HBoxContainer"]
+[node name="LevelButton2" parent="HBoxContainer" instance=ExtResource("11_8gpvu")]
 layout_mode = 2
-texture_normal = ExtResource("9_8gpvu")
+icon_locked = ExtResource("18_0gntk")
+icon_unlock = ExtResource("9_8gpvu")
+name_locked = ExtResource("12_m0wnd")
+name_unlock = ExtResource("14_xn4o6")
+name_click = ExtResource("15_7ju3u")
+tick_mark = ExtResource("16_2de1q")
+level_data = ExtResource("4_7q7qn")
 
-[node name="TextureRect3" type="TextureButton" parent="HBoxContainer"]
+[node name="LevelButton3" parent="HBoxContainer" instance=ExtResource("11_8gpvu")]
 layout_mode = 2
-texture_normal = ExtResource("12_vejve")
+icon_locked = ExtResource("17_8or8t")
+icon_unlock = ExtResource("18_ea4vs")
+name_locked = ExtResource("12_m0wnd")
+name_unlock = ExtResource("19_ya6r5")
+name_click = ExtResource("20_e78f1")
+tick_mark = ExtResource("21_yb5fx")
+level_data = ExtResource("5_xn4o6")
 
-[node name="TextureRect4" type="TextureButton" parent="HBoxContainer"]
+[node name="LevelButton4" parent="HBoxContainer" instance=ExtResource("11_8gpvu")]
 layout_mode = 2
-texture_normal = ExtResource("15_7ju3u")
+icon_locked = ExtResource("22_mxb1q")
+icon_unlock = ExtResource("23_6272w")
+name_locked = ExtResource("12_m0wnd")
+name_unlock = ExtResource("24_hhef5")
+name_click = ExtResource("25_20t07")
+tick_mark = ExtResource("26_wf6vr")
+level_data = ExtResource("6_7ju3u")
 
-[node name="TextureRect5" type="TextureButton" parent="HBoxContainer"]
+[node name="LevelButton5" parent="HBoxContainer" instance=ExtResource("11_8gpvu")]
 layout_mode = 2
-texture_normal = ExtResource("18_2oq30")
+icon_locked = ExtResource("27_0ri4t")
+icon_unlock = ExtResource("18_2oq30")
+name_locked = ExtResource("12_m0wnd")
+name_unlock = ExtResource("29_3nciu")
+name_click = ExtResource("30_8sqoj")
+tick_mark = ExtResource("31_iitov")
+level_data = ExtResource("7_2de1q")
 
 [connection signal="pressed" from="Back" to="." method="_on_back"]
-[connection signal="pressed" from="HBoxContainer/TextureRect" to="." method="_on_level_select" binds= [0]]
-[connection signal="pressed" from="HBoxContainer/TextureRect2" to="." method="_on_level_select" binds= [1]]
-[connection signal="pressed" from="HBoxContainer/TextureRect3" to="." method="_on_level_select" binds= [2]]
-[connection signal="pressed" from="HBoxContainer/TextureRect4" to="." method="_on_level_select" binds= [3]]
-[connection signal="pressed" from="HBoxContainer/TextureRect5" to="." method="_on_level_select" binds= [4]]

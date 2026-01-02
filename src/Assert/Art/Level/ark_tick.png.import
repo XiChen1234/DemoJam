@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmyywvi7ujtcx"
-path="res://.godot/imported/eden_colour_chosen.png-83aea4be124c2975538e4adbe6e98fdc.ctex"
+uid="uid://c3vck6ou4h35t"
+path="res://.godot/imported/ark_tick.png-f3ffe122e65e15bce5c0b4dc7ec87edc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/Level/eden_colour_chosen.png"
-dest_files=["res://.godot/imported/eden_colour_chosen.png-83aea4be124c2975538e4adbe6e98fdc.ctex"]
+source_file="res://Assert/Art/Level/ark_tick.png"
+dest_files=["res://.godot/imported/ark_tick.png-f3ffe122e65e15bce5c0b4dc7ec87edc.ctex"]
 
 [params]
 

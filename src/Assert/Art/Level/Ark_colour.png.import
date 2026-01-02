@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8k18oqmyafxd"
-path="res://.godot/imported/Ark_colour.png-38ba675b0fcc9e38074ffa3c9de43153.ctex"
+uid="uid://brrsfkbggnoex"
+path="res://.godot/imported/ark_colour.png-bdd93f7806cf778bd0bec8da1529ca74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/Level/Ark_colour.png"
-dest_files=["res://.godot/imported/Ark_colour.png-38ba675b0fcc9e38074ffa3c9de43153.ctex"]
+source_file="res://Assert/Art/Level/ark_colour.png"
+dest_files=["res://.godot/imported/ark_colour.png-bdd93f7806cf778bd0bec8da1529ca74.ctex"]
 
 [params]
 

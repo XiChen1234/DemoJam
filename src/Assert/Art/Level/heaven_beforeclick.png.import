@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxnsmo5tyu0dy"
-path="res://.godot/imported/world_black.png-367a5b450f91c91841797f66972252c2.ctex"
+uid="uid://dctm6yj7gto8c"
+path="res://.godot/imported/heaven_beforeclick.png-d64f63e1415ef6e24a15f48a2e9e76ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/Level/world_black.png"
-dest_files=["res://.godot/imported/world_black.png-367a5b450f91c91841797f66972252c2.ctex"]
+source_file="res://Assert/Art/Level/heaven_beforeclick.png"
+dest_files=["res://.godot/imported/heaven_beforeclick.png-d64f63e1415ef6e24a15f48a2e9e76ad.ctex"]
 
 [params]
 

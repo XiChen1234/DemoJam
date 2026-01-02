@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1qps783kk0by"
-path="res://.godot/imported/heaven_colour_chosen.png-cf266270bfd763eaca3f7b7aec0e006c.ctex"
+uid="uid://cdplyw6tc0a0d"
+path="res://.godot/imported/world_beforeclick.png-407dfde2844b0a5cec902e6cdde37520.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/Level/heaven_colour_chosen.png"
-dest_files=["res://.godot/imported/heaven_colour_chosen.png-cf266270bfd763eaca3f7b7aec0e006c.ctex"]
+source_file="res://Assert/Art/Level/world_beforeclick.png"
+dest_files=["res://.godot/imported/world_beforeclick.png-407dfde2844b0a5cec902e6cdde37520.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 extends Resource
 class_name PlayerProgress
 
-@export var unlock_level: int = 0 # 已解锁id
+@export var done_level: int = -1 # 已通关id
 @export var score_history: Array = []

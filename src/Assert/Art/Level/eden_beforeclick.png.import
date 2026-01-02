@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctavaxpmbjeq4"
-path="res://.godot/imported/acheron_colour_chosen.png-d080568df15f34a1260f3beb7e01edab.ctex"
+uid="uid://cgnceq38dm66q"
+path="res://.godot/imported/eden_beforeclick.png-578e2719af10bc2cd2b65f04294e12f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/Level/acheron_colour_chosen.png"
-dest_files=["res://.godot/imported/acheron_colour_chosen.png-d080568df15f34a1260f3beb7e01edab.ctex"]
+source_file="res://Assert/Art/Level/eden_beforeclick.png"
+dest_files=["res://.godot/imported/eden_beforeclick.png-578e2719af10bc2cd2b65f04294e12f9.ctex"]
 
 [params]
 

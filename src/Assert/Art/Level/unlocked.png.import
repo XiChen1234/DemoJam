@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tgj6s4yy068r"
-path="res://.godot/imported/world_colour_chosen.png-ac020dcab8d3126dda27e3827754f2ad.ctex"
+uid="uid://dyh0sfv5r51yb"
+path="res://.godot/imported/unlocked.png-d842b4cec3c27dd082c505b339f6f1f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/Level/world_colour_chosen.png"
-dest_files=["res://.godot/imported/world_colour_chosen.png-ac020dcab8d3126dda27e3827754f2ad.ctex"]
+source_file="res://Assert/Art/Level/unlocked.png"
+dest_files=["res://.godot/imported/unlocked.png-d842b4cec3c27dd082c505b339f6f1f4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdn3ilagkb6vv"
-path="res://.godot/imported/Ark_colour_chosen.png-26c005725a5b8952831268b29b6d2a26.ctex"
+uid="uid://xc8jc6ewwpyh"
+path="res://.godot/imported/heaven_tick.png-2f137be4d8f636e58ceab302df4dca6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/Level/Ark_colour_chosen.png"
-dest_files=["res://.godot/imported/Ark_colour_chosen.png-26c005725a5b8952831268b29b6d2a26.ctex"]
+source_file="res://Assert/Art/Level/heaven_tick.png"
+dest_files=["res://.godot/imported/heaven_tick.png-2f137be4d8f636e58ceab302df4dca6a.ctex"]
 
 [params]
 

@@ -31,8 +31,9 @@ func _ready() -> void:
 
 """提交存档数据"""
 func commit_result() -> void:
-	var level_id: int = selected_level.level_id
-	if level_id == player_progress.unlock_level:
-		player_progress.unlock_level += 1
+	var level_id: int = selected_level.level_id # 当前关卡的id
+	# 判定条件：当前关卡id是已通关id的下一个，即当前id设置为已通关
+	if level_id == player_progress.done_level + 1:
+		player_progress.done_level = level_id
 	
 	ResourceSaver.save(player_progress, SAVE_PATH)

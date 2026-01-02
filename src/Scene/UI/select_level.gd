@@ -1,22 +1,21 @@
 extends Control
 
 @export var level_data: Array[LevelData]
-
+@export var level_button: Array[LevelButton]
+ 
 
 func _ready() -> void:
-	var unlock_level: int = GameManager.player_progress.unlock_level
-	for i in range(level_data.size()):
-		var state: bool = i <= unlock_level
-		_set_state(i, state)
-
-
-"""
-设置按钮状态
-- i: 需要设置的关卡id
-- state: 关卡状态，true表示解锁，false表示未解锁
-"""
-func _set_state(i: int, state: bool) -> void:
-	level_data[i].is_unlock = state
+	var done_level = GameManager.player_progress.done_level
+	for i in range(level_button.size()):
+		var button: LevelButton = level_button[i]
+		if i <= done_level:
+			button.set_state(LevelButton.State.DONE)
+		elif i == done_level + 1:
+			button.set_state(LevelButton.State.UNLOCKED)
+		else: 
+			button.set_state(LevelButton.State.LOCKED)
+		# 绑定按钮发来的点击事件信号
+		button.select_level.connect(_on_level_select)
 
 
 func _on_back() -> void:

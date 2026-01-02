@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_un4cn")
+level_id = 4
 level_name = "World"
 json_path = "res://Levels/level_5/timeline.json"
 music_path = "uid://dqk5y4ugtrbui"
