@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3kbyuqkj233k"]
+[gd_scene load_steps=9 format=3 uid="uid://c3kbyuqkj233k"]
 
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_4fysm"]
 [ext_resource type="Script" uid="uid://d4lqp3foc1nwf" path="res://Scene/UI/result_scene.gd" id="2_ggrue"]
+[ext_resource type="Texture2D" uid="uid://cjp4555s6y0ve" path="res://Assert/Art/Result/bg.png" id="3_wixrn"]
+[ext_resource type="Texture2D" uid="uid://42qqacnksy5s" path="res://Assert/Art/Result/eden.png" id="4_iird6"]
+[ext_resource type="Texture2D" uid="uid://te5j7iu7wy36" path="res://Assert/Art/Result/S.png" id="5_xlo4b"]
+[ext_resource type="Texture2D" uid="uid://de4fai7xasqs3" path="res://Assert/Art/Result/Lightingeffects.png" id="6_4t4kr"]
+[ext_resource type="Texture2D" uid="uid://bbkqsdbvsafxy" path="res://Assert/Art/Result/next_beforeclick.png" id="7_ldgxg"]
+[ext_resource type="Texture2D" uid="uid://vplomhcn1xql" path="res://Assert/Art/Result/next_afterclick.png" id="8_iegdh"]
 
 [node name="ResultScene" type="Control"]
 layout_mode = 3
@@ -13,102 +19,238 @@ grow_vertical = 2
 theme = ExtResource("1_4fysm")
 script = ExtResource("2_ggrue")
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wixrn")
+
+[node name="Card" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -300.0
-offset_right = 116.0
-offset_bottom = -228.54166
+offset_left = -570.0
+offset_top = -240.0
+offset_right = 570.0
+offset_bottom = 390.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Score: --"
 
-[node name="ComboLabel" type="Label" parent="."]
+[node name="CardBackground" type="TextureRect" parent="Card"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -142.5
-offset_top = -220.27084
-offset_right = 142.5
-offset_bottom = -132.77084
+offset_left = -608.0
+offset_top = -342.0
+offset_right = 608.0
+offset_bottom = 342.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Combo: --"
+texture = ExtResource("4_iird6")
 
-[node name="PerfectLabel" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Card"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -53.0
+offset_bottom = 53.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Card/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Card/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.60784316, 0.60784316, 0.60784316, 1)
+theme_override_font_sizes/font_size = 50
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Card/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "114514"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Card/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Card/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.60784316, 0.60784316, 0.60784316, 1)
+theme_override_font_sizes/font_size = 50
+text = "Combo: "
+vertical_alignment = 1
+
+[node name="ComboLabel" type="Label" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "45"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Line" type="ColorRect" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Card/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.60784316, 0.60784316, 0.60784316, 1)
+theme_override_font_sizes/font_size = 50
+text = "Perfect: "
+vertical_alignment = 1
+
+[node name="PerfectLabel" type="Label" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "45"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Line2" type="ColorRect" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Card/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.60784316, 0.60784316, 0.60784316, 1)
+theme_override_font_sizes/font_size = 50
+text = "Great: "
+vertical_alignment = 1
+
+[node name="GreatLabel" type="Label" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "45"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Line3" type="ColorRect" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer4"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Card/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer5/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.60784316, 0.60784316, 0.60784316, 1)
+theme_override_font_sizes/font_size = 50
+text = "Miss: "
+vertical_alignment = 1
+
+[node name="MissLabel" type="Label" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer5/HBoxContainer4"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "45"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Line4" type="ColorRect" parent="Card/VBoxContainer/VBoxContainer2/VBoxContainer5"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+
+[node name="RankControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 172.0
+offset_right = 20.0
+offset_bottom = 212.0
+grow_horizontal = 2
+
+[node name="Lighting" type="TextureRect" parent="RankControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -142.5
-offset_top = -140.0
-offset_right = 142.5
-offset_bottom = -52.5
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 500.0
+offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Perfect: --"
+pivot_offset = Vector2(500, 500)
+texture = ExtResource("6_4t4kr")
 
-[node name="GreatLabel" type="Label" parent="."]
+[node name="RankRect" type="TextureRect" parent="RankControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -142.5
-offset_top = -63.0
-offset_right = 142.5
-offset_bottom = 24.5
+offset_left = -272.0
+offset_top = -272.5
+offset_right = 272.0
+offset_bottom = 272.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Great: --"
+texture = ExtResource("5_xlo4b")
 
-[node name="MissLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -142.0
-offset_top = 44.0
-offset_right = 142.0
-offset_bottom = 131.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Miss: --"
-
-[node name="RankLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -791.0
-offset_top = 9.0
-offset_right = -507.0
-offset_bottom = 96.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Rank: --"
-
-[node name="NextButton" type="Button" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 844.0
-offset_top = 933.0
-offset_right = 1075.0
-offset_bottom = 1051.0
-text = "next"
+offset_left = 1630.0
+offset_top = 935.0
+offset_right = 1670.0
+offset_bottom = 975.0
+texture_normal = ExtResource("7_ldgxg")
+texture_pressed = ExtResource("8_iegdh")
+texture_hover = ExtResource("8_iegdh")
 
-[connection signal="pressed" from="NextButton" to="." method="_on_next"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_next"]

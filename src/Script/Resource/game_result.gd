@@ -1,6 +1,9 @@
 extends Resource
 class_name GameResult
 
+signal score_changed(score: int)
+signal combo_changed(current_combo: int)
+
 const SCORE_TABLE: Array[int] = [
 	1000,	# perfect
 	500,	# great
@@ -45,6 +48,9 @@ func apply_judge_result(result: Judge.JudgeResult) -> void:
 		Judge.JudgeResult.RAPID_HIT:
 			score += SCORE_TABLE[3]
 			_add_combo()
+	
+	score_changed.emit(score)
+	combo_changed.emit(current_combo)
 
 func _add_combo() -> void:
 	current_combo += 1

@@ -49,20 +49,14 @@ func _ready() -> void:
 		load_level_data(level_data.json_path)
 		load_music(level_data.music_path)
 	
-	# 2. 关卡初始化：连接信号，设置进度条，初始化关卡得分相关值
-	connect_signal()
+	# 2. 关卡初始化：设置进度条，初始化关卡得分相关值，连接信号
 	texture_progress_bar.min_value = 0
 	texture_progress_bar.max_value = audio_stream_player.stream.get_length()
-	
 	game_result = GameResult.new()
+	connect_signal()
 
 	# 3. 最后才开始倒计时
 	start_countdown()
-
-
-"""测试用跳过音游的按钮"""
-func _on_test_skip():
-	get_tree().change_scene_to_file("res://Scene/UI/result_scene.tscn")
 
 
 func _process(_delta: float) -> void:
@@ -121,6 +115,9 @@ func connect_signal() -> void:
 	judge.note_perfect.connect(_on_perfect)
 	judge.rapid_hit.connect(_on_rapid)
 	judge.note_hold.connect(_on_hold)
+	"""显示UI的信号"""
+	game_result.score_changed.connect(_on_score_changed)
+	game_result.combo_changed.connect(_on_combo_changed)
 
 
 """连接音符信号（创建后连接）"""
@@ -131,14 +128,14 @@ func connect_note_signal(note: BaseNote) -> void:
 
 
 """Score和Combo的UI更新代码"""
-func _on_score_changed() -> void:
-	score_label.text = "Score: %07d" % game_result.score
+func _on_score_changed(score: int) -> void:
+	score_label.text = "Score: %07d" % score
 
 
 func _on_combo_changed(current: int) -> void:
 	if current > 0:
 		combo_label.visible = true
-		combo_label.text = "%d x Combo" % game_result.current_combo
+		combo_label.text = "%d x Combo" % current
 	else:
 		combo_label.visible = false
 
@@ -245,6 +242,7 @@ func _handle_judge_result(result: Judge.JudgeResult) -> void:
 	
 	# 进入得分系统
 	game_result.apply_judge_result(result)
+	
 	
 	match result:
 		Judge.JudgeResult.NONE:
