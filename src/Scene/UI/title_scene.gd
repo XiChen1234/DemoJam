@@ -59,8 +59,10 @@ func _on_options() -> void:
 	match config.language:
 		PlayerConfig.Language.EN:
 			button_en.button_pressed = true
+			TranslationServer.set_locale("en")
 		PlayerConfig.Language.ZH_CN:
 			button_zh_cn.button_pressed = true
+			TranslationServer.set_locale("zh_CN")
 
 
 """退出按钮"""
@@ -79,7 +81,6 @@ func _on_back() -> void:
 
 """设置界面的配置控件"""
 func _on_volume_change(value: float) -> void:
-	print(value)
 	var v: float = value / 100
 	GameManager.player_config.volume = v
 	AudioServer.set_bus_volume_db(
@@ -89,7 +90,6 @@ func _on_volume_change(value: float) -> void:
 
 
 func _on_language_changed(language: int) -> void:
-	print(language)
 	match language:
 		0:
 			GameManager.player_config.language = PlayerConfig.Language.EN

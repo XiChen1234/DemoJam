@@ -86,13 +86,13 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_constants/h_separation = 30
+theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 20
 columns = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
 layout_mode = 2
-text = "Volume: "
+text = "VOLUME"
 horizontal_alignment = 2
 
 [node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
@@ -103,7 +103,7 @@ step = 10.0
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
 layout_mode = 2
-text = "Language: "
+text = "LANGUAGE"
 horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]

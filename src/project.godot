@@ -49,6 +49,10 @@ pause={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assert/i18n/ui.en.translation", "res://Assert/i18n/ui.zh_CN.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

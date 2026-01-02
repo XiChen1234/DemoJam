@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dlgppv5icdtf"
+
+[deps]
+
+files=["res://Assert/i18n/ui.en.translation", "res://Assert/i18n/ui.zh_CN.translation"]
+
+source_file="res://Assert/i18n/ui.csv"
+dest_files=["res://Assert/i18n/ui.en.translation", "res://Assert/i18n/ui.zh_CN.translation"]
+
+[params]
+
+compress=true
+delimiter=0
