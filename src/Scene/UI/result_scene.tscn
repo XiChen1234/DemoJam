@@ -207,9 +207,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 172.0
+offset_top = 273.0
 offset_right = 20.0
-offset_bottom = 212.0
+offset_bottom = 313.0
 grow_horizontal = 2
 
 [node name="Lighting" type="TextureRect" parent="RankControl"]

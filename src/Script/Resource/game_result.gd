@@ -4,13 +4,13 @@ class_name GameResult
 signal score_changed(score: int)
 signal combo_changed(current_combo: int)
 
+"""算分相关"""
 const SCORE_TABLE: Array[int] = [
 	1000,	# perfect
 	500,	# great
 	800,	# hold
 	50		# rapid
 ]
-
 var score: int = 0
 
 var current_combo: int = 0
@@ -19,6 +19,40 @@ var max_combo: int = 0
 var perfect_count: int = 0
 var great_count: int = 0
 var miss_count: int = 0
+
+"""评级相关"""
+enum Rank {
+	S,
+	A,
+	B,
+	DEFEAT
+}
+var rank: Rank = Rank.DEFEAT
+
+
+"""计算评级函数"""
+func calculate_rank() -> Rank:
+	var total_notes: int = perfect_count + great_count + miss_count
+
+	if total_notes == 0:
+		return Rank.DEFEAT
+
+	var accuracy: float = float(perfect_count * 2 + great_count) \
+		/ float(total_notes * 2)
+
+	if accuracy >= 0.95:
+		return Rank.S
+	elif accuracy >= 0.85:
+		return Rank.A
+	elif accuracy >= 0.60:
+		return Rank.B
+	else:
+		return Rank.DEFEAT
+
+
+func is_cleared() -> bool:
+	return rank != Rank.DEFEAT
+
 
 """
 判定结果计数方法

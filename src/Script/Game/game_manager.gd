@@ -20,8 +20,18 @@ func _ready() -> void:
 
 """提交存档数据"""
 func commit_result() -> void:
-	var level_id: int = selected_level.level_id # 当前关卡的id
-	# 判定条件：当前关卡id是已通关id的下一个，即当前id设置为已通关
+	# ① 没有结算结果，直接返回（安全兜底）
+	if last_result == null:
+		ResourceSaver.save(player_config, SAVE_PATH)
+		return
+	
+	# ② 本关失败，不解锁下一关
+	if not last_result.is_cleared():
+		ResourceSaver.save(player_config, SAVE_PATH)
+		return
+	
+	# ③ 本关通过，尝试解锁
+	var level_id: int = selected_level.level_id
 	if level_id == player_config.done_level + 1:
 		player_config.done_level = level_id
 	

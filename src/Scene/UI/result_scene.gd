@@ -1,13 +1,10 @@
 extends Control
 
-enum Rank {
-	S, A, B, DEFEAT
-}
-const RankTexture: Dictionary[Rank, Texture] = {
-	Rank.S: preload("res://Assert/Art/Result/S.png"),
-	Rank.A: preload("res://Assert/Art/Result/A.png"),
-	Rank.B: preload("res://Assert/Art/Result/B.png"),
-	Rank.DEFEAT: preload("res://Assert/Art/Result/defeat.png"),
+const RankTexture: Dictionary[GameResult.Rank, Texture] = {
+	GameResult.Rank.S: preload("res://Assert/Art/Result/S.png"),
+	GameResult.Rank.A: preload("res://Assert/Art/Result/A.png"),
+	GameResult.Rank.B: preload("res://Assert/Art/Result/B.png"),
+	GameResult.Rank.DEFEAT: preload("res://Assert/Art/Result/defeat.png"),
 }
 
 @onready var score_label: Label = $Card/VBoxContainer/VBoxContainer/ScoreLabel
@@ -41,32 +38,10 @@ func _render_result(result: GameResult) -> void:
 	great_label.text = str(result.great_count)
 	miss_label.text = str(result.miss_count)
 	
-	var rank = _calculate_rank(result)
-	rank_rect.texture = RankTexture[rank]
-	if rank == Rank.DEFEAT:
-		lighting.visible = false
+	rank_rect.texture = RankTexture[result.rank]
+	lighting.visible = result.rank != GameResult.Rank.DEFEAT
 
 
-"""计算评级函数"""
-func _calculate_rank(result: GameResult) -> Rank:
-	var total_notes := result.perfect_count \
-		+ result.great_count \
-		+ result.miss_count
-
-	if total_notes == 0:
-		return Rank.DEFEAT
-
-	var accuracy := float(result.perfect_count * 2 + result.great_count) \
-		/ float(total_notes * 2)
-
-	if accuracy >= 0.95:
-		return Rank.S
-	elif accuracy >= 0.85:
-		return Rank.A
-	elif accuracy >= 0.60:
-		return Rank.B
-	else:
-		return Rank.DEFEAT
 
 
 """rank的动效"""

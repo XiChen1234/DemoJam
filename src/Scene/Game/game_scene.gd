@@ -378,6 +378,7 @@ func _on_finish() -> void:
 	print("perfect:", game_result.perfect_count)
 	print("great:", game_result.great_count)
 	print("miss:", game_result.miss_count)
+	game_result.calculate_rank()
 	GameManager.last_result = game_result
 	get_tree().change_scene_to_file("res://Scene/UI/result_scene.tscn")
 
