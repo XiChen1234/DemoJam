@@ -14,11 +14,6 @@ var selected_level: LevelData
 # 结算得分数据
 var last_result: GameResult = null
 
-# 测试用，后删
-var test_mode: bool = false
-var json_path: String = ""
-var music_path: String = ""
-
 const SAVE_PATH := "user://save_game.tres"
 
 func _ready() -> void:

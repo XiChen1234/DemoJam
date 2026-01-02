@@ -1,6 +1,7 @@
 extends Control
 
 # 界面组件
+@onready var background: TextureRect = $Background
 @onready var cat: Cat = $InputFeedback/Cat
 @onready var input_feedback: InputFeedback = $InputFeedback
 @onready var note_track: Panel = $NoteTrack
@@ -32,22 +33,13 @@ enum GameState {
 }
 var game_state: GameState = GameState.COUNTDOWN
 
-# 测试数据
-var test_json_path: String
-var test_music_path: String
-
 
 func _ready() -> void:
 	# 1. 加载关卡 & 音符
-	if GameManager.test_mode:
-		print("进入测试模式")
-		load_level_data(GameManager.json_path)
-		audio_stream_player.stream = AudioStreamOggVorbis.load_from_file(GameManager.music_path)
-		GameManager.test_mode = false
-	else:
-		level_data = GameManager.selected_level
-		load_level_data(level_data.json_path)
-		load_music(level_data.music_path)
+	level_data = GameManager.selected_level
+	background.texture = level_data.background
+	load_level_data(level_data.json_path)
+	load_music(level_data.music_path)
 	
 	# 2. 关卡初始化：设置进度条，初始化关卡得分相关值，连接信号
 	texture_progress_bar.min_value = 0

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://bpmkq13nn4w8k"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://bpmkq13nn4w8k"]
 
+[ext_resource type="Texture2D" uid="uid://dwfbm822o3cqr" path="res://Assert/Art/Background/heaven.png" id="1_yhii6"]
 [ext_resource type="Script" uid="uid://mwhtkaib0nas" path="res://Script/Resource/level_data.gd" id="1_yrx7h"]
 
 [resource]
 script = ExtResource("1_yrx7h")
 level_id = 1
 level_name = "Heaven"
+background = ExtResource("1_yhii6")
 json_path = "res://Levels/level_2/timeline.json"
 music_path = "uid://c3f61c0tvhrv7"
 metadata/_custom_type_script = "uid://mwhtkaib0nas"

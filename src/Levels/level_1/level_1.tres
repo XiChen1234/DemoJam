@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://d1eg4udruwtkm"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://d1eg4udruwtkm"]
 
+[ext_resource type="Texture2D" uid="uid://bk8kofmnknsrk" path="res://Assert/Art/Background/Eden.JPG" id="1_ibm6d"]
 [ext_resource type="Script" uid="uid://mwhtkaib0nas" path="res://Script/Resource/level_data.gd" id="1_jju8c"]
 
 [resource]
 script = ExtResource("1_jju8c")
 level_name = "Eden"
+background = ExtResource("1_ibm6d")
 json_path = "res://Levels/level_1/timeline.json"
 music_path = "uid://b8onp45nsgnff"
 metadata/_custom_type_script = "uid://mwhtkaib0nas"

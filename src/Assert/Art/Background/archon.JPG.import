@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvgi12sp7kcdl"
-path="res://.godot/imported/acheron.JPG-ce4478aae435c5cf9163f2b4a09dd312.ctex"
+path="res://.godot/imported/archon.JPG-226f333abfa9c5bb5467db4e6024e763.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assert/Art/Background/acheron.JPG"
-dest_files=["res://.godot/imported/acheron.JPG-ce4478aae435c5cf9163f2b4a09dd312.ctex"]
+source_file="res://Assert/Art/Background/archon.JPG"
+dest_files=["res://.godot/imported/archon.JPG-226f333abfa9c5bb5467db4e6024e763.ctex"]
 
 [params]
 
