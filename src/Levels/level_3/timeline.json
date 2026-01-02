@@ -1,0 +1,168 @@
+{
+  "timeline": [
+
+
+	{ "id":0,"name":"left_click","type":0,"timestamp":0.80,"duration":0,"speed":1800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":1.35,"duration":0,"speed":1800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":1.90,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":2.45,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":3.00,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":3.55,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":4.10,"duration":1.60,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":6.16,"duration":0,"speed":800 },  
+	{ "id":0,"name":"left_click","type":0,"timestamp":6.71,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":7.26,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":7.81,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_hold","type":3,"timestamp":8.36,"duration":1.70,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":10.52,"duration":0,"speed":800 }, 
+
+	{ "id":0,"name":"left_click","type":0,"timestamp":11.07,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":11.62,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":12.17,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":12.72,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":13.27,"duration":1.50,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":15.23,"duration":0,"speed":800 },
+
+
+	{ "id":0,"name":"rapid","type":4,"timestamp":15.60,"duration":2.00,"speed":800 },
+
+
+	{ "id":0,"name":"left_click","type":0,"timestamp":17.91,"duration":0,"speed":800 }, 
+	{ "id":0,"name":"right_click","type":1,"timestamp":18.24,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":18.57,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":18.90,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":19.23,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_hold","type":3,"timestamp":19.56,"duration":1.60,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":21.62,"duration":0,"speed":800 }, 
+
+	{ "id":0,"name":"right_click","type":1,"timestamp":21.95,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":22.28,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":22.61,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":22.94,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":23.27,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":23.60,"duration":1.70,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":25.76,"duration":0,"speed":800 }, 
+	{ "id":0,"name":"left_click","type":0,"timestamp":26.09,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":26.42,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":26.75,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":27.08,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":27.41,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_hold","type":3,"timestamp":27.74,"duration":1.50,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":29.70,"duration":0,"speed":800 }, 
+
+	{ "id":0,"name":"right_click","type":1,"timestamp":30.03,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":30.36,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":30.69,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":31.02,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":31.35,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":31.68,"duration":1.80,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":33.94,"duration":0,"speed":800 }, 
+	{ "id":0,"name":"left_click","type":0,"timestamp":34.27,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":34.60,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":34.93,"duration":0,"speed":800 },
+
+
+	{ "id":0,"name":"rapid","type":4,"timestamp":35.30,"duration":2.10,"speed":800 },
+
+	{ "id":0,"name":"left_click","type":0,"timestamp":37.71,"duration":0,"speed":800 }, 
+	{ "id":0,"name":"right_click","type":1,"timestamp":38.04,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":38.37,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":38.70,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":39.03,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_hold","type":3,"timestamp":39.36,"duration":1.60,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":41.42,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_click","type":1,"timestamp":41.75,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":42.08,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":42.41,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":42.74,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":43.07,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":43.40,"duration":1.70,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":45.56,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_click","type":0,"timestamp":45.89,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":46.22,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":46.55,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":46.88,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":47.21,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_hold","type":3,"timestamp":47.54,"duration":1.80,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":49.80,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_click","type":1,"timestamp":50.13,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":50.46,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":50.79,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":51.12,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":51.45,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":51.78,"duration":1.50,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":53.74,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_click","type":0,"timestamp":54.07,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":54.40,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":54.73,"duration":0,"speed":800 },
+
+
+	{ "id":0,"name":"rapid","type":4,"timestamp":55.10,"duration":1.90,"speed":800 },
+
+
+	{ "id":0,"name":"right_click","type":1,"timestamp":57.31,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":57.71,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":58.11,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":58.51,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_hold","type":3,"timestamp":58.91,"duration":1.60,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":60.97,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_click","type":1,"timestamp":61.37,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":61.77,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":62.17,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":62.57,"duration":1.70,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":64.73,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_click","type":0,"timestamp":65.13,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":65.53,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":65.93,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_hold","type":3,"timestamp":66.33,"duration":1.50,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":68.29,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_click","type":1,"timestamp":68.69,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":69.09,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":69.49,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":69.89,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":70.29,"duration":1.60,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":72.35,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_click","type":0,"timestamp":72.75,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":73.15,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":73.55,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":73.95,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_hold","type":3,"timestamp":74.35,"duration":1.70,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":76.51,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"right_click","type":1,"timestamp":76.91,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":77.31,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":77.71,"duration":0,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":78.11,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":78.51,"duration":0,"speed":800 },
+	{ "id":0,"name":"left_click","type":0,"timestamp":78.91,"duration":0,"speed":800 },
+
+	{ "id":0,"name":"left_hold","type":2,"timestamp":79.31,"duration":1.40,"speed":800 },
+	{ "id":0,"name":"right_click","type":1,"timestamp":81.17,"duration":0,"speed":800 },
+
+
+  ]
+}

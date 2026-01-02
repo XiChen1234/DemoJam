@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnj712qutgfga"]
+[gd_scene load_steps=16 format=3 uid="uid://cnj712qutgfga"]
 
 [ext_resource type="Texture2D" uid="uid://bsit0klc3d5lm" path="res://Assert/Art/bg.jpg" id="1_3v414"]
 [ext_resource type="Script" uid="uid://bp88toblt22gs" path="res://Scene/UI/select_level.gd" id="1_m2mi7"]
@@ -6,7 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dbqmph667j0i4" path="res://Assert/Art/Level/back_1.png" id="3_hlxyf"]
 [ext_resource type="Resource" uid="uid://d1eg4udruwtkm" path="res://Levels/level_1/level_1.tres" id="3_m0wnd"]
 [ext_resource type="Texture2D" uid="uid://643nbtw7krsb" path="res://Assert/Art/Level/eden_colour.png" id="3_o6m8l"]
+[ext_resource type="Resource" uid="uid://bpmkq13nn4w8k" path="res://Levels/level_2/level_2.tres" id="4_7q7qn"]
 [ext_resource type="Texture2D" uid="uid://rqtbqivpd45a" path="res://Assert/Art/Level/back_2.png" id="4_o1gjo"]
+[ext_resource type="Resource" uid="uid://53na385x8sxn" path="res://Levels/level_3/level_3.tres" id="5_xn4o6"]
+[ext_resource type="Resource" uid="uid://dm7twd65lntfm" path="res://Levels/level_4/level_4.tres" id="6_7ju3u"]
+[ext_resource type="Resource" uid="uid://5xc8nalgjfb2" path="res://Levels/level_5/level_5.tres" id="7_2de1q"]
 [ext_resource type="Texture2D" uid="uid://bprymgmoseqg1" path="res://Assert/Art/Level/heaven_colour.png" id="9_8gpvu"]
 [ext_resource type="Texture2D" uid="uid://b8k18oqmyafxd" path="res://Assert/Art/Level/Ark_colour.png" id="12_vejve"]
 [ext_resource type="Texture2D" uid="uid://d2sdqqfm7fnkp" path="res://Assert/Art/Level/acheron_colour.png" id="15_7ju3u"]
@@ -20,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m2mi7")
-level_data = Array[ExtResource("2_8gpvu")]([ExtResource("3_m0wnd")])
+level_data = Array[ExtResource("2_8gpvu")]([ExtResource("3_m0wnd"), ExtResource("4_7q7qn"), ExtResource("5_xn4o6"), ExtResource("6_7ju3u"), ExtResource("7_2de1q")])
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

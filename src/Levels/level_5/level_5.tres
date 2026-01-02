@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://5xc8nalgjfb2"]
+
+[ext_resource type="Script" uid="uid://mwhtkaib0nas" path="res://Script/Resource/level_data.gd" id="1_un4cn"]
+
+[resource]
+script = ExtResource("1_un4cn")
+level_name = "World"
+json_path = "res://Levels/level_5/timeline.json"
+music_path = "uid://dqk5y4ugtrbui"
+metadata/_custom_type_script = "uid://mwhtkaib0nas"

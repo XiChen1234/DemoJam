@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://53na385x8sxn"]
+
+[ext_resource type="Script" uid="uid://mwhtkaib0nas" path="res://Script/Resource/level_data.gd" id="1_yd0l1"]
+
+[resource]
+script = ExtResource("1_yd0l1")
+level_id = 2
+level_name = "Ark"
+json_path = "res://Levels/level_3/timeline.json"
+music_path = "uid://dkr3hmlps8suw"
+metadata/_custom_type_script = "uid://mwhtkaib0nas"

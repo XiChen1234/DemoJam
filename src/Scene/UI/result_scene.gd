@@ -69,6 +69,7 @@ func _calculate_rank(result: GameResult) -> Rank:
 		return Rank.DEFEAT
 
 
+"""rank的动效"""
 func _pop_in() -> void:
 	rank_control.scale = Vector2.ZERO
 	rank_control.modulate.a = 1.0
@@ -101,5 +102,7 @@ func _pop_in() -> void:
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 
+"""下一关"""
 func _on_next() -> void:
+	GameManager.commit_result()
 	get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")
