@@ -35,19 +35,8 @@ var game_state: GameState = GameState.COUNTDOWN
 
 
 func _ready() -> void:
-	# 1. 加载关卡 & 音符
-	level_data = GameManager.selected_level
-	background.texture = level_data.background
-	load_level_data(level_data.json_path)
-	load_music(level_data.music_path)
-	
-	# 2. 关卡初始化：设置进度条，初始化关卡得分相关值，连接信号
-	texture_progress_bar.min_value = 0
-	texture_progress_bar.max_value = audio_stream_player.stream.get_length()
-	game_result = GameResult.new()
-	connect_signal()
-
-	# 3. 最后才开始倒计时
+	_init_level()
+	_init_runtime()
 	start_countdown()
 
 
@@ -72,6 +61,22 @@ func _process(_delta: float) -> void:
 			ratio = 1
 	texture_progress_bar.value = value
 	gabber.position.x = texture_progress_bar.size.x * ratio - 75
+
+
+"""初始化关卡相关信息"""
+func _init_level() -> void:
+	level_data = GameManager.selected_level
+	background.texture = level_data.background
+	load_level_data(level_data.json_path)
+	load_music(level_data.music_path)
+
+
+"""初始化游戏运行态系统"""
+func _init_runtime() -> void:
+	texture_progress_bar.min_value = 0
+	texture_progress_bar.max_value = audio_stream_player.stream.get_length()
+	game_result = GameResult.new()
+	connect_signal()
 
 
 """倒计时播放"""
@@ -223,8 +228,6 @@ func _handle_judge_result(result: Judge.JudgeResult) -> void:
 	game_result.apply_judge_result(result)
 	
 	match result:
-		Judge.JudgeResult.NONE:
-			return
 		Judge.JudgeResult.MISS:
 			_on_miss()
 		Judge.JudgeResult.GREAT:
