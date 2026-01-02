@@ -109,22 +109,9 @@ func connect_signal() -> void:
 	input_controller.right_release.connect(_on_right_released)
 	input_controller.left_hold_release.connect(_on_left_hold_released)
 	input_controller.right_hold_release.connect(_on_right_hold_released)
-	"""用于判定的judge信号"""
-	judge.note_miss.connect(_on_miss)
-	judge.note_great.connect(_on_great)
-	judge.note_perfect.connect(_on_perfect)
-	judge.rapid_hit.connect(_on_rapid)
-	judge.note_hold.connect(_on_hold)
 	"""显示UI的信号"""
 	game_result.score_changed.connect(_on_score_changed)
 	game_result.combo_changed.connect(_on_combo_changed)
-
-
-"""连接音符信号（创建后连接）"""
-func connect_note_signal(note: BaseNote) -> void:
-	note.note_destroy.connect(_on_miss) # 音符自毁miss
-	if note.type == BaseNote.Type.RAPID:
-		note.rapid_destory.connect(_on_rapid_destory) # rapid自毁
 
 
 """Score和Combo的UI更新代码"""
@@ -243,7 +230,6 @@ func _handle_judge_result(result: Judge.JudgeResult) -> void:
 	# 进入得分系统
 	game_result.apply_judge_result(result)
 	
-	
 	match result:
 		Judge.JudgeResult.NONE:
 			return
@@ -338,6 +324,24 @@ func _on_rapid_destory() -> void:
 	note_queue.pop_front()
 
 
+func _on_timeout(note: BaseNote) -> void:
+	if note_queue.is_empty():
+		return
+	if note_queue[0] != note:
+		return
+	_handle_judge_result(Judge.JudgeResult.MISS)
+	
+
+
+func _on_expired(note: Rapid) -> void:
+	if note_queue.is_empty():
+		return
+	if note_queue[0] != note:
+		return
+	note.queue_free()
+	note_queue.pop_front()
+
+
 """加载关卡数据，并生成音符"""
 func load_level_data(json_path: String) -> void:
 	var file: FileAccess = FileAccess.open(json_path, FileAccess.READ)
@@ -349,7 +353,10 @@ func load_level_data(json_path: String) -> void:
 		#print(timeline_data[0])
 		for i in range(note_count):
 			var note: BaseNote = NoteFactory.create_note(timeline_data[i])
-			connect_note_signal(note)
+			if note.type == BaseNote.Type.RAPID:
+				note.expired.connect(_on_expired)
+			else:
+				note.timeout.connect(_on_timeout)
 			note_track.add_child(note)
 			note_queue.append(note)
 

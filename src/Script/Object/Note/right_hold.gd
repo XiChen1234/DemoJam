@@ -14,8 +14,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if position.x < deadline - total_length:
-		note_destroy.emit()
+	if current_time > timestamp + duration + DEAD_TIMESTAMP:
+		timeout.emit(self)
 
 
 func init_config(data: Dictionary) -> void:

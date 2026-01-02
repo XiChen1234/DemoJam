@@ -2,7 +2,9 @@ class_name BaseNote
 extends Node2D
 
 @warning_ignore("unused_signal")
-signal note_destroy
+signal timeout(note: BaseNote)
+@warning_ignore("unused_signal")
+signal expired(note: BaseNote)
 
 """
 基础音符父类脚本，包含音符的所有基本操作
@@ -22,7 +24,9 @@ const TypeIndex: Array[Type] = [
 @export var timestamp: float
 @export var speed: float
 
+var current_time: float = 0
 var init_position: Vector2 = Vector2(250, 150) # deadline基准线
+const DEAD_TIMESTAMP: float = 0.15
 var deadline: float = 130 # 自毁线
 
 
@@ -33,6 +37,7 @@ func init_config(data: Dictionary) -> void:
 	position = Vector2(init_position.x + timestamp * speed, 150)
 
 
-func update_by_time(current_time: float):	
+func update_by_time(time: float):	
+	current_time = time
 	var diff_time = timestamp - current_time
 	position.x = init_position.x + diff_time * speed

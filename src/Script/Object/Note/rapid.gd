@@ -1,8 +1,6 @@
 class_name Rapid
 extends BaseNote
 
-signal rapid_destory
-
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var duration: float
@@ -13,8 +11,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if position.x < deadline - total_length:
-		rapid_destory.emit()
+	if current_time > timestamp + duration + DEAD_TIMESTAMP:
+		expired.emit(self)
 
 
 func init_config(data: Dictionary) -> void:

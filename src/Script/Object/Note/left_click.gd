@@ -3,5 +3,5 @@ extends BaseNote
 
 
 func _process(_delta: float) -> void:
-	if position.x < deadline:
-		note_destroy.emit()
+	if current_time > timestamp + DEAD_TIMESTAMP:
+		timeout.emit(self)
