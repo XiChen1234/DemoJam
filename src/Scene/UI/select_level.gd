@@ -5,7 +5,7 @@ extends Control
  
 
 func _ready() -> void:
-	var done_level = GameManager.player_progress.done_level
+	var done_level = GameManager.player_config.done_level
 	for i in range(level_button.size()):
 		var button: LevelButton = level_button[i]
 		if i <= done_level:

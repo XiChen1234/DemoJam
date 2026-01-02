@@ -95,7 +95,7 @@ layout_mode = 2
 text = "Volume: "
 horizontal_alignment = 2
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/center_grabber = 1
@@ -110,7 +110,7 @@ horizontal_alignment = 2
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer"]
+[node name="ButtonEN" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 toggle_mode = true
@@ -118,7 +118,7 @@ button_pressed = true
 button_group = ExtResource("10_qcs0s")
 text = "English"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer"]
+[node name="ButtonZH_CN" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 toggle_mode = true
@@ -143,4 +143,7 @@ texture_pressed = ExtResource("12_6hfeb")
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit" to="." method="_on_start_mouse_entered" binds= [2]]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit" to="." method="_on_start_mouse_exited" binds= [2]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit" to="." method="_on_quit"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/VolumeSlider" to="." method="_on_volume_change"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer/ButtonEN" to="." method="_on_language_changed" binds= [0]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer/ButtonZH_CN" to="." method="_on_language_changed" binds= [1]]
 [connection signal="pressed" from="Back" to="." method="_on_back"]
