@@ -370,15 +370,14 @@ func get_music_time() -> float:
 """最终音乐结束的信号"""
 func _on_finish() -> void:
 	print("音乐播放结束，进入结算阶段")
-	game_state = GameState.FINISHED # 音乐播放结束，倒计时前
-	await get_tree().create_timer(3).timeout
+	game_state = GameState.FINISHED
 	print("====== GameResult ======")
 	print("score:", game_result.score)
 	print("max combo:", game_result.max_combo)
 	print("perfect:", game_result.perfect_count)
 	print("great:", game_result.great_count)
 	print("miss:", game_result.miss_count)
-	game_result.calculate_rank()
+	game_result.rank = game_result.calculate_rank()
 	GameManager.last_result = game_result
 	get_tree().change_scene_to_file("res://Scene/UI/result_scene.tscn")
 
