@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e12hs0irsen1" path="res://Scene/Game/game_scene.gd" id="1_gy4rs"]
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_prcu2"]
-[ext_resource type="Texture2D" uid="uid://bfotars1yj10x" path="res://Assert/Art/heaven.jpg" id="1_qtt7g"]
+[ext_resource type="Texture2D" uid="uid://dwfbm822o3cqr" path="res://Assert/Art/Background/heaven.png" id="3_l40nh"]
 [ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/Object/cat.tscn" id="3_v1w2t"]
 [ext_resource type="AudioStream" uid="uid://csrp2uptdem17" path="res://Assert/Audio/god.mp3" id="4_ohye7"]
 [ext_resource type="Script" uid="uid://d04gn8ustkvt5" path="res://Script/Game/input_controller.gd" id="5_mn2yn"]
@@ -49,7 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_qtt7g")
+texture = ExtResource("3_l40nh")
 
 [node name="NoteTrack" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 300)
