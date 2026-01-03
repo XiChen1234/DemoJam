@@ -1,18 +1,18 @@
 extends Control
 
-@onready var main_button: HBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer/MainButton
-@onready var option_button: GridContainer = $MarginContainer/VBoxContainer/HBoxContainer/OptionButton
+@onready var main_button: HBoxContainer = $MarginContainer/MainButton
+@onready var panel: Panel = $MarginContainer/Panel
 @onready var back: TextureButton = $Back
 
 @onready var button_array: Array[TextureButton] = [
-	$MarginContainer/VBoxContainer/HBoxContainer/MainButton/Start, 
-	$MarginContainer/VBoxContainer/HBoxContainer/MainButton/Option, 
-	$MarginContainer/VBoxContainer/HBoxContainer/MainButton/Quit
+	$MarginContainer/MainButton/Start, 
+	$MarginContainer/MainButton/Option, 
+	$MarginContainer/MainButton/Quit
 ]
 
-@onready var volume_slider: HSlider = $MarginContainer/VBoxContainer/HBoxContainer/OptionButton/VolumeSlider
-@onready var button_en: Button = $MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer/ButtonEN
-@onready var button_zh_cn: Button = $MarginContainer/VBoxContainer/HBoxContainer/OptionButton/HBoxContainer/ButtonZH_CN
+@onready var volume_slider: HSlider = $MarginContainer/Panel/VBoxContainer/OptionButton/VolumeSlider
+@onready var button_en: Button = $MarginContainer/Panel/VBoxContainer/OptionButton/HBoxContainer/ButtonEN
+@onready var button_zh_cn: Button = $MarginContainer/Panel/VBoxContainer/OptionButton/HBoxContainer/ButtonZH_CN
 
 
 func _ready() -> void:
@@ -51,7 +51,7 @@ func _on_start() -> void:
 """设置按钮"""
 func _on_options() -> void:
 	main_button.visible = false
-	option_button.visible = true
+	panel.visible = true
 	back.visible = true
 	
 	var config: PlayerConfig = GameManager.player_config
@@ -75,7 +75,7 @@ func _on_back() -> void:
 	GameManager.save_config()
 	
 	main_button.visible = true
-	option_button.visible = false
+	panel.visible = false
 	back.visible = false
 
 
