@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvceavygkh1ve"]
+[gd_scene load_steps=14 format=3 uid="uid://bvceavygkh1ve"]
 
 [ext_resource type="Script" uid="uid://djehq6i216rf3" path="res://Scene/UI/title_scene.gd" id="1_i71bt"]
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_qwcah"]
 [ext_resource type="Texture2D" uid="uid://b2alpaxrh3cc8" path="res://Assert/Art/Title/logo.PNG" id="2_4g1cx"]
+[ext_resource type="VideoStream" uid="uid://bu3olqdpcu76v" path="res://Assert/Art/Background/title_background.ogv" id="3_b756k"]
 [ext_resource type="Texture2D" uid="uid://pmwclefiov5l" path="res://Assert/Art/Title/start_beforeclick.png" id="4_rxgtf"]
 [ext_resource type="Texture2D" uid="uid://dqcgbh8sfe8ly" path="res://Assert/Art/Title/option_beforeclick.png" id="5_n7ksq"]
 [ext_resource type="Texture2D" uid="uid://da6odmwrb4dcq" path="res://Assert/Art/Title/start_afterclick.png" id="5_uuv0x"]
@@ -23,13 +24,15 @@ grow_vertical = 2
 theme = ExtResource("1_qwcah")
 script = ExtResource("1_i71bt")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stream = ExtResource("3_b756k")
+autoplay = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -49,6 +52,7 @@ size_flags_horizontal = 4
 alignment = 1
 
 [node name="Logo" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_4g1cx")
 stretch_mode = 5
@@ -58,6 +62,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="MainButton" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -82,7 +87,6 @@ texture_normal = ExtResource("6_uuv0x")
 texture_pressed = ExtResource("9_4g1cx")
 
 [node name="OptionButton" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
