@@ -6,17 +6,17 @@ extends Control
 @onready var input_feedback: InputFeedback = $InputFeedback
 @onready var note_track: Panel = $NoteTrack
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-@onready var texture_progress_bar: TextureProgressBar = $UI/Control/TextureProgressBar
-@onready var gabber: TextureRect = $UI/Control/TextureProgressBar/Gabber
+@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var gabber: TextureRect = $TextureProgressBar/Gabber
 # 逻辑计算
 @onready var input_controller: InputController = $InputController
 @onready var judge: Judge = $Judge
 @onready var label_layer: LabelLayer = $LabelLayer
 # UI显示
-@onready var countdown_label: Label = $UI/Control/CountdownLabel
 @onready var pause_layer: PauseLayer = $UI/Control/PauseLayer
-@onready var score_label: Label = $UI/Control/ScoreLabel
-@onready var combo_label: Label = $UI/Control/ComboLabel
+@onready var countdown_label: Label = $CountdownLabel
+@onready var score_label: Label = $ScoreLabel
+@onready var combo_label: Label = $ComboLabel
 
 # 关卡相关数据
 var level_data: LevelData
