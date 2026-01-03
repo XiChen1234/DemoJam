@@ -4,13 +4,13 @@
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_prcu2"]
 [ext_resource type="Texture2D" uid="uid://dwfbm822o3cqr" path="res://Assert/Art/Background/heaven.png" id="3_l40nh"]
 [ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/Object/cat.tscn" id="3_v1w2t"]
-[ext_resource type="AudioStream" uid="uid://csrp2uptdem17" path="res://Assert/Audio/god.mp3" id="4_ohye7"]
 [ext_resource type="Script" uid="uid://d04gn8ustkvt5" path="res://Script/Game/input_controller.gd" id="5_mn2yn"]
 [ext_resource type="Script" uid="uid://g5rfso5qtv3n" path="res://Script/Game/judge.gd" id="6_ohye7"]
 [ext_resource type="Script" uid="uid://bmp2btpmdfk75" path="res://Script/Game/label_layer.gd" id="7_u6ojp"]
 [ext_resource type="PackedScene" uid="uid://bxq2ji8m7bmau" path="res://Scene/Object/result_label.tscn" id="8_y1rts"]
 [ext_resource type="FontFile" uid="uid://bgw8pt1svoxqi" path="res://Theme/font/江城圆体 700W.ttf" id="9_qq033"]
 [ext_resource type="PackedScene" uid="uid://cisvp71j0ifsi" path="res://Scene/Layer/pause_layer.tscn" id="10_y5w2r"]
+[ext_resource type="AudioStream" uid="uid://b8onp45nsgnff" path="res://Levels/level_1/god.mp3" id="11_l40nh"]
 [ext_resource type="Texture2D" uid="uid://xq03vantct7x" path="res://Assert/Art/UI/time_blank.png" id="11_xxudb"]
 [ext_resource type="Texture2D" uid="uid://dcj78nbtndmg5" path="res://Assert/Art/UI/time_full.png" id="12_fg2g0"]
 [ext_resource type="Texture2D" uid="uid://d37devn8lumg6" path="res://Theme/gabber_texture.tres" id="13_trua6"]
@@ -125,7 +125,7 @@ normal_texture = ExtResource("21_l40nh")
 pressed_texture = ExtResource("22_j67h5")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ohye7")
+stream = ExtResource("11_l40nh")
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("5_mn2yn")
