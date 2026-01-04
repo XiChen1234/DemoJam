@@ -98,7 +98,7 @@ func _on_next() -> void:
 	if GameManager.selected_level.level_id == 4 and \
 	GameManager.last_result.rank != GameResult.Rank.DEFEAT and \
 	not GameManager.player_config.watched_ending:
-			
+		
 		var video_layer: VideoLayer = preload(
 			"res://Scene/Video/video_layer.tscn"
 		).instantiate()
