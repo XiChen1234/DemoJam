@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://53na385x8sxn" path="res://Levels/level_3/level_3.tres" id="5_xn4o6"]
 [ext_resource type="Resource" uid="uid://dm7twd65lntfm" path="res://Levels/level_4/level_4.tres" id="6_7ju3u"]
 [ext_resource type="Resource" uid="uid://5xc8nalgjfb2" path="res://Levels/level_5/level_5.tres" id="7_2de1q"]
-[ext_resource type="Texture2D" uid="uid://d3pr25c1e700u" path="res://Assert/Art/bg.png" id="8_vuaww"]
+[ext_resource type="Texture2D" uid="uid://d3pr25c1e700u" path="res://Assert/Art/level_bg.png" id="8_vuaww"]
 [ext_resource type="Texture2D" uid="uid://do4nd17e2vfbq" path="res://Assert/Art/Level/heaven_colour.png" id="9_8gpvu"]
 [ext_resource type="PackedScene" uid="uid://bjsacrjtwl12g" path="res://Scene/UI/level_button.tscn" id="11_8gpvu"]
 [ext_resource type="Texture2D" uid="uid://dyh0sfv5r51yb" path="res://Assert/Art/Level/unlocked.png" id="12_m0wnd"]

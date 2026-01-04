@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1wd62m00ami0" path="res://Assert/Art/UI/space_beforerclick.png" id="2_bt7x0"]
 
 [node name="BeatButton" type="Control"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_pldsb")

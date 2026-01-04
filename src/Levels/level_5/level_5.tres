@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://5xc8nalgjfb2"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=4 format=3 uid="uid://5xc8nalgjfb2"]
 
 [ext_resource type="Texture2D" uid="uid://befyjflu1ucng" path="res://Assert/Art/Background/world.jpg" id="1_2fbjt"]
 [ext_resource type="Script" uid="uid://mwhtkaib0nas" path="res://Script/Resource/level_data.gd" id="1_un4cn"]
+[ext_resource type="Texture2D" uid="uid://dhgvr8owy4bhf" path="res://Assert/Art/NPC/panshen.png" id="2_ebiyi"]
 
 [resource]
 script = ExtResource("1_un4cn")
 level_id = 4
 level_name = "World"
 background = ExtResource("1_2fbjt")
-json_path = "res://Levels/level_5/timeline.json"
+npc = ExtResource("2_ebiyi")
+timeline_json = "res://Levels/level_5/timeline.json"
 music_path = "uid://dqk5y4ugtrbui"
 metadata/_custom_type_script = "uid://mwhtkaib0nas"

@@ -3,6 +3,7 @@ extends Control
 # 界面组件
 @onready var background: TextureRect = $Background
 @onready var cat: Cat = $InputFeedback/Cat
+@onready var npc: NPC = $InputFeedback/NPC
 @onready var input_feedback: InputFeedback = $InputFeedback
 @onready var note_track: Panel = $NoteTrack
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -67,6 +68,7 @@ func _process(_delta: float) -> void:
 func _init_level() -> void:
 	level_data = GameManager.selected_level
 	background.texture = level_data.background
+	npc.set_npc_texture(level_data.npc)
 	load_level_data(level_data.timeline_json)
 	load_music(level_data.music_path)
 
