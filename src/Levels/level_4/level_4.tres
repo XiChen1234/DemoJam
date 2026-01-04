@@ -12,4 +12,5 @@ background = ExtResource("1_508bs")
 npc = ExtResource("2_hn5y1")
 timeline_json = "res://Levels/level_4/karong.json"
 music_path = "uid://r3hwmsb13b5f"
+dialogue_json = "res://Levels/level_4/dialogue.json"
 metadata/_custom_type_script = "uid://mwhtkaib0nas"

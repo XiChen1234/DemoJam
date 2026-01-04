@@ -22,7 +22,7 @@ func _ready() -> void:
 
 """提交存档数据"""
 func commit_result() -> void:
-	# ① 没有结算结果，直接返回（安全兜底）
+	# ① 没有结算结果，直接返回（安全兜底）"level_name"
 	if last_result == null:
 		ResourceSaver.save(player_config, SAVE_PATH)
 		return
@@ -33,6 +33,7 @@ func commit_result() -> void:
 		return
 	
 	# ③ 本关通过，尝试解锁
+	
 	var level_id: int = selected_level.level_id
 	if level_id == player_config.done_level + 1:
 		player_config.done_level = level_id
