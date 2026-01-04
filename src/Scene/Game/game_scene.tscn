@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://y06n0wibxqa8"]
+[gd_scene load_steps=62 format=3 uid="uid://y06n0wibxqa8"]
 
 [ext_resource type="Script" uid="uid://e12hs0irsen1" path="res://Scene/Game/game_scene.gd" id="1_gy4rs"]
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_prcu2"]
@@ -23,7 +23,41 @@
 [ext_resource type="Texture2D" uid="uid://bxwejpfycqfg7" path="res://Assert/Art/UI/space_afterclick.png" id="20_1mla1"]
 [ext_resource type="Texture2D" uid="uid://dmrp3g2eq00xi" path="res://Assert/Art/UI/scoreboard.png" id="21_h5ljn"]
 [ext_resource type="Texture2D" uid="uid://b40ll3e4amji3" path="res://Assert/Art/UI/enter_beforeclick.png" id="21_l40nh"]
+[ext_resource type="Texture2D" uid="uid://cqjhmlyek1stp" path="res://Assert/Art/UI/combo/合成 1_300.png" id="22_1kre4"]
 [ext_resource type="Texture2D" uid="uid://b5gmvox35onn2" path="res://Assert/Art/UI/enter_afterclick.png" id="22_j67h5"]
+[ext_resource type="Texture2D" uid="uid://cddoqiaf3mcuh" path="res://Assert/Art/UI/combo/合成 1_301.png" id="23_o57pk"]
+[ext_resource type="Texture2D" uid="uid://c8dmvpr5pjr6j" path="res://Assert/Art/UI/combo/合成 1_302.png" id="24_nwt0a"]
+[ext_resource type="Texture2D" uid="uid://bb6l86o7j2o0d" path="res://Assert/Art/UI/combo/合成 1_303.png" id="25_ifbn3"]
+[ext_resource type="Texture2D" uid="uid://j4cgnc1eo5r2" path="res://Assert/Art/UI/combo/合成 1_304.png" id="26_be8gh"]
+[ext_resource type="Texture2D" uid="uid://4kf8qidcivox" path="res://Assert/Art/UI/combo/合成 1_305.png" id="27_afwbl"]
+[ext_resource type="Texture2D" uid="uid://cr6y5qn1bkkpn" path="res://Assert/Art/UI/combo/合成 1_306.png" id="28_13jjt"]
+[ext_resource type="Texture2D" uid="uid://x1jpmlxvime2" path="res://Assert/Art/UI/combo/合成 1_307.png" id="29_ry1h5"]
+[ext_resource type="Texture2D" uid="uid://gk13onn08r30" path="res://Assert/Art/UI/combo/合成 1_308.png" id="30_ksibl"]
+[ext_resource type="Texture2D" uid="uid://b4ecdghcfw31l" path="res://Assert/Art/UI/combo/合成 1_309.png" id="31_4grmi"]
+[ext_resource type="Texture2D" uid="uid://dvdqirhcve06i" path="res://Assert/Art/UI/combo/合成 1_310.png" id="32_2hqrp"]
+[ext_resource type="Texture2D" uid="uid://dybl1aohlxk4p" path="res://Assert/Art/UI/combo/合成 1_311.png" id="33_lsmjx"]
+[ext_resource type="Texture2D" uid="uid://don2xbhybhyay" path="res://Assert/Art/UI/combo/合成 1_312.png" id="34_vx7ki"]
+[ext_resource type="Texture2D" uid="uid://1o4nxpcsw8tc" path="res://Assert/Art/UI/combo/合成 1_313.png" id="35_usxcq"]
+[ext_resource type="Texture2D" uid="uid://bsi8xkkel2dfa" path="res://Assert/Art/UI/combo/合成 1_314.png" id="36_71iw0"]
+[ext_resource type="Texture2D" uid="uid://03ycjufwv7q0" path="res://Assert/Art/UI/combo/合成 1_315.png" id="37_2ty0m"]
+[ext_resource type="FontFile" uid="uid://doqrk1jwxt2cj" path="res://Theme/font/江城圆体 600W.ttf" id="38_7c7qw"]
+[ext_resource type="Texture2D" uid="uid://warmu87pmh3i" path="res://Assert/Art/UI/combo/合成 1_316.png" id="38_e3nx0"]
+[ext_resource type="Texture2D" uid="uid://s4pn0v6ghodw" path="res://Assert/Art/UI/combo/合成 1_317.png" id="39_gos3i"]
+[ext_resource type="Texture2D" uid="uid://cdfahaipuu42l" path="res://Assert/Art/UI/combo/合成 1_318.png" id="40_835mg"]
+[ext_resource type="Texture2D" uid="uid://w4cem01q2xms" path="res://Assert/Art/UI/combo/合成 1_319.png" id="41_l71m6"]
+[ext_resource type="Texture2D" uid="uid://dqqoohkouvfwd" path="res://Assert/Art/UI/combo/合成 1_320.png" id="42_0mmbt"]
+[ext_resource type="Texture2D" uid="uid://bydl7x0hyt1tv" path="res://Assert/Art/UI/combo/合成 1_321.png" id="43_qtsw6"]
+[ext_resource type="Texture2D" uid="uid://ds717hwx56fjh" path="res://Assert/Art/UI/combo/合成 1_322.png" id="44_vqub6"]
+[ext_resource type="Texture2D" uid="uid://bhi4tk1tq8tf8" path="res://Assert/Art/UI/combo/合成 1_323.png" id="45_h6kiq"]
+[ext_resource type="Texture2D" uid="uid://bxta7gx2xubxw" path="res://Assert/Art/UI/combo/合成 1_324.png" id="46_nds5m"]
+[ext_resource type="Texture2D" uid="uid://buj6cdrsfvu1o" path="res://Assert/Art/UI/combo/合成 1_325.png" id="47_gldlk"]
+[ext_resource type="Texture2D" uid="uid://bpiyg836lde45" path="res://Assert/Art/UI/combo/合成 1_326.png" id="48_8s2jq"]
+[ext_resource type="Texture2D" uid="uid://decpubdutkbqa" path="res://Assert/Art/UI/combo/合成 1_327.png" id="49_p5xel"]
+[ext_resource type="Texture2D" uid="uid://bm3fr20t7bfgq" path="res://Assert/Art/UI/combo/合成 1_328.png" id="50_ic63n"]
+[ext_resource type="Texture2D" uid="uid://cqnmhtsnxhwto" path="res://Assert/Art/UI/combo/合成 1_329.png" id="51_svji8"]
+[ext_resource type="Texture2D" uid="uid://c42tawlnpfdmm" path="res://Assert/Art/UI/combo/合成 1_330.png" id="52_6lufy"]
+[ext_resource type="Texture2D" uid="uid://424c0daou1j5" path="res://Assert/Art/UI/combo/合成 1_331.png" id="53_1f8up"]
+[ext_resource type="Texture2D" uid="uid://kvm21m8lnvav" path="res://Assert/Art/UI/combo/合成 1_332.png" id="54_fuaag"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy4rs"]
 bg_color = Color(1, 1, 1, 0.7254902)
@@ -33,6 +67,113 @@ border_color = Color(0.29411766, 0.68235296, 0.7490196, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtt7g"]
 bg_color = Color(1, 0.34278238, 0.281215, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5ljn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_1kre4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_o57pk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_nwt0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ifbn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_be8gh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_afwbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_13jjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ry1h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ksibl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_4grmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_2hqrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_lsmjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_vx7ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_usxcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_71iw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_2ty0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_e3nx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_gos3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_835mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_l71m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_0mmbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_qtsw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_vqub6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_h6kiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_nds5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_gldlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_8s2jq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_p5xel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_ic63n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_svji8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_6lufy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_1f8up")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_fuaag")
+}],
+"loop": false,
+"name": &"combo",
+"speed": 32.0
+}]
 
 [node name="GameScene" type="Control"]
 layout_mode = 3
@@ -207,16 +348,37 @@ offset_right = 10.0
 offset_bottom = 77.04167
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 50
 text = "0"
 
-[node name="ComboLabel" type="Label" parent="."]
-layout_mode = 0
-offset_top = 219.0
-offset_right = 285.0
-offset_bottom = 291.0
+[node name="ComboBox" type="AnimatedSprite2D" parent="."]
+position = Vector2(1263, 250)
+sprite_frames = SubResource("SpriteFrames_h5ljn")
+animation = &"combo"
+frame = 32
+frame_progress = 1.0
+
+[node name="ComboLabel" type="Label" parent="ComboBox"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -167.0
+offset_right = -113.5
+offset_bottom = -105.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("38_7c7qw")
+theme_override_font_sizes/font_size = 60
+text = "X0"
 
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 1

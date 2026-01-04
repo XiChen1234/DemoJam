@@ -17,7 +17,12 @@ extends Control
 @onready var pause_layer: PauseLayer = $UI/PauseLayer
 @onready var countdown_label: Label = $CountdownLabel
 @onready var score_label: Label = $ScoreBox/ScoreLabel
-@onready var combo_label: Label = $ComboLabel
+@onready var combo_label: Label = $ComboBox/ComboLabel
+@onready var combo_box: AnimatedSprite2D = $ComboBox
+
+# combo效果
+var combo_timeout: float = 1  # 消散时间
+var combo_tween: Tween = null
 
 # 关卡相关数据
 var level_data: LevelData
@@ -38,6 +43,7 @@ var game_state: GameState = GameState.COUNTDOWN
 func _ready() -> void:
 	_init_level()
 	_init_runtime()
+	_init_combo()
 	start_countdown()
 
 
@@ -81,6 +87,11 @@ func _init_runtime() -> void:
 	connect_signal()
 
 
+"""初始化combo组件"""
+func _init_combo() -> void:
+	combo_label.visible = false
+
+
 """倒计时播放"""
 func start_countdown() -> void:
 	await show_number("3")
@@ -88,6 +99,9 @@ func start_countdown() -> void:
 	await show_number("1")
 	game_state = GameState.PLAYING # 游戏状态切换为1
 	audio_stream_player.play()
+
+
+
 
 
 func show_number(text: String) -> void:
@@ -120,10 +134,44 @@ func _on_score_changed(score: int) -> void:
 
 func _on_combo_changed(current: int) -> void:
 	if current > 0:
-		combo_label.visible = true
-		combo_label.text = "%d x Combo" % current
-	else:
-		combo_label.visible = false
+		trigger_combo(current)
+
+
+"""combo效果"""
+func trigger_combo(current_combo: int) -> void:
+	combo_label.text = "X%d" % current_combo
+	combo_label.visible = true
+	combo_label.modulate.a = 1.0
+	
+	combo_box.play("combo")
+	combo_box.modulate.a = 1.0
+	if combo_tween:
+		combo_tween.kill()
+	
+	# 创建新的Tween立即开始淡出
+	combo_tween = create_tween()
+	# 先保持一小段时间再淡出，也可以立即淡出
+	combo_tween.tween_property(combo_label, "modulate:a", 0.0, combo_timeout)
+	combo_tween.tween_property(combo_box, "modulate:a", 0.0, combo_timeout)
+	combo_tween.tween_callback(Callable(self, "_hide_combo"))
+
+
+"""combo超时回调"""
+func _on_combo_timeout() -> void:
+	# 创建Tween让Label和Sprite淡出
+	combo_tween = create_tween()
+	combo_tween.tween_property(combo_box, "modulate:a", 0.0, 0.5)
+	combo_tween.tween_property(combo_label, "modulate:a", 0.0, 0.5)
+	combo_tween.tween_callback(Callable(self, "_hide_combo"))
+
+
+"""隐藏combo"""
+func _hide_combo() -> void:
+	combo_box.stop()
+	combo_box.frame = 0
+	combo_box.modulate.a = 1.0
+	combo_label.visible = false
+	combo_label.modulate.a = 1.0
 
 
 """点击事件触发函数"""
