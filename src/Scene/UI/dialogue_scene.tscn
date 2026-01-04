@@ -58,7 +58,6 @@ grow_horizontal = 0
 texture_normal = ExtResource("6_tr3hd")
 texture_pressed = ExtResource("7_6a5il")
 texture_hover = ExtResource("7_6a5il")
-texture_focused = ExtResource("7_6a5il")
 
 [node name="Back" type="TextureButton" parent="MarginContainer/Control"]
 layout_mode = 0
@@ -67,7 +66,6 @@ offset_bottom = 40.0
 texture_normal = ExtResource("5_ty8wm")
 texture_pressed = ExtResource("6_6a5il")
 texture_hover = ExtResource("6_6a5il")
-texture_focused = ExtResource("6_6a5il")
 
 [node name="Panel" type="Panel" parent="MarginContainer/Control"]
 custom_minimum_size = Vector2(0, 400)
@@ -221,6 +219,8 @@ pivot_offset = Vector2(50, 50)
 texture_normal = ExtResource("8_i2a4l")
 stretch_mode = 3
 
+[connection signal="pressed" from="MarginContainer/Control/Skip" to="." method="_on_skip"]
+[connection signal="pressed" from="MarginContainer/Control/Back" to="." method="_on_back"]
 [connection signal="pressed" from="ButtonList/Button1" to="." method="_next_line"]
 [connection signal="pressed" from="ButtonList/Button2" to="." method="_next_line"]
 [connection signal="pressed" from="ButtonList/Button3" to="." method="_next_line"]
