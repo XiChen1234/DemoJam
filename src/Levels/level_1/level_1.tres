@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bk8kofmnknsrk" path="res://Assert/Art/Background/Eden.JPG" id="1_ibm6d"]
 [ext_resource type="Script" uid="uid://mwhtkaib0nas" path="res://Script/Resource/level_data.gd" id="1_jju8c"]
-[ext_resource type="Texture2D" uid="uid://dn1ddl5up30s4" path="res://Assert/Art/NPC/tianshi.png" id="2_v321m"]
+[ext_resource type="Texture2D" uid="uid://khjob3wisp7j" path="res://Assert/Art/NPC/shangdi.png" id="2_v321m"]
 
 [resource]
 script = ExtResource("1_jju8c")
