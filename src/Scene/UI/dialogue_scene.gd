@@ -5,16 +5,16 @@ class_name DialogueScene
 @onready var header_left: TextureRect = $HeaderLeft
 @onready var header_right: TextureRect = $HeaderRight
 
-@onready var name_label: Label = $MarginContainer/Panel/VBoxContainer/NameLabel
-@onready var text_label: Label = $MarginContainer/Panel/VBoxContainer/TextLabel
+@onready var name_label: Label = $MarginContainer/Control/Panel/VBoxContainer/Name
+@onready var text_label: Label = $MarginContainer/Control/Panel/VBoxContainer/Text
 
 @onready var button_list: VBoxContainer = $ButtonList
-@onready var buttons: Array[Button] = [
-	$ButtonList/Button1,
-	$ButtonList/Button2,
-	$ButtonList/Button3
+@onready var button_labels: Array[Label] = [
+	$ButtonList/Button1/Label,
+	$ButtonList/Button2/Label,
+	$ButtonList/Button3/Label,
 ]
-@onready var next: Button = $Next
+@onready var next: TextureButton = $Next
 
 var dialogue_data: DialogueData = DialogueData.new()
 # 当前对话索引
@@ -112,15 +112,18 @@ func _render_text(line: DialogueLine) -> void:
 func _render_options(line: DialogueLine) -> void:
 	next.visible = false
 	button_list.visible = true
-	for i in buttons.size():
-		buttons[i].text = line.options[i]
-
-
-func _on_next() -> void:
-	_next_line()
+	for i in button_labels.size():
+		button_labels[i].text = line.options[i]
 
 
 """对话推进下一条"""
 func _next_line() -> void:
 	current_index += 1
 	_show_current_line()
+
+
+"""点击next按钮/按下键盘"""
+func _on_next_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			_next_line()

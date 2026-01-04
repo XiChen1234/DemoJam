@@ -53,5 +53,6 @@ Button/fonts/font = ExtResource("1_fyhrq")
 Button/styles/hover = SubResource("StyleBoxFlat_fyhrq")
 Button/styles/normal = SubResource("StyleBoxFlat_tiq8e")
 Label/colors/font_color = Color(0.29411766, 0.68235296, 0.7529412, 1)
-Label/font_sizes/font_size = 60
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_fyhrq")
 Panel/styles/panel = SubResource("StyleBoxFlat_duo5q")
