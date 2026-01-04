@@ -32,19 +32,17 @@ var rank: Rank = Rank.DEFEAT
 
 """计算评级函数"""
 func calculate_rank() -> Rank:
-	var total_notes: int = perfect_count + great_count + miss_count
-
-	if total_notes == 0:
+	var total := perfect_count + great_count + miss_count
+	if total == 0:
 		return Rank.DEFEAT
 
-	var accuracy: float = float(perfect_count * 2 + great_count) \
-		/ float(total_notes * 2)
+	var accuracy := (perfect_count + great_count * 0.5) / total
 
-	if accuracy >= 0.95:
+	if accuracy >= 0.90:
 		return Rank.S
-	elif accuracy >= 0.85:
+	elif accuracy >= 0.75:
 		return Rank.A
-	elif accuracy >= 0.60:
+	elif accuracy >= 0.40:
 		return Rank.B
 	else:
 		return Rank.DEFEAT
