@@ -7,6 +7,6 @@
 script = ExtResource("1_jju8c")
 level_name = "Eden"
 background = ExtResource("1_ibm6d")
-json_path = "res://Levels/level_1/timeline.json"
+timeline_json = "res://Levels/level_1/timeline.json"
 music_path = "uid://b8onp45nsgnff"
 metadata/_custom_type_script = "uid://mwhtkaib0nas"

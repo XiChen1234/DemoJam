@@ -67,7 +67,7 @@ func _process(_delta: float) -> void:
 func _init_level() -> void:
 	level_data = GameManager.selected_level
 	background.texture = level_data.background
-	load_level_data(level_data.json_path)
+	load_level_data(level_data.timeline_json)
 	load_music(level_data.music_path)
 
 
@@ -338,8 +338,8 @@ func _on_expired(note: Rapid) -> void:
 
 
 """加载关卡数据，并生成音符"""
-func load_level_data(json_path: String) -> void:
-	var file: FileAccess = FileAccess.open(json_path, FileAccess.READ)
+func load_level_data(timeline_json: String) -> void:
+	var file: FileAccess = FileAccess.open(timeline_json, FileAccess.READ)
 	if file:
 		var path: String = file.get_as_text()
 		var json_data: Dictionary = JSON.parse_string(path)
