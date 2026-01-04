@@ -14,7 +14,7 @@ extends Control
 @onready var judge: Judge = $Judge
 @onready var label_layer: LabelLayer = $LabelLayer
 # UI显示
-@onready var pause_layer: PauseLayer = $UI/Control/PauseLayer
+@onready var pause_layer: PauseLayer = $UI/PauseLayer
 @onready var countdown_label: Label = $CountdownLabel
 @onready var score_label: Label = $ScoreLabel
 @onready var combo_label: Label = $ComboLabel

@@ -210,19 +210,9 @@ texture_pressed = ExtResource("16_vlxuj")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_prcu2")
-
-[node name="PauseLayer" parent="UI/Control" instance=ExtResource("10_y5w2r")]
+[node name="PauseLayer" parent="UI" instance=ExtResource("10_y5w2r")]
 visible = false
 z_index = 1
-layout_mode = 1
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_finish"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause"]
