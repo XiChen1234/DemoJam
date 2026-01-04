@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_prcu2"]
 [ext_resource type="Texture2D" uid="uid://dwfbm822o3cqr" path="res://Assert/Art/Background/heaven.png" id="3_l40nh"]
 [ext_resource type="PackedScene" uid="uid://2gkfn3v53wdv" path="res://Scene/Object/cat.tscn" id="3_v1w2t"]
+[ext_resource type="Texture2D" uid="uid://diivhdnlkr6vo" path="res://Assert/Art/Note/grayhand.png" id="4_o57pk"]
 [ext_resource type="Script" uid="uid://d04gn8ustkvt5" path="res://Script/Game/input_controller.gd" id="5_mn2yn"]
 [ext_resource type="Script" uid="uid://g5rfso5qtv3n" path="res://Script/Game/judge.gd" id="6_ohye7"]
 [ext_resource type="Script" uid="uid://bmp2btpmdfk75" path="res://Script/Game/label_layer.gd" id="7_u6ojp"]
@@ -64,9 +65,6 @@ bg_color = Color(1, 1, 1, 0.7254902)
 border_width_top = 10
 border_width_bottom = 10
 border_color = Color(0.29411766, 0.68235296, 0.7490196, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtt7g"]
-bg_color = Color(1, 0.34278238, 0.281215, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h5ljn"]
 animations = [{
@@ -205,25 +203,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gy4rs")
 
-[node name="DeadLine" type="PanelContainer" parent="NoteTrack"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 250.0
-offset_right = 260.0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qtt7g")
+[node name="Line2D" type="Line2D" parent="NoteTrack"]
+points = PackedVector2Array(250, 10, 250, 290)
+default_color = Color(0.7921569, 0.7921569, 0.7921569, 1)
+texture_mode = 2
 
-[node name="DeadLine2" type="PanelContainer" parent="NoteTrack"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 130.0
-offset_right = 140.0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qtt7g")
+[node name="DeadLine" type="TextureRect" parent="NoteTrack"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 75.0
+offset_right = 364.0
+offset_bottom = 224.0
+pivot_offset = Vector2(40, 0)
+texture = ExtResource("4_o57pk")
 
 [node name="InputFeedback" type="Control" parent="." node_paths=PackedStringArray("cat")]
 layout_mode = 1
@@ -236,7 +228,7 @@ script = ExtResource("16_vdmwt")
 cat = NodePath("Cat")
 
 [node name="Cat" parent="InputFeedback" instance=ExtResource("3_v1w2t")]
-position = Vector2(150, 540)
+position = Vector2(121, 540)
 
 [node name="NPC" parent="InputFeedback" instance=ExtResource("11_j67h5")]
 position = Vector2(1630, 530)
