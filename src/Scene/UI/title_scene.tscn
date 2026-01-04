@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djehq6i216rf3" path="res://Scene/UI/title_scene.gd" id="1_i71bt"]
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_qwcah"]
-[ext_resource type="VideoStream" uid="uid://bu3olqdpcu76v" path="res://Assert/Art/Background/title_background.ogv" id="3_b756k"]
+[ext_resource type="VideoStream" uid="uid://bu3olqdpcu76v" path="res://Assert/Art/Title/title_background.ogv" id="3_b756k"]
 [ext_resource type="Texture2D" uid="uid://pmwclefiov5l" path="res://Assert/Art/Title/start_beforeclick.png" id="4_rxgtf"]
 [ext_resource type="Texture2D" uid="uid://dqcgbh8sfe8ly" path="res://Assert/Art/Title/option_beforeclick.png" id="5_n7ksq"]
 [ext_resource type="Texture2D" uid="uid://da6odmwrb4dcq" path="res://Assert/Art/Title/start_afterclick.png" id="5_uuv0x"]

@@ -14,6 +14,10 @@ const SAVE_PATH := "user://save_game.tres"
 
 var button_click_sound: AudioStream = preload("res://Assert/Audio/SFX/button.mp3")
 var _button_player: AudioStreamPlayer
+#var bgm_stream: AudioStream = preload("res://Assert/Audio/BGM/.ogv")
+var bgm_stream: AudioStream = preload("res://Assert/Audio/BGM/bgm.mp3")
+var _bgm_player: AudioStreamPlayer   
+var _current_scene_name: String = ""
 
 
 func _ready() -> void:
@@ -30,6 +34,16 @@ func _ready() -> void:
 	_button_player.stream = button_click_sound
 	_button_player.autoplay = false
 	_button_player.bus = "Master"  # 可改成自定义音效总线
+	
+	# BGM音效播放器
+	_bgm_player = AudioStreamPlayer.new()
+	add_child(_bgm_player)
+	_bgm_player.autoplay = false
+	_bgm_player.bus = "Master"      # 可换成 BGM 总线
+	_bgm_player.volume_db = linear_to_db(player_config.volume)
+	
+	get_tree().connect("scene_changed", Callable(self, "_on_scene_changed"))
+	_on_scene_changed(get_tree().current_scene)
 
 
 """提交存档数据"""
@@ -65,6 +79,51 @@ func play_button_sound() -> void:
 	_button_player.play()
 
 
-"""设置音量"""
+"""按钮设置音量"""
 func set_button_volume(volume: float) -> void:
 	_button_player.volume_db = linear_to_db(volume)
+
+
+"""
+播放指定BGM
+默认是当前BGM
+"""
+func play_bgm(stream: AudioStream = bgm_stream) -> void:
+	if _bgm_player.playing:
+		_bgm_player.stop()
+	_bgm_player.stream = stream
+	_bgm_player.play()
+
+
+"""暂停"""
+func pause_bgm() -> void:
+	if _bgm_player.playing:
+		_bgm_player.stop()
+
+
+"""恢复"""
+func resume_bgm() -> void:
+	if _bgm_player.stream:
+		_bgm_player.play()
+
+
+"""设置bgm音量"""
+func set_bgm_volume(volume: float) -> void:
+	_bgm_player.volume_db = linear_to_db(volume)
+	player_config.volume = volume
+
+
+"""场景切换监听函数"""
+func _on_scene_changed(new_scene: Node = null) -> void:
+	if not new_scene:
+		new_scene = get_tree().current_scene
+	
+	_current_scene_name = new_scene.name
+	
+	# 哪些场景不播放BGM
+	var excluded = ["DialogueScene", "GameScene", "ResultScene"]
+	
+	if _current_scene_name in excluded:
+		pause_bgm()
+	else:
+		play_bgm()
