@@ -194,10 +194,11 @@ func _render_line(line: DialogueLine) -> void:
 
 func _render_text(line: DialogueLine) -> void:
 	next.visible = true
-	text_label.text = line.text
+	var tr_text: String = tr(line.text)
+	text_label.text = tr_text
 	text_label.visible = true
 	text_label.visible_ratio = 0
-	_start_writer_effect(line.text)
+	_start_writer_effect(tr_text)
 
 
 """开始tween"""
@@ -226,7 +227,7 @@ func _render_options(line: DialogueLine) -> void:
 	next.visible = false
 	button_list.visible = true
 	for i in range(button_labels.size()):
-		button_labels[i].text = line.options[i]
+		button_labels[i].text = tr(line.options[i])
 
 
 """对话推进下一条"""

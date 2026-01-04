@@ -5,39 +5,39 @@
 			"speaker": "npc",
 			"name": "God",
 			"type": "text",
-			"text": "Every world has its own rhythm.\nLearn it, and you’ll be understood by all things."
+			"text": "EDEN_TEXT_0"
 		},
 		{
 			"speaker": "player",
 			"name": "Cat",
 			"type": "options",
 			"options": [
-				"Then tell me how this world listens.",
-				"Never heard of it... but I'll try.",
-				"If I have to do it this way, then fine."
+				"EDEN_OPTION_1_0",
+				"EDEN_OPTION_1_1",
+				"EDEN_OPTION_1_2"
 			]
 		},
 		{
 			"speaker": "npc",
 			"name": "God",
 			"type": "text",
-			"text": "Don’t worry about mistakes.\nEven light had to break through darkness first."
+			"text": "EDEN_TEXT_2"
 		},
 		{
 			"speaker": "player",
 			"name": "Cat",
 			"type": "options",
 			"options": [
-				"Let’s see where this rhythm takes me.",
-				"I’ll follow the beat, not the rules.",
-				"Shall we just begin now?"
+				"EDEN_OPTION_3_0",
+				"EDEN_OPTION_3_1",
+				"EDEN_OPTION_3_2"
 			]
 		},
 		{
 			"speaker": "npc",
 			"name": "God",
 			"type": "text",
-			"text": "Then let your heart answer with the rhythm."
+			"text": "EDEN_TEXT_4"
 		}
 	]
 }

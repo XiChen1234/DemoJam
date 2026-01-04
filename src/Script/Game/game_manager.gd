@@ -28,6 +28,14 @@ func _ready() -> void:
 		player_config = PlayerConfig.new()
 		ResourceSaver.save(player_config, SAVE_PATH)
 	
+	# 初始化玩家语言
+	match player_config.language:
+		PlayerConfig.Language.EN:
+			TranslationServer.set_locale("en")
+		PlayerConfig.Language.ZH_CN:
+			TranslationServer.set_locale("zh_CN")
+	
+	
 	# 初始化按钮音效播放器
 	_button_player = AudioStreamPlayer.new()
 	add_child(_button_player)
