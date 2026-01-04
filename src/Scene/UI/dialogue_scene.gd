@@ -125,7 +125,7 @@ func _end_dialogue() -> void:
 		GameManager.player_config.dialogue_level = level_index
 		GameManager.save_config()
 	
-	get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
+	_end()
 
 
 """重置文本状态"""
@@ -253,7 +253,14 @@ func _on_next_input(event: InputEvent) -> void:
 """跳过按钮"""
 func _on_skip() -> void:
 	GameManager.play_button_sound()
-	get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
+	_end()
+
+
+func _end() -> void:
+	if not GameManager.player_config.is_teached:
+		get_tree().change_scene_to_file("res://Scene/UI/teached_scene.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
 
 
 """返回按钮"""

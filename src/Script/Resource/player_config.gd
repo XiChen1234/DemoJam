@@ -20,3 +20,4 @@ var volume: float = 1
 """
 @export var watched_opening: bool = false
 @export var watched_ending: bool = false
+@export var is_teached: bool = false

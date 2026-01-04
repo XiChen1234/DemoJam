@@ -127,7 +127,7 @@ func _on_scene_changed(new_scene: Node = null) -> void:
 	_current_scene_name = new_scene.name
 	
 	# 哪些场景不播放BGM
-	var excluded = ["DialogueScene", "GameScene", "ResultScene"]
+	var excluded = ["DialogueScene", "GameScene", "ResultScene", "TeachedScene"]
 	
 	if _current_scene_name in excluded:
 		pause_bgm()

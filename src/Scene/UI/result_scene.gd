@@ -102,7 +102,12 @@ func _on_next() -> void:
 		var video_layer: VideoLayer = preload(
 			"res://Scene/Video/video_layer.tscn"
 		).instantiate()
-		video_layer.video_stream = preload("res://Assert/Video/end.ogv")
+		
+		var language := GameManager.player_config.language
+		if language == PlayerConfig.Language.EN:
+			video_layer.video_stream = preload("res://Assert/Video/end.ogv")
+		elif language == PlayerConfig.Language.ZH_CN:
+			video_layer.video_stream = preload("res://Assert/Video/end_cn.ogv")
 		video_layer.next_scene = preload("res://Scene/UI/select_level.tscn")
 		
 		get_tree().root.add_child(video_layer)

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://xbjo8hsgx5y4"]
+
+[ext_resource type="Script" uid="uid://p5s2wt4ta5ca" path="res://Scene/UI/teached_scene.gd" id="1_81jhq"]
+[ext_resource type="Texture2D" uid="uid://bmdd1f1yv2xiu" path="res://Assert/Art/teach.png" id="1_xti4r"]
+[ext_resource type="Texture2D" uid="uid://bbkqsdbvsafxy" path="res://Assert/Art/Result/next_beforeclick.png" id="2_nh7to"]
+[ext_resource type="Texture2D" uid="uid://vplomhcn1xql" path="res://Assert/Art/Result/next_afterclick.png" id="3_81jhq"]
+
+[node name="TeachedScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81jhq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xti4r")
+expand_mode = 1
+
+[node name="Skip" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -330.0
+offset_top = 56.0
+offset_right = -80.0
+offset_bottom = 196.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_nh7to")
+texture_pressed = ExtResource("3_81jhq")
+texture_hover = ExtResource("3_81jhq")
+texture_focused = ExtResource("3_81jhq")
+
+[connection signal="pressed" from="Skip" to="." method="_on_skip"]
