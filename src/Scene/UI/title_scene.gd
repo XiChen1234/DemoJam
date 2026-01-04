@@ -46,7 +46,27 @@ func _on_start_mouse_exited(button_id: int) -> void:
 """开始按钮"""
 func _on_start() -> void:
 	GameManager.play_button_sound()
-	get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")
+	
+	if not GameManager.player_config.watched_opening:
+		var video_layer: VideoLayer = preload(
+			"res://Scene/Video/video_layer.tscn"
+		).instantiate()
+		video_layer.video_stream = preload("res://Assert/Video/start.ogv")
+		video_layer.next_scene = preload("res://Scene/UI/select_level.tscn")
+		
+		get_tree().root.add_child(video_layer)
+		
+		# 标记已观看（skip / 播完都会走）
+		video_layer.skip.pressed.connect(func():
+			GameManager.player_config.watched_opening = true
+			GameManager.save_config()
+		)
+		video_layer.video_stream_player.finished.connect(func():
+			GameManager.player_config.watched_opening = true
+			GameManager.save_config()
+		)
+	else:
+		get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")
 
 
 """设置按钮"""

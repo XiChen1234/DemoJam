@@ -94,4 +94,26 @@ func _pop_in() -> void:
 func _on_next() -> void:
 	GameManager.play_button_sound()
 	GameManager.commit_result()
-	get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")
+	
+	if GameManager.selected_level.level_id == 4 and \
+	GameManager.last_result.rank != GameResult.Rank.DEFEAT and \
+	not GameManager.player_config.watched_ending:
+			
+		var video_layer: VideoLayer = preload(
+			"res://Scene/Video/video_layer.tscn"
+		).instantiate()
+		video_layer.video_stream = preload("res://Assert/Video/end.ogv")
+		video_layer.next_scene = preload("res://Scene/UI/select_level.tscn")
+		
+		get_tree().root.add_child(video_layer)
+		
+		video_layer.skip.pressed.connect(func():
+			GameManager.player_config.watched_ending = true
+			GameManager.save_config()
+		)
+		video_layer.video_stream_player.finished.connect(func():
+			GameManager.player_confi.watched_ending = true
+			GameManager.save_config()
+		)
+	else:
+		get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")

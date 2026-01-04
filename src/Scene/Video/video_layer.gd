@@ -1,4 +1,5 @@
 extends Control
+class_name VideoLayer
 
 @onready var video_stream_player: VideoStreamPlayer = $VideoStreamPlayer
 @onready var skip: Button = $Skip
@@ -9,11 +10,16 @@ extends Control
 
 
 func _ready() -> void:
+	GameManager.pause_bgm()
+	if video_stream:
+		video_stream_player.stream = video_stream
 	video_stream_player.play()
 
 
 """去往下一个场景"""
 func _goto_next_scene() -> void:
+	GameManager.resume_bgm()
+	
 	if next_scene:
 		# 实例化新场景
 		var new_scene = next_scene.instantiate()

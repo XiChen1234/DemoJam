@@ -14,7 +14,6 @@ const SAVE_PATH := "user://save_game.tres"
 
 var button_click_sound: AudioStream = preload("res://Assert/Audio/SFX/button.mp3")
 var _button_player: AudioStreamPlayer
-#var bgm_stream: AudioStream = preload("res://Assert/Audio/BGM/.ogv")
 var bgm_stream: AudioStream = preload("res://Assert/Audio/BGM/bgm.mp3")
 var _bgm_player: AudioStreamPlayer   
 var _current_scene_name: String = ""
@@ -97,22 +96,21 @@ func set_button_volume(volume: float) -> void:
 默认是当前BGM
 """
 func play_bgm(stream: AudioStream = bgm_stream) -> void:
-	if _bgm_player.playing:
-		_bgm_player.stop()
+	if _bgm_player.playing and _bgm_player.stream == stream:
+		return
+	
 	_bgm_player.stream = stream
 	_bgm_player.play()
 
 
 """暂停"""
 func pause_bgm() -> void:
-	if _bgm_player.playing:
-		_bgm_player.stop()
+	_bgm_player.stream_paused = true
 
 
 """恢复"""
 func resume_bgm() -> void:
-	if _bgm_player.stream:
-		_bgm_player.play()
+	_bgm_player.stream_paused = false
 
 
 """设置bgm音量"""

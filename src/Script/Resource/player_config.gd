@@ -12,3 +12,11 @@ enum Language {
 @export_range(0.0, 1.0, 0.01)
 var volume: float = 1
 @export var language: Language = Language.EN
+
+"""
+是否看过开场视频/结尾视频：
+- 看过开场视频
+- 看过结尾视频
+"""
+@export var watched_opening: bool = false
+@export var watched_ending: bool = false
