@@ -30,11 +30,23 @@ func _ready() -> void:
 	var level_data: LevelData = GameManager.selected_level
 	background.texture = level_data.background
 	header_right.texture = level_data.npc
-	header_right.visible = false
+	
+	# 初始状态：两个人物都灰化
+	header_left.modulate = Color(0.5,0.5,0.5,1)
+	header_right.modulate = Color(0.5,0.5,0.5,1)
+	header_left.visible = true
+	header_right.visible = true
 	
 	_load_dialogue_data(level_data.dialogue_json)
 	current_index = 0
 	_show_current_line()
+
+
+func _input(event: InputEvent) -> void:
+	if dialogue_data.lines[current_index].line_type == "options":
+		return  
+	if event.is_action_pressed("right") or event.is_action_pressed("left"):
+		_next_line()
 
 
 """
@@ -42,15 +54,18 @@ func _ready() -> void:
 - dialogue_json: 在关卡内资源配置的对话资源路径
 """
 func _load_dialogue_data(dialogue_json: String) -> void:
-	var file: FileAccess = FileAccess.open(dialogue_json, FileAccess.READ)
-	if not file:
+	# 检查文件是否存在
+	if not FileAccess.file_exists(dialogue_json):
 		push_error("Dialogue json not found: " + dialogue_json)
 		return
 	
-	var json = JSON.parse_string(file.get_as_text())
+	var file: FileAccess = FileAccess.open(dialogue_json, FileAccess.READ)
+	var text: String = file.get_as_text()
+	var json = JSON.parse_string(text)
 	if json == null:
 		push_error("Invalid JSON")
 		return
+	
 	var json_data: Dictionary = json
 	dialogue_data.id = json_data.get("id")
 	
@@ -73,11 +88,34 @@ func _show_current_line() -> void:
 	if current_index >= dialogue_data.lines.size():
 		_end_dialogue()
 		return
-	
+
 	_reset_ui()
-	
 	var line: DialogueLine = dialogue_data.lines[current_index]
 	_render_line(line)
+	_highlight_speaker(line.speaker)
+
+
+func _highlight_speaker(speaker: String) -> void:
+	if speaker == "player":
+		header_left.modulate = Color(1,1,1,1)
+		header_right.modulate = Color(0.5,0.5,0.5,1)
+	elif speaker == "npc":
+		header_right.modulate = Color(1,1,1,1)
+		header_left.modulate = Color(0.5,0.5,0.5,1)
+
+
+func _fade_out_prev_speaker() -> void:
+	if current_index == 0:
+		return
+	var prev_line: DialogueLine = dialogue_data.lines[current_index - 1]
+	var tween = create_tween()
+	var target
+	if prev_line.speaker == "player":
+		target = header_left
+	else:
+		target = header_right
+	tween.tween_property(target, "modulate", Color(0.5,0.5,0.5,1), 0.3)
+	tween.finished.connect("_on_characters_faded")
 
 
 """结束对话"""
@@ -88,24 +126,65 @@ func _end_dialogue() -> void:
 """重置文本状态"""
 func _reset_ui() -> void:
 	text_label.visible = false
+	text_label.visible_ratio = 0
 	button_list.visible = false
-	header_left.visible = false
-	header_right.visible = false
+
+
+"""人物缩小灰化动画（上一条淡出）"""
+func _fade_out_characters() -> void:
+	if current_index >= dialogue_data.lines.size():
+		_end_dialogue()
+		return
+	
+	var tween := create_tween()
+
+	# 上一条说话者灰化
+	if current_index > 0:
+		var prev_line: DialogueLine = dialogue_data.lines[current_index - 1]
+		if prev_line.speaker == "player":
+			tween.tween_property(header_left, "modulate", Color(0.5,0.5,0.5,1), 0.3)
+		elif prev_line.speaker == "npc":
+			tween.tween_property(header_right, "modulate", Color(0.5,0.5,0.5,1), 0.3)
+
+	tween.finished.connect(_on_characters_faded)
+
+
+
+"""Tween结束后的回调（显示下一条并渐显高亮）"""
+func _on_characters_faded() -> void:
+	if current_index >= dialogue_data.lines.size():
+		_end_dialogue()
+		return
+	
+	_show_current_line()
+
+	# 当前说话者平滑高亮
+	var line: DialogueLine = dialogue_data.lines[current_index]
+	var tween := create_tween()
+	if line.speaker == "player":
+		tween.tween_property(header_left, "modulate", Color(1,1,1,1), 0.3)
+	elif line.speaker == "npc":
+		tween.tween_property(header_right, "modulate", Color(1,1,1,1), 0.3)
 
 
 """重新渲染文本/界面"""
 func _render_line(line: DialogueLine) -> void:
-	# 渲染头像
-	var speaker: String = line.speaker
-	header_left.visible = (speaker == "player")
-	header_right.visible = (speaker == "npc")
-	# 渲染名称
 	name_label.text = line.name
-	# 渲染文本
+
+	header_left.visible = true
+	header_right.visible = true
+
 	if line.line_type == "text":
 		_render_text(line)
 	else:
 		_render_options(line)
+
+	# 当前说话者平滑高亮
+	var tween := create_tween()
+	if line.speaker == "player":
+		tween.tween_property(header_left, "modulate", Color(1,1,1,1), 0.3)
+	elif line.speaker == "npc":
+		tween.tween_property(header_right, "modulate", Color(1,1,1,1), 0.3)
 
 
 func _render_text(line: DialogueLine) -> void:
@@ -119,7 +198,7 @@ func _render_text(line: DialogueLine) -> void:
 """开始tween"""
 func _start_writer_effect(text: String) -> void:
 	if typing_tween and typing_tween.is_running():
-		typing_tween.kill()
+		typing_tween = null
 
 	is_typing = true
 	
@@ -141,7 +220,7 @@ func _finished_writer_effect() -> void:
 func _render_options(line: DialogueLine) -> void:
 	next.visible = false
 	button_list.visible = true
-	for i in button_labels.size():
+	for i in range(button_labels.size()):
 		button_labels[i].text = line.options[i]
 
 
@@ -152,7 +231,8 @@ func _next_line() -> void:
 		return
 	
 	current_index += 1
-	_show_current_line()
+	# 先播放上一条缩小灰化动画，再显示下一条
+	_fade_out_characters()
 
 
 """点击next按钮"""

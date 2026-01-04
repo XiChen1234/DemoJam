@@ -87,6 +87,7 @@ offset_left = -500.0
 offset_right = 500.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 40
 
 [node name="Name" type="Label" parent="MarginContainer/Control/Panel/VBoxContainer"]
 layout_mode = 2
@@ -100,7 +101,7 @@ text = "Cat"
 [node name="Text" type="Label" parent="MarginContainer/Control/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 3
 text = "Nice to Meet You Nice to Meet You Nice to Meet You Nice to Meet You Nice to Meet You Nice to Meet You Nice to Meet You "
 autowrap_mode = 3
 
