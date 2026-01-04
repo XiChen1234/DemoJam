@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://y06n0wibxqa8"]
+[gd_scene load_steps=27 format=3 uid="uid://y06n0wibxqa8"]
 
 [ext_resource type="Script" uid="uid://e12hs0irsen1" path="res://Scene/Game/game_scene.gd" id="1_gy4rs"]
 [ext_resource type="Theme" uid="uid://fg50nnsvqfdu" path="res://Theme/title_scene.tres" id="1_prcu2"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://crt7s2oklqbyp" path="res://Scene/Object/beat_button.tscn" id="17_4ehvb"]
 [ext_resource type="Texture2D" uid="uid://c1wd62m00ami0" path="res://Assert/Art/UI/space_beforerclick.png" id="19_fu5sh"]
 [ext_resource type="Texture2D" uid="uid://bxwejpfycqfg7" path="res://Assert/Art/UI/space_afterclick.png" id="20_1mla1"]
+[ext_resource type="Texture2D" uid="uid://dmrp3g2eq00xi" path="res://Assert/Art/UI/scoreboard.png" id="21_h5ljn"]
 [ext_resource type="Texture2D" uid="uid://b40ll3e4amji3" path="res://Assert/Art/UI/enter_beforeclick.png" id="21_l40nh"]
 [ext_resource type="Texture2D" uid="uid://b5gmvox35onn2" path="res://Assert/Art/UI/enter_afterclick.png" id="22_j67h5"]
 
@@ -185,17 +186,37 @@ grow_horizontal = 2
 pivot_offset = Vector2(75, 0)
 texture = ExtResource("13_trua6")
 
-[node name="ScoreLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 520.0
-offset_bottom = 72.0
-text = "Score: 0000000"
+[node name="ScoreBox" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 25.0
+offset_right = 294.4187
+offset_bottom = 242.0
+texture = ExtResource("21_h5ljn")
+expand_mode = 3
+
+[node name="ScoreLabel" type="Label" parent="ScoreBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 26.0
+offset_right = 10.0
+offset_bottom = 77.04167
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "0"
 
 [node name="ComboLabel" type="Label" parent="."]
 layout_mode = 0
-offset_top = 71.0
+offset_top = 219.0
 offset_right = 285.0
-offset_bottom = 143.0
+offset_bottom = 291.0
 
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 1

@@ -16,7 +16,7 @@ extends Control
 # UI显示
 @onready var pause_layer: PauseLayer = $UI/PauseLayer
 @onready var countdown_label: Label = $CountdownLabel
-@onready var score_label: Label = $ScoreLabel
+@onready var score_label: Label = $ScoreBox/ScoreLabel
 @onready var combo_label: Label = $ComboLabel
 
 # 关卡相关数据
@@ -115,7 +115,7 @@ func connect_signal() -> void:
 
 """Score和Combo的UI更新代码"""
 func _on_score_changed(score: int) -> void:
-	score_label.text = "Score: %07d" % score
+	score_label.text = str(score)
 
 
 func _on_combo_changed(current: int) -> void:
