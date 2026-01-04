@@ -5,23 +5,23 @@
 			"speaker": "npc",
 			"name": "Pan",
 			"type": "text",
-			"text": "So you made it here.\nEvery path beyond my forest leads somewhere else."
+			"text": "WORLD_TEXT_0"
 		},
 		{
 			"speaker": "player",
 			"name": "Cat",
 			"type": "options",
 			"options": [
-				"What do you mean by SOMEWHERE?",
-				"So there are more places I can explore? ",
-				"So you're the doorman?"
+				"WORLD_OPTION_1_0",
+				"WORLD_OPTION_1_1",
+				"WORLD_OPTION_1_2"
 			]
 		},
 		{
 			"speaker": "npc",
 			"name": "Pan",
 			"type": "text",
-			"text": "My forest connects to other realms.\nGuess if you can get through it? Or will you stay here forever?"
+			"text": "WORLD_TEXT_2"
 		}
 	]
 }

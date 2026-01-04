@@ -5,23 +5,23 @@
 			"speaker": "npc",
 			"name": "Noah",
 			"type": "text",
-			"text": "The flood spares no one.\n Come aboard, or you'll be washed away."
+			"text": "ARK_TEXT_0"
 		},
 		{
 			"speaker": "player",
 			"name": "Cat",
 			"type": "options",
 			"options": [
-				"Then I’ll go to a place without floods.",
-				"You mean you want a CAT to drift forever?",
-				"You don’t have the right to decide my future."
+				"ARK_OPTION_1_0",
+				"ARK_OPTION_1_1",
+				"ARK_OPTION_1_2"
 			]
 		},
 		{
 			"speaker": "npc",
 			"name": "Noah",
 			"type": "text",
-			"text": "Then let's see if you can cross the flood."
+			"text": "ARK_TEXT_2"
 		}
 	]
 }

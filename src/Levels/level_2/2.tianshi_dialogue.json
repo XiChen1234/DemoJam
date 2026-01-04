@@ -5,39 +5,39 @@
 			"speaker": "npc",
 			"name": "Michael",
 			"type": "text",
-			"text": "Little one, the world outside is dangerous.\nYou must stay here then I can protect you."
+			"text": "HEAVEN_TEXT_0"
 		},
 		{
 			"speaker": "player",
 			"name": "Cat",
 			"type": "options",
 			"options": [
-				"Protection shouldn’t feel this tight.",
-				"I can take care of myself well without you.",
-				"Get out of my way or I’ll ruffle your wings!"
+				"HEAVEN_OPTION_1_0",
+				"HEAVEN_OPTION_1_1",
+				"HEAVEN_OPTION_1_2"
 			]
 		},
 		{
 			"speaker": "npc",
 			"name": "Michael",
 			"type": "text",
-			"text": "Order keeps the fragile alive.\nI will always be watching you."
+			"text": "HEAVEN_TEXT_2"
 		},
 		{
 			"speaker": "player",
 			"name": "Cat",
 			"type": "options",
 			"options": [
-				"Then don't stop me from getting stronger.",
-				"All you have to do is leave me alone.",
-				"Watch if you want. I'll go ahead."
+				"HEAVEN_OPTION_3_0",
+				"HEAVEN_OPTION_3_1",
+				"HEAVEN_OPTION_3_2"
 			]
 		},
 		{
 			"speaker": "npc",
 			"name": "Michael",
 			"type": "text",
-			"text": "Show me your resolve."
+			"text": "HEAVEN_TEXT_4"
 		}
 	]
 }

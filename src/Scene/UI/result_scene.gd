@@ -112,7 +112,7 @@ func _on_next() -> void:
 			GameManager.save_config()
 		)
 		video_layer.video_stream_player.finished.connect(func():
-			GameManager.player_confi.watched_ending = true
+			GameManager.player_config.watched_ending = true
 			GameManager.save_config()
 		)
 	else:

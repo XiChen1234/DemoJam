@@ -11,27 +11,27 @@ EDEN_OPTION_3_0,Let’s see where this rhythm takes me.,让我们看看节奏会
 EDEN_OPTION_3_1,"I’ll follow the beat, not the rules.",先说好，我只是喜欢跟着节奏，并不是遵守你的规则。
 EDEN_OPTION_3_2,Shall we just begin now?,我们能开始了吗？
 EDEN_TEXT_4,Then let your heart answer with the rhythm.,那么，就让你的心随着节奏作出回应。
-HEAVEN_TEXT_0,,
-HEAVEN_OPTION_1_0,,
-HEAVEN_OPTION_1_1,,
-HEAVEN_OPTION_1_2,,
-HEAVEN_TEXT_2,,
-HEAVEN_OPTION_3_0,,
-HEAVEN_OPTION_3_1,,
-HEAVEN_OPTION_3_2,,
-HEAVEN_TEXT_4,,
-ARK_TEXT_0,,
-ARK_OPTION_1_0,,
-ARK_OPTION_1_1,,
-ARK_OPTION_1_2,,
-ARK_TEXT_2,,
-ARCHON_TEXT_0,,
-ARCHON_OPTION_1_0,,
-ARCHON_OPTION_1_1,,
-ARCHON_OPTION_1_2,,
-ARCHON_TEXT_2,,
-WORLD_TEXT_0,,
-WORLD_OPTION_1_0,,
-WORLD_OPTION_1_1,,
-WORLD_OPTION_1_2,,
-WORLD_TEXT_2,,
+HEAVEN_TEXT_0,"Little one, the world outside is dangerous.\nYou must stay here then I can protect you.",小家伙，外面的世界很危险。你必须待在这里，这样我才能保护你。
+HEAVEN_OPTION_1_0,Protection shouldn’t feel this tight.,先把你的锁链从我脖子上拿下来。
+HEAVEN_OPTION_1_1,I can take care of myself well without you.,你已成为捍卫者？
+HEAVEN_OPTION_1_2,Get out of my way or I’ll ruffle your wings!,别挡我的路！
+HEAVEN_TEXT_2,Order keeps the fragile alive.\nI will always be watching you.,秩序让脆弱者得以生存。留在这里，我会一直看护你。
+HEAVEN_OPTION_3_0,Then don't stop me from getting stronger.,都说了...先把你的链子松开！
+HEAVEN_OPTION_3_1,All you have to do is leave me alone.,哇还有免费护航。
+HEAVEN_OPTION_3_2,Watch if you want. I'll go ahead.,别烦我！
+HEAVEN_TEXT_4,Show me your resolve.,证明你的决心吧。
+ARK_TEXT_0,"The flood spares no one.\n Come aboard, or you'll be washed away.",洪水不会放过这里的任何生灵，上船吧。
+ARK_OPTION_1_0,Then I’ll go to a place without floods.,那我不留在这里不就好了。
+ARK_OPTION_1_1,You mean you want a CAT to drift forever?,鲁滨喵漂流记，敬请见证。
+ARK_OPTION_1_2,You don’t have the right to decide my future.,我可不想沦为你坐骑的口粮。
+ARK_TEXT_2,Then let's see if you can cross the flood.,那就让我们看看你能否安然渡过这片洪水。
+ARCHON_TEXT_0,"Living thing, you’ve crossed the line.",活物，你越界了。
+ARCHON_OPTION_1_0,LINE? What is that?,越界？什么界？
+ARCHON_OPTION_1_1,Did you draw this line?,你是死物？
+ARCHON_OPTION_1_2,Where is it? I don’t see any lines.,你是谁？请支持猫爪在上！
+ARCHON_TEXT_2,The River Styx holds the answers.,冥河里有你要的答案。
+WORLD_TEXT_0,So you made it here.\nEvery path beyond my forest leads somewhere else.,你终于来到了这里。\n这里是交界地，森林之外的每条路都通向不同的世界。
+WORLD_OPTION_1_0,What do you mean by SOMEWHERE?,交界地？我要成为艾尔登之王了吗？
+WORLD_OPTION_1_1,So there are more places I can explore?,所以还有好多地方可以去！
+WORLD_OPTION_1_2,So you're the doorman?,这么说来，你就是个看门的咯。
+WORLD_TEXT_2,My forest connects to other realms.\nGuess if you can get through it? Or will you stay here forever?,猜猜你能穿越这片森林吗？还是会永远留在这里呢？
