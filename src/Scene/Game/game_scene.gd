@@ -133,7 +133,7 @@ func _on_score_changed(score: int) -> void:
 
 
 func _on_combo_changed(current: int) -> void:
-	if current > 0:
+	if current != 0 and current % 5 == 0:
 		trigger_combo(current)
 
 
