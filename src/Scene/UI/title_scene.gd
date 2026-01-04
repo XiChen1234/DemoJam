@@ -45,11 +45,13 @@ func _on_start_mouse_exited(button_id: int) -> void:
 
 """开始按钮"""
 func _on_start() -> void:
+	GameManager.play_button_sound()
 	get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")
 
 
 """设置按钮"""
 func _on_options() -> void:
+	GameManager.play_button_sound()
 	main_button.visible = false
 	panel.visible = true
 	back.visible = true
@@ -67,11 +69,13 @@ func _on_options() -> void:
 
 """退出按钮"""
 func _on_quit() -> void:
+	GameManager.play_button_sound()
 	get_tree().quit()
 
 
 """设置界面的返回按钮"""
 func _on_back() -> void:
+	GameManager.play_button_sound()
 	GameManager.save_config()
 	
 	main_button.visible = true
@@ -90,6 +94,7 @@ func _on_volume_change(value: float) -> void:
 
 
 func _on_language_changed(language: int) -> void:
+	GameManager.play_button_sound()
 	match language:
 		0:
 			GameManager.player_config.language = PlayerConfig.Language.EN

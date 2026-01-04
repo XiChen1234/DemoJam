@@ -79,5 +79,6 @@ func _pop_in() -> void:
 
 """下一关"""
 func _on_next() -> void:
+	GameManager.play_button_sound()
 	GameManager.commit_result()
 	get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")

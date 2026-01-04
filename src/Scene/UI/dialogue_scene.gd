@@ -231,6 +231,7 @@ func _render_options(line: DialogueLine) -> void:
 
 """对话推进下一条"""
 func _next_line() -> void:
+	GameManager.play_button_sound()
 	if is_typing:
 		_finished_writer_effect()
 		return
@@ -242,6 +243,7 @@ func _next_line() -> void:
 
 """点击next按钮"""
 func _on_next_input(event: InputEvent) -> void:
+	GameManager.play_button_sound()
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			_next_line()
@@ -249,9 +251,11 @@ func _on_next_input(event: InputEvent) -> void:
 
 """跳过按钮"""
 func _on_skip() -> void:
+	GameManager.play_button_sound()
 	get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
 
 
 """返回按钮"""
 func _on_back() -> void:
+	GameManager.play_button_sound()
 	get_tree().change_scene_to_file("res://Scene/UI/select_level.tscn")

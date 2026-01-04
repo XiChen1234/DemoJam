@@ -13,16 +13,19 @@ func _input(event: InputEvent) -> void:
 		pause()
 
 func _on_restart() -> void:
+	GameManager.play_button_sound()
 	get_tree().paused = false
 	visible = false
 	get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
 
 
 func _on_continue() -> void:
+	GameManager.play_button_sound()
 	pause()
 
 
 func _on_home() -> void:
+	GameManager.play_button_sound()
 	get_tree().paused = false
 	visible = false
 	get_tree().change_scene_to_file("res://Scene/UI/title_scene.tscn")

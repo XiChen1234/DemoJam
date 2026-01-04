@@ -386,4 +386,5 @@ func _on_finish() -> void:
 
 """暂停按钮，同ESC"""
 func _on_pause() -> void:
+	GameManager.play_button_sound()
 	pause_layer.pause()

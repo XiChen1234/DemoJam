@@ -59,6 +59,7 @@ func _update_base_view() -> void:
 
 
 func _on_mouse_entered() -> void:
+	GameManager.play_button_sound()
 	if state == State.LOCKED:
 		return
 	var tween = get_tree().create_tween()
