@@ -1,5 +1,13 @@
 extends Control
 
+const CardBackgruondTexture: Array = [
+	preload("res://Assert/Art/Result/eden.png"),
+	preload("res://Assert/Art/Result/heaven.png"),
+	preload("res://Assert/Art/Result/ark.png"),
+	preload("res://Assert/Art/Result/acheron.png"),
+	preload("res://Assert/Art/Result/world.png"),
+]
+
 const RankTexture: Dictionary[GameResult.Rank, Texture] = {
 	GameResult.Rank.S: preload("res://Assert/Art/Result/S.png"),
 	GameResult.Rank.A: preload("res://Assert/Art/Result/A.png"),
@@ -7,6 +15,7 @@ const RankTexture: Dictionary[GameResult.Rank, Texture] = {
 	GameResult.Rank.DEFEAT: preload("res://Assert/Art/Result/defeat.png"),
 }
 
+@onready var card_background: TextureRect = $Card/CardBackground
 @onready var score_label: Label = $Card/VBoxContainer/VBoxContainer/ScoreLabel
 @onready var combo_label: Label = $Card/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer/ComboLabel
 @onready var perfect_label: Label = $Card/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer2/PerfectLabel
@@ -21,6 +30,10 @@ func _ready() -> void:
 	var result: GameResult = GameManager.last_result
 	if result == null:
 		return
+	
+	var level_id: int = GameManager.selected_level.level_id
+	card_background.texture = CardBackgruondTexture[level_id]
+	
 	
 	_render_result(result)
 	_pop_in()
