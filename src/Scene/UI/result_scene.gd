@@ -17,7 +17,7 @@ const RankTexture: Dictionary[GameResult.Rank, Texture] = {
 
 @onready var card_background: TextureRect = $Card/CardBackground
 @onready var score_label: Label = $Card/VBoxContainer/VBoxContainer/ScoreLabel
-@onready var combo_label: Label = $ComboBox/ComboLabel
+@onready var combo_label: Label = $Card/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer/ComboLabel
 @onready var perfect_label: Label = $Card/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer2/PerfectLabel
 @onready var great_label: Label = $Card/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer3/GreatLabel
 @onready var miss_label: Label = $Card/VBoxContainer/VBoxContainer2/VBoxContainer5/HBoxContainer4/MissLabel
