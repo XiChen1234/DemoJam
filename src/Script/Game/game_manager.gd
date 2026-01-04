@@ -2,6 +2,8 @@ extends Node
 
 # 玩家配置数据
 var player_config: PlayerConfig
+# 对话系统数据
+var dialogue_data: DialogueData
 
 # 关卡数据
 var selected_level: LevelData

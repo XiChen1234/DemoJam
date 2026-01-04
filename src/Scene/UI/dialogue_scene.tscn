@@ -1,0 +1,168 @@
+[gd_scene load_steps=6 format=3 uid="uid://ftabqro0bdmq"]
+
+[ext_resource type="Theme" uid="uid://b23u2ijb2a5yv" path="res://dialogue_theme.tres" id="1_7txti"]
+[ext_resource type="Texture2D" uid="uid://bk8kofmnknsrk" path="res://Assert/Art/Background/Eden.JPG" id="1_rqs7f"]
+[ext_resource type="Texture2D" uid="uid://22hujpibs68t" path="res://Assert/Art/cat/猫_0000.png" id="2_0gs73"]
+[ext_resource type="Script" uid="uid://bvktc3l5ar4ie" path="res://Scene/UI/dialogue_scene.gd" id="2_ty8wm"]
+[ext_resource type="Texture2D" uid="uid://dn1ddl5up30s4" path="res://Assert/Art/NPC/tianshi.png" id="3_m6uof"]
+
+[node name="DialogueScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7txti")
+script = ExtResource("2_ty8wm")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rqs7f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -460.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+custom_minimum_size = Vector2(1100, 400)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -582.0
+offset_right = 518.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 100
+theme_override_font_sizes/font_size = 80
+text = "Cat"
+
+[node name="TextLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Nice to Meet You Nice to Meet You Nice to Meet Nice to Meet You Nice to M"
+autowrap_mode = 3
+
+[node name="HeaderLeft" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -534.0
+offset_right = 452.72
+offset_bottom = -2.0
+grow_vertical = 0
+texture = ExtResource("2_0gs73")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HeaderRight" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -657.0
+offset_top = -933.0
+offset_right = 165.71997
+offset_bottom = -76.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_m6uof")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Skip" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -261.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 132.0
+grow_horizontal = 0
+text = "Skip"
+
+[node name="Next" type="Button" parent="."]
+z_index = 2
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -170.0
+offset_right = -60.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 6
+text = "Next"
+
+[node name="ButtonList" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.5
+offset_top = -496.0
+offset_right = 158.5
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Button1" type="Button" parent="ButtonList"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+text = "button1"
+
+[node name="Button2" type="Button" parent="ButtonList"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+text = "button2"
+
+[node name="Button3" type="Button" parent="ButtonList"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+text = "button3"
+
+[connection signal="pressed" from="Next" to="." method="_on_next"]
+[connection signal="pressed" from="ButtonList/Button1" to="." method="_on_next"]
+[connection signal="pressed" from="ButtonList/Button2" to="." method="_on_next"]
+[connection signal="pressed" from="ButtonList/Button3" to="." method="_on_next"]
