@@ -13,7 +13,11 @@ config_version=5
 config/name="src"
 run/main_scene="uid://bvceavygkh1ve"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="uid://b7f0nxnc0dsrb"
+config/windows_native_icon="res://Assert/Art/icon.ico"
 
 [autoload]
 
