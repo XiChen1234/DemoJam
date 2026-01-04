@@ -75,10 +75,9 @@ func _show_current_line() -> void:
 	_render_line(line)
 
 
-
 """结束对话"""
 func _end_dialogue() -> void:
-	print("finsih")
+	get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
 
 
 """重置文本状态"""
