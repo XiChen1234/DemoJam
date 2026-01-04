@@ -2,7 +2,7 @@ extends Control
 class_name VideoLayer
 
 @onready var video_stream_player: VideoStreamPlayer = $VideoStreamPlayer
-@onready var skip: Button = $Skip
+@onready var skip: TextureButton = $Skip
 
 @export var video_stream: VideoStream
 # 下一个场景
