@@ -1,0 +1,27 @@
+{
+	"id": 3,
+	"lines": [
+		{
+			"speaker": "npc",
+			"name": "Charon",
+			"type": "text",
+			"text": "Living thing, you’ve crossed the line."
+		},
+		{
+			"speaker": "player",
+			"name": "Cat",
+			"type": "options",
+			"options": [
+				"LINE? What is that?",
+				"Did you draw this line?",
+				"Where is it? I don’t see any lines."
+			]
+		},
+		{
+			"speaker": "npc",
+			"name": "Charon",
+			"type": "text",
+			"text": "The River Styx holds the answers."
+		}
+	]
+}

@@ -11,7 +11,7 @@
 [ext_resource type="FontFile" uid="uid://bgw8pt1svoxqi" path="res://Theme/font/江城圆体 700W.ttf" id="9_qq033"]
 [ext_resource type="PackedScene" uid="uid://cisvp71j0ifsi" path="res://Scene/Layer/pause_layer.tscn" id="10_y5w2r"]
 [ext_resource type="PackedScene" uid="uid://btdf5yjss2i00" path="res://Scene/Object/npc.tscn" id="11_j67h5"]
-[ext_resource type="AudioStream" uid="uid://b8onp45nsgnff" path="res://Levels/level_1/god.mp3" id="11_l40nh"]
+[ext_resource type="AudioStream" uid="uid://b8onp45nsgnff" path="res://Levels/level_1/1.shangdi_music.mp3" id="11_l40nh"]
 [ext_resource type="Texture2D" uid="uid://xq03vantct7x" path="res://Assert/Art/UI/time_blank.png" id="11_xxudb"]
 [ext_resource type="Texture2D" uid="uid://dcj78nbtndmg5" path="res://Assert/Art/UI/time_full.png" id="12_fg2g0"]
 [ext_resource type="Texture2D" uid="uid://d37devn8lumg6" path="res://Theme/gabber_texture.tres" id="13_trua6"]

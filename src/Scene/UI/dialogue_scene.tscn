@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ftabqro0bdmq"]
+[gd_scene load_steps=14 format=3 uid="uid://ftabqro0bdmq"]
 
 [ext_resource type="Theme" uid="uid://b23u2ijb2a5yv" path="res://dialogue_theme.tres" id="1_7txti"]
 [ext_resource type="Texture2D" uid="uid://bk8kofmnknsrk" path="res://Assert/Art/Background/Eden.JPG" id="1_rqs7f"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bdy3swblpnhqf" path="res://Assert/Art/Dialogue/skip_beforeclick.png" id="6_tr3hd"]
 [ext_resource type="Texture2D" uid="uid://bdhalhrg5rw8m" path="res://Assert/Art/Dialogue/skip_afterclick.png" id="7_6a5il"]
 [ext_resource type="Texture2D" uid="uid://1icsrp7ah2qi" path="res://Assert/Art/Dialogue/continuebutton.png" id="8_i2a4l"]
+
+[sub_resource type="Theme" id="Theme_eb5oc"]
+Label/font_sizes/font_size = 35
 
 [node name="DialogueScene" type="Control"]
 layout_mode = 3
@@ -102,6 +105,7 @@ text = "Cat"
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/line_spacing = 20
 text = "Nice to Meet You Nice to Meet You Nice to Meet You Nice to Meet You Nice to Meet You Nice to Meet You Nice to Meet You "
 autowrap_mode = 3
 
@@ -148,6 +152,7 @@ offset_right = 415.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_eb5oc")
 theme_override_constants/separation = 30
 
 [node name="Button1" type="TextureButton" parent="ButtonList"]

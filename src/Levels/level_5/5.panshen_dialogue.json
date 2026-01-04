@@ -1,0 +1,27 @@
+{
+	"id": 4,
+	"lines": [
+		{
+			"speaker": "npc",
+			"name": "Pan",
+			"type": "text",
+			"text": "So you made it here.\nEvery path beyond my forest leads somewhere else."
+		},
+		{
+			"speaker": "player",
+			"name": "Cat",
+			"type": "options",
+			"options": [
+				"What do you mean by SOMEWHERE?",
+				"So there are more places I can explore? ",
+				"So you're the doorman?"
+			]
+		},
+		{
+			"speaker": "npc",
+			"name": "Pan",
+			"type": "text",
+			"text": "My forest connects to other realms.\nGuess if you can get through it? Or will you stay here forever?"
+		}
+	]
+}

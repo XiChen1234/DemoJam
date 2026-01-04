@@ -120,6 +120,11 @@ func _fade_out_prev_speaker() -> void:
 
 """结束对话"""
 func _end_dialogue() -> void:
+	var level_index: int = GameManager.selected_level.level_id
+	if GameManager.player_config.dialogue_level < level_index:
+		GameManager.player_config.dialogue_level = level_index
+		GameManager.save_config()
+	
 	get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
 
 

@@ -24,5 +24,9 @@ func _on_back() -> void:
 
 func _on_level_select(level_index: int) -> void:
 	GameManager.selected_level = level_data[level_index]
-	get_tree().change_scene_to_file("res://Scene/UI/dialogue_scene.tscn")
-	#get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
+	
+	# 判断剧情
+	if GameManager.player_config.dialogue_level < level_index:
+		get_tree().change_scene_to_file("res://Scene/UI/dialogue_scene.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scene/Game/game_scene.tscn")
