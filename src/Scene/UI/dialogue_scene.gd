@@ -46,7 +46,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if dialogue_data.lines[current_index].line_type == "options":
 		return  
-	if event.is_action_pressed("right") or event.is_action_pressed("left"):
+	if event.is_action_pressed("right"):
 		_next_line()
 
 
