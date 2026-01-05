@@ -27,6 +27,7 @@ const RankTexture: Dictionary[GameResult.Rank, Texture] = {
 
 
 func _ready() -> void:
+	GameManager.stop_bgm()
 	var result: GameResult = GameManager.last_result
 	if result == null:
 		return

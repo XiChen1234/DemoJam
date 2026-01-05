@@ -16,7 +16,6 @@ var button_click_sound: AudioStream = preload("res://Assert/Audio/SFX/button.mp3
 var _button_player: AudioStreamPlayer
 var bgm_stream: AudioStream = preload("res://Assert/Audio/BGM/bgm.mp3")
 var _bgm_player: AudioStreamPlayer   
-var _current_scene_name: String = ""
 
 
 func _ready() -> void:
@@ -49,9 +48,6 @@ func _ready() -> void:
 	_bgm_player.bus = "Master"      # 可换成 BGM 总线
 	_bgm_player.volume_db = linear_to_db(player_config.volume)
 	
-	get_tree().connect("scene_changed", Callable(self, "_on_scene_changed"))
-	_on_scene_changed(get_tree().current_scene)
-
 
 """提交存档数据"""
 func commit_result() -> void:
@@ -119,17 +115,13 @@ func set_bgm_volume(volume: float) -> void:
 	player_config.volume = volume
 
 
-"""场景切换监听函数"""
-func _on_scene_changed(new_scene: Node = null) -> void:
-	if not new_scene:
-		new_scene = get_tree().current_scene
-	
-	_current_scene_name = new_scene.name
-	
-	# 哪些场景不播放BGM
-	var excluded = ["DialogueScene", "GameScene", "ResultScene", "TeachedScene"]
-	
-	if _current_scene_name in excluded:
-		pause_bgm()
-	else:
-		play_bgm()
+func start_bgm() -> void:
+	if _bgm_player.playing:
+		return
+	_bgm_player.stream = bgm_stream
+	_bgm_player.play()
+
+
+func stop_bgm() -> void:
+	if _bgm_player.playing:
+		_bgm_player.stop()

@@ -5,6 +5,7 @@ extends Control
  
 
 func _ready() -> void:
+	GameManager.start_bgm()
 	var done_level = GameManager.player_config.done_level
 	for i in range(level_button.size()):
 		var button: LevelButton = level_button[i]

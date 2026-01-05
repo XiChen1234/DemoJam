@@ -26,6 +26,7 @@ func _goto_next_scene() -> void:
 		# 替换当前场景
 		if get_tree().current_scene:
 			get_tree().current_scene.queue_free()
+		GameManager.stop_bgm()
 		get_tree().root.add_child(new_scene)
 		get_tree().current_scene = new_scene
 

@@ -41,6 +41,7 @@ var game_state: GameState = GameState.COUNTDOWN
 
 
 func _ready() -> void:
+	GameManager.stop_bgm()
 	_init_level()
 	_init_runtime()
 	_init_combo()

@@ -27,6 +27,7 @@ var is_typing: bool = false
 
 
 func _ready() -> void:
+	GameManager.stop_bgm()
 	var level_data: LevelData = GameManager.selected_level
 	background.texture = level_data.background
 	header_right.texture = level_data.npc

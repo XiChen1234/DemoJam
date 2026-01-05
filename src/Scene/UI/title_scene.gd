@@ -16,6 +16,7 @@ extends Control
 
 
 func _ready() -> void:
+	GameManager.start_bgm()
 	button_array[0].pivot_offset = button_array[0].size / 2
 	button_array[1].pivot_offset = button_array[1].size / 2
 	button_array[2].pivot_offset = button_array[2].size / 2
